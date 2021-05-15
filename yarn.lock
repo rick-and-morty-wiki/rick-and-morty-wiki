@@ -45,7 +45,7 @@
 
 "@babel/core@>=7.9.0", "@babel/core@^7.0.0", "@babel/core@^7.1.0", "@babel/core@^7.1.6", "@babel/core@^7.10.2", "@babel/core@^7.11.1", "@babel/core@^7.8.0":
   version "7.14.2"
-  resolved "https://registry.nlark.com/@babel/core/download/@babel/core-7.14.2.tgz?cache=0&sync_timestamp=1620839505111&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40babel%2Fcore%2Fdownload%2F%40babel%2Fcore-7.14.2.tgz#54e45334ffc0172048e5c93ded36461d3ad4c417"
+  resolved "https://registry.nlark.com/@babel/core/download/@babel/core-7.14.2.tgz#54e45334ffc0172048e5c93ded36461d3ad4c417"
   integrity sha1-VORTNP/AFyBI5ck97TZGHTrUxBc=
   dependencies:
     "@babel/code-frame" "^7.12.13"
@@ -1153,7 +1153,7 @@
 
 "@babel/runtime@^7.1.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.7", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.14.0"
-  resolved "https://registry.nlark.com/@babel/runtime/download/@babel/runtime-7.14.0.tgz?cache=0&sync_timestamp=1619727414495&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40babel%2Fruntime%2Fdownload%2F%40babel%2Fruntime-7.14.0.tgz#46794bc20b612c5f75e62dd071e24dfd95f1cbe6"
+  resolved "https://registry.nlark.com/@babel/runtime/download/@babel/runtime-7.14.0.tgz#46794bc20b612c5f75e62dd071e24dfd95f1cbe6"
   integrity sha1-RnlLwgthLF915i3QceJN/ZXxy+Y=
   dependencies:
     regenerator-runtime "^0.13.4"
@@ -1996,7 +1996,7 @@
 
 "@tarojs/components@3.2.8":
   version "3.2.8"
-  resolved "https://registry.nlark.com/@tarojs/components/download/@tarojs/components-3.2.8.tgz?cache=0&sync_timestamp=1620984762695&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40tarojs%2Fcomponents%2Fdownload%2F%40tarojs%2Fcomponents-3.2.8.tgz#871574568d5e0134d5b9a9e4d42f694ac3182ff7"
+  resolved "https://registry.nlark.com/@tarojs/components/download/@tarojs/components-3.2.8.tgz#871574568d5e0134d5b9a9e4d42f694ac3182ff7"
   integrity sha1-hxV0Vo1eATTVuank1C9pSsMYL/c=
   dependencies:
     "@stencil/core" "2.4.0"
@@ -2257,7 +2257,7 @@
 
 "@tarojs/runtime@3.2.8":
   version "3.2.8"
-  resolved "https://registry.nlark.com/@tarojs/runtime/download/@tarojs/runtime-3.2.8.tgz?cache=0&sync_timestamp=1620984757527&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40tarojs%2Fruntime%2Fdownload%2F%40tarojs%2Fruntime-3.2.8.tgz#fc6d377a17deebea0c7963a76fcc128af12133f6"
+  resolved "https://registry.nlark.com/@tarojs/runtime/download/@tarojs/runtime-3.2.8.tgz#fc6d377a17deebea0c7963a76fcc128af12133f6"
   integrity sha1-/G03ehfe6+oMeWOnb8wSivEhM/Y=
   dependencies:
     "@tarojs/shared" "3.2.8"
@@ -2308,7 +2308,7 @@
 
 "@tarojs/taro-rn@3.2.8", "@tarojs/taro-rn@^3.2.8":
   version "3.2.8"
-  resolved "https://registry.nlark.com/@tarojs/taro-rn/download/@tarojs/taro-rn-3.2.8.tgz?cache=0&sync_timestamp=1620984758053&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40tarojs%2Ftaro-rn%2Fdownload%2F%40tarojs%2Ftaro-rn-3.2.8.tgz#d175f9f3a40a689d504bccaa44443e6303c5ff6b"
+  resolved "https://registry.nlark.com/@tarojs/taro-rn/download/@tarojs/taro-rn-3.2.8.tgz#d175f9f3a40a689d504bccaa44443e6303c5ff6b"
   integrity sha1-0XX586QKaJ1QS8yqREQ+YwPF/2s=
   dependencies:
     "@react-native-async-storage/async-storage" "^1.13.2"
@@ -2341,7 +2341,7 @@
 
 "@tarojs/taro@3.2.8":
   version "3.2.8"
-  resolved "https://registry.nlark.com/@tarojs/taro/download/@tarojs/taro-3.2.8.tgz?cache=0&sync_timestamp=1620984762585&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40tarojs%2Ftaro%2Fdownload%2F%40tarojs%2Ftaro-3.2.8.tgz#741a203439fac8c5886d5e8a9f350ffb261584d2"
+  resolved "https://registry.nlark.com/@tarojs/taro/download/@tarojs/taro-3.2.8.tgz#741a203439fac8c5886d5e8a9f350ffb261584d2"
   integrity sha1-dBogNDn6yMWIbV6KnzUP+yYVhNI=
   dependencies:
     "@tarojs/api" "3.2.8"
@@ -2399,7 +2399,7 @@
 
 "@tarojs/webpack-runner@3.2.8":
   version "3.2.8"
-  resolved "https://registry.nlark.com/@tarojs/webpack-runner/download/@tarojs/webpack-runner-3.2.8.tgz?cache=0&sync_timestamp=1620984772641&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40tarojs%2Fwebpack-runner%2Fdownload%2F%40tarojs%2Fwebpack-runner-3.2.8.tgz#8de84f5dcfb63ab94eb1cc377256d15b37a2d8d4"
+  resolved "https://registry.nlark.com/@tarojs/webpack-runner/download/@tarojs/webpack-runner-3.2.8.tgz#8de84f5dcfb63ab94eb1cc377256d15b37a2d8d4"
   integrity sha1-jehPXc+2OrlOscw3clbRWzei2NQ=
   dependencies:
     "@babel/core" "^7.11.1"
@@ -2458,11 +2458,6 @@
   version "4.1.5"
   resolved "https://registry.npm.taobao.org/@types/debug/download/@types/debug-4.1.5.tgz?cache=0&sync_timestamp=1613378250986&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fdebug%2Fdownload%2F%40types%2Fdebug-4.1.5.tgz#b14efa8852b7768d898906613c23f688713e02cd"
   integrity sha1-sU76iFK3do2JiQZhPCP2iHE+As0=
-
-"@types/eslint-visitor-keys@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.npm.taobao.org/@types/eslint-visitor-keys/download/@types/eslint-visitor-keys-1.0.0.tgz?cache=0&sync_timestamp=1613378360595&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Feslint-visitor-keys%2Fdownload%2F%40types%2Feslint-visitor-keys-1.0.0.tgz#1ee30d79544ca84d68d4b3cdb0af4f205663dd2d"
-  integrity sha1-HuMNeVRMqE1o1LPNsK9PIFZj3S0=
 
 "@types/fs-extra@^8.0.1":
   version "8.1.1"
@@ -2674,37 +2669,33 @@
   dependencies:
     "@types/yargs-parser" "*"
 
-"@typescript-eslint/eslint-plugin@^2.x":
-  version "2.34.0"
-  resolved "https://registry.nlark.com/@typescript-eslint/eslint-plugin/download/@typescript-eslint/eslint-plugin-2.34.0.tgz#6f8ce8a46c7dea4a6f1d171d2bb8fbae6dac2be9"
-  integrity sha1-b4zopGx96kpvHRcdK7j7rm2sK+k=
+"@typescript-eslint/eslint-plugin@^4.23.0":
+  version "4.23.0"
+  resolved "https://registry.nlark.com/@typescript-eslint/eslint-plugin/download/@typescript-eslint/eslint-plugin-4.23.0.tgz#29d3c9c81f6200b1fd6d8454cfb007ba176cde80"
+  integrity sha1-KdPJyB9iALH9bYRUz7AHuhds3oA=
   dependencies:
-    "@typescript-eslint/experimental-utils" "2.34.0"
+    "@typescript-eslint/experimental-utils" "4.23.0"
+    "@typescript-eslint/scope-manager" "4.23.0"
+    debug "^4.1.1"
     functional-red-black-tree "^1.0.1"
+    lodash "^4.17.15"
     regexpp "^3.0.0"
+    semver "^7.3.2"
     tsutils "^3.17.1"
 
-"@typescript-eslint/experimental-utils@2.34.0":
-  version "2.34.0"
-  resolved "https://registry.nlark.com/@typescript-eslint/experimental-utils/download/@typescript-eslint/experimental-utils-2.34.0.tgz#d3524b644cdb40eebceca67f8cf3e4cc9c8f980f"
-  integrity sha1-01JLZEzbQO687KZ/jPPkzJyPmA8=
+"@typescript-eslint/experimental-utils@4.23.0":
+  version "4.23.0"
+  resolved "https://registry.nlark.com/@typescript-eslint/experimental-utils/download/@typescript-eslint/experimental-utils-4.23.0.tgz#f2059434cd6e5672bfeab2fb03b7c0a20622266f"
+  integrity sha1-8gWUNM1uVnK/6rL7A7fAogYiJm8=
   dependencies:
     "@types/json-schema" "^7.0.3"
-    "@typescript-eslint/typescript-estree" "2.34.0"
+    "@typescript-eslint/scope-manager" "4.23.0"
+    "@typescript-eslint/types" "4.23.0"
+    "@typescript-eslint/typescript-estree" "4.23.0"
     eslint-scope "^5.0.0"
     eslint-utils "^2.0.0"
 
-"@typescript-eslint/parser@^2.x":
-  version "2.34.0"
-  resolved "https://registry.nlark.com/@typescript-eslint/parser/download/@typescript-eslint/parser-2.34.0.tgz#50252630ca319685420e9a39ca05fe185a256bc8"
-  integrity sha1-UCUmMMoxloVCDpo5ygX+GFola8g=
-  dependencies:
-    "@types/eslint-visitor-keys" "^1.0.0"
-    "@typescript-eslint/experimental-utils" "2.34.0"
-    "@typescript-eslint/typescript-estree" "2.34.0"
-    eslint-visitor-keys "^1.1.0"
-
-"@typescript-eslint/parser@^4.15.1":
+"@typescript-eslint/parser@^4.15.1", "@typescript-eslint/parser@^4.23.0":
   version "4.23.0"
   resolved "https://registry.nlark.com/@typescript-eslint/parser/download/@typescript-eslint/parser-4.23.0.tgz#239315d38e42e852bef43a4b0b01bef78f78911c"
   integrity sha1-I5MV045C6FK+9DpLCwG+9494kRw=
@@ -2726,19 +2717,6 @@
   version "4.23.0"
   resolved "https://registry.nlark.com/@typescript-eslint/types/download/@typescript-eslint/types-4.23.0.tgz#da1654c8a5332f4d1645b2d9a1c64193cae3aa3b"
   integrity sha1-2hZUyKUzL00WRbLZocZBk8rjqjs=
-
-"@typescript-eslint/typescript-estree@2.34.0":
-  version "2.34.0"
-  resolved "https://registry.nlark.com/@typescript-eslint/typescript-estree/download/@typescript-eslint/typescript-estree-2.34.0.tgz#14aeb6353b39ef0732cc7f1b8285294937cf37d5"
-  integrity sha1-FK62NTs57wcyzH8bgoUpSTfPN9U=
-  dependencies:
-    debug "^4.1.1"
-    eslint-visitor-keys "^1.1.0"
-    glob "^7.1.6"
-    is-glob "^4.0.1"
-    lodash "^4.17.15"
-    semver "^7.3.2"
-    tsutils "^3.17.1"
 
 "@typescript-eslint/typescript-estree@4.23.0":
   version "4.23.0"
@@ -3934,7 +3912,7 @@ babel-preset-fbjs@^3.3.0:
 
 babel-preset-taro@3.2.8:
   version "3.2.8"
-  resolved "https://registry.nlark.com/babel-preset-taro/download/babel-preset-taro-3.2.8.tgz?cache=0&sync_timestamp=1620984757232&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fbabel-preset-taro%2Fdownload%2Fbabel-preset-taro-3.2.8.tgz#234d1a9cc03e4342c2e2dc8654930319db3110f2"
+  resolved "https://registry.nlark.com/babel-preset-taro/download/babel-preset-taro-3.2.8.tgz#234d1a9cc03e4342c2e2dc8654930319db3110f2"
   integrity sha1-I00anMA+Q0LC4tyGVJMDGdsxEPI=
   dependencies:
     "@babel/plugin-proposal-class-properties" "7.10.4"
@@ -6505,7 +6483,7 @@ escodegen@^1.11.1:
 
 eslint-config-taro@3.2.8:
   version "3.2.8"
-  resolved "https://registry.nlark.com/eslint-config-taro/download/eslint-config-taro-3.2.8.tgz?cache=0&sync_timestamp=1620984737867&other_urls=https%3A%2F%2Fregistry.nlark.com%2Feslint-config-taro%2Fdownload%2Feslint-config-taro-3.2.8.tgz#688b47ca10e2ea8eb899d9da90a27a9642f1c6b6"
+  resolved "https://registry.nlark.com/eslint-config-taro/download/eslint-config-taro-3.2.8.tgz#688b47ca10e2ea8eb899d9da90a27a9642f1c6b6"
   integrity sha1-aItHyhDi6o64mdnakKJ6lkLxxrY=
   dependencies:
     "@typescript-eslint/parser" "^4.15.1"
@@ -6528,9 +6506,9 @@ eslint-module-utils@^2.6.1:
     pkg-dir "^2.0.0"
 
 eslint-plugin-import@^2.12.0, eslint-plugin-import@^2.8.0:
-  version "2.23.0"
-  resolved "https://registry.nlark.com/eslint-plugin-import/download/eslint-plugin-import-2.23.0.tgz#557160f501e4beaefb768fb4165d36eb2a4e543a"
-  integrity sha1-VXFg9QHkvq77do+0Fl026ypOVDo=
+  version "2.23.1"
+  resolved "https://registry.nlark.com/eslint-plugin-import/download/eslint-plugin-import-2.23.1.tgz#c13ffdee9f5720e9432fa7e899c222fa25978636"
+  integrity sha1-wT/97p9XIOlDL6fomcIi+iWXhjY=
   dependencies:
     array-includes "^3.1.3"
     array.prototype.flat "^1.2.4"
@@ -6556,7 +6534,7 @@ eslint-plugin-react-hooks@^1.6.1:
 
 eslint-plugin-react@7.10.0:
   version "7.10.0"
-  resolved "https://registry.npm.taobao.org/eslint-plugin-react/download/eslint-plugin-react-7.10.0.tgz?cache=0&sync_timestamp=1617922988143&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint-plugin-react%2Fdownload%2Feslint-plugin-react-7.10.0.tgz#af5c1fef31c4704db02098f9be18202993828b50"
+  resolved "https://registry.npm.taobao.org/eslint-plugin-react/download/eslint-plugin-react-7.10.0.tgz#af5c1fef31c4704db02098f9be18202993828b50"
   integrity sha1-r1wf7zHEcE2wIJj5vhggKZOCi1A=
   dependencies:
     doctrine "^2.1.0"
@@ -6566,7 +6544,7 @@ eslint-plugin-react@7.10.0:
 
 eslint-plugin-react@^7.4.0, eslint-plugin-react@^7.8.2:
   version "7.23.2"
-  resolved "https://registry.npm.taobao.org/eslint-plugin-react/download/eslint-plugin-react-7.23.2.tgz?cache=0&sync_timestamp=1617922988143&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint-plugin-react%2Fdownload%2Feslint-plugin-react-7.23.2.tgz#2d2291b0f95c03728b55869f01102290e792d494"
+  resolved "https://registry.npm.taobao.org/eslint-plugin-react/download/eslint-plugin-react-7.23.2.tgz#2d2291b0f95c03728b55869f01102290e792d494"
   integrity sha1-LSKRsPlcA3KLVYafARAikOeS1JQ=
   dependencies:
     array-includes "^3.1.3"
@@ -13761,7 +13739,7 @@ react-devtools-core@^4.6.0:
 
 react-dom@^16.10.0:
   version "16.14.0"
-  resolved "https://registry.nlark.com/react-dom/download/react-dom-16.14.0.tgz?cache=0&sync_timestamp=1621009910206&other_urls=https%3A%2F%2Fregistry.nlark.com%2Freact-dom%2Fdownload%2Freact-dom-16.14.0.tgz#7ad838ec29a777fb3c75c3a190f661cf92ab8b89"
+  resolved "https://registry.nlark.com/react-dom/download/react-dom-16.14.0.tgz#7ad838ec29a777fb3c75c3a190f661cf92ab8b89"
   integrity sha1-etg47Cmnd/s8dcOhkPZhz5Kri4k=
   dependencies:
     loose-envify "^1.1.0"
@@ -14024,7 +14002,7 @@ react-tween-state@^0.1.5:
 
 react@^17.0.0:
   version "17.0.2"
-  resolved "https://registry.nlark.com/react/download/react-17.0.2.tgz?cache=0&sync_timestamp=1621010596619&other_urls=https%3A%2F%2Fregistry.nlark.com%2Freact%2Fdownload%2Freact-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
+  resolved "https://registry.nlark.com/react/download/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
   integrity sha1-0LXMUW0p6z7uOD91tihkz7aAADc=
   dependencies:
     loose-envify "^1.1.0"
@@ -14199,7 +14177,7 @@ redux-thunk@^2.3.0:
 
 redux@^4.0.0:
   version "4.1.0"
-  resolved "https://registry.nlark.com/redux/download/redux-4.1.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fredux%2Fdownload%2Fredux-4.1.0.tgz#eb049679f2f523c379f1aff345c8612f294c88d4"
+  resolved "https://registry.nlark.com/redux/download/redux-4.1.0.tgz#eb049679f2f523c379f1aff345c8612f294c88d4"
   integrity sha1-6wSWefL1I8N58a/zRchhLylMiNQ=
   dependencies:
     "@babel/runtime" "^7.9.2"
@@ -15827,7 +15805,7 @@ stylelint-taro-rn@3.2.8:
 
 stylelint@13.6.1:
   version "13.6.1"
-  resolved "https://registry.nlark.com/stylelint/download/stylelint-13.6.1.tgz?cache=0&sync_timestamp=1619867750186&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fstylelint%2Fdownload%2Fstylelint-13.6.1.tgz#cc1d76338116d55e8ff2be94c4a4386c1239b878"
+  resolved "https://registry.nlark.com/stylelint/download/stylelint-13.6.1.tgz#cc1d76338116d55e8ff2be94c4a4386c1239b878"
   integrity sha1-zB12M4EW1V6P8r6UxKQ4bBI5uHg=
   dependencies:
     "@stylelint/postcss-css-in-js" "^0.37.1"
@@ -15881,7 +15859,7 @@ stylelint@13.6.1:
 
 stylelint@9.3.0:
   version "9.3.0"
-  resolved "https://registry.nlark.com/stylelint/download/stylelint-9.3.0.tgz?cache=0&sync_timestamp=1619867750186&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fstylelint%2Fdownload%2Fstylelint-9.3.0.tgz#fe176e4e421ac10eac1a6b6d9f28e908eb58c5db"
+  resolved "https://registry.nlark.com/stylelint/download/stylelint-9.3.0.tgz#fe176e4e421ac10eac1a6b6d9f28e908eb58c5db"
   integrity sha1-/hduTkIawQ6sGmttnyjpCOtYxds=
   dependencies:
     autoprefixer "^8.0.0"
@@ -15930,7 +15908,7 @@ stylelint@9.3.0:
 
 stylelint@^13.8.0:
   version "13.13.1"
-  resolved "https://registry.nlark.com/stylelint/download/stylelint-13.13.1.tgz?cache=0&sync_timestamp=1619867750186&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fstylelint%2Fdownload%2Fstylelint-13.13.1.tgz#fca9c9f5de7990ab26a00f167b8978f083a18f3c"
+  resolved "https://registry.nlark.com/stylelint/download/stylelint-13.13.1.tgz#fca9c9f5de7990ab26a00f167b8978f083a18f3c"
   integrity sha1-/KnJ9d55kKsmoA8We4l48IOhjzw=
   dependencies:
     "@stylelint/postcss-css-in-js" "^0.37.2"
@@ -16630,12 +16608,12 @@ typedarray@^0.0.6:
 
 typescript@^3.2.2, typescript@^3.7.0:
   version "3.9.9"
-  resolved "https://registry.nlark.com/typescript/download/typescript-3.9.9.tgz?cache=0&sync_timestamp=1620978646244&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ftypescript%2Fdownload%2Ftypescript-3.9.9.tgz#e69905c54bc0681d0518bd4d587cc6f2d0b1a674"
+  resolved "https://registry.nlark.com/typescript/download/typescript-3.9.9.tgz#e69905c54bc0681d0518bd4d587cc6f2d0b1a674"
   integrity sha1-5pkFxUvAaB0FGL1NWHzG8tCxpnQ=
 
 typescript@^4.1.0:
   version "4.2.4"
-  resolved "https://registry.nlark.com/typescript/download/typescript-4.2.4.tgz?cache=0&sync_timestamp=1620978646244&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ftypescript%2Fdownload%2Ftypescript-4.2.4.tgz#8610b59747de028fda898a8aef0e103f156d0961"
+  resolved "https://registry.nlark.com/typescript/download/typescript-4.2.4.tgz#8610b59747de028fda898a8aef0e103f156d0961"
   integrity sha1-hhC1l0feAo/aiYqK7w4QPxVtCWE=
 
 ua-parser-js@^0.7.18:

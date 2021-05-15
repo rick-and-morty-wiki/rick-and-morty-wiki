@@ -9,8 +9,8 @@
 		"css": "less"
 	},
 	"scripts": {
-    "dev:rn-ios": "npm run build:rn -- --watch --platform ios",
-    "dev:rn-android": "npm run build:rn -- --watch --platform android",
+		"dev:rn-ios": "npm run build:rn -- --watch --platform ios",
+		"dev:rn-android": "npm run build:rn -- --watch --platform android",
 		"build:weapp": "taro build --type weapp",
 		"build:swan": "taro build --type swan",
 		"build:alipay": "taro build --type alipay",
@@ -60,8 +60,8 @@
 		"@tarojs/webpack-runner": "3.2.8",
 		"@types/react": "^16.0.0",
 		"@types/webpack-env": "^1.13.6",
-		"@typescript-eslint/eslint-plugin": "^2.x",
-		"@typescript-eslint/parser": "^2.x",
+		"@typescript-eslint/eslint-plugin": "^4.23.0",
+		"@typescript-eslint/parser": "^4.23.0",
 		"babel-preset-taro": "3.2.8",
 		"eslint": "^6.8.0",
 		"eslint-config-taro": "3.2.8",
