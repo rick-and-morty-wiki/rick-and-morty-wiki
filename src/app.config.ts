@@ -1,7 +1,9 @@
 
 export default {
   pages: [
-    'pages/index/index'
+    'pages/wiki/index',
+    'pages/game/index',
+    'pages/about/index',
   ],
   window: {
     backgroundTextStyle: 'light',
@@ -16,19 +18,19 @@ export default {
     // borderStyle: 'white',
     custom: false,
     list: [{
-      pagePath: 'pages/event/index',
+      pagePath: 'pages/wiki/index',
       text: 'Wiki',
       iconPath: 'assets/tab/event.png',
       selectedIconPath: 'assets/tab/event_active.png',
     },
     {
-      pagePath: 'pages/schedule/index',
+      pagePath: 'pages/game/index',
       text: 'Game',
       iconPath: 'assets/tab/schedule.png',
       selectedIconPath: 'assets/tab/schedule_active.png',
     },
     {
-      pagePath: 'pages/home/index',
+      pagePath: 'pages/about/index',
       text: 'About',
       iconPath: 'assets/tab/home.png',
       selectedIconPath: 'assets/tab/home_active.png',

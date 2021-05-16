@@ -1,14 +1,16 @@
 import React from 'react'
 import { View, Button, Text } from '@tarojs/components'
 
-import './index.less'
+// import './index.less'
 
 
 
 const Wiki: React.FC<any> = () => {
 
   return (
-    <View></View>
+    <View>
+      1111
+    </View>
   )
 }
 
