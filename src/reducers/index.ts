@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import counter from './counter'
+import wikiCharacter from './wiki/character'
 
 export default combineReducers({
-  counter
+  wikiCharacter
 })

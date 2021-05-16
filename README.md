@@ -2,7 +2,7 @@
 
 这里可以查看几乎所有在动画中出现的人物、得知他们的故事，外加有趣的小游戏。
 
-基础数据来源于[afuh/rick-and-morty-api](https://github.com/afuh/rick-and-morty-api)。
+灵感和基础数据来源于[afuh/rick-and-morty-api](https://github.com/afuh/rick-and-morty-api)。
 
 ---
 
@@ -17,7 +17,7 @@
 
 - [ ] 基础Wiki
 - [ ] Alive or Dead Game
-- [ ] UGC
+- [ ] UGC社区
 
 
 ## 开发
