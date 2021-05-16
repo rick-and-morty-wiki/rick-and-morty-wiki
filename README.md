@@ -17,7 +17,7 @@
 
 - [ ] 基础Wiki
 - [ ] Alive or Dead Game
-- [ ] UGC社区
+- [ ] UGC
 
 
 ## 开发
