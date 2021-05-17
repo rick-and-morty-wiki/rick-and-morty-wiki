@@ -16,3 +16,7 @@ declare const process: {
     [key: string]: any;
   }
 }
+
+declare const IS_H5: any;
+declare const IS_WEAPP: any;
+declare const IS_RN: any;
