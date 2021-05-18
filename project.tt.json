@@ -4,7 +4,7 @@
   "description": "Rick and Morty wiki based on rick-and-morty-api",
   "appid": "wxf0fe8fc76d759e30",
   "setting": {
-    "urlCheck": false,
+    "urlCheck": true,
     "es6": false,
     "postcss": false,
     "minified": false

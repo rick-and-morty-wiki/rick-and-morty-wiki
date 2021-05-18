@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text } from '@tarojs/components'
+import { View, Text, Image } from '@tarojs/components'
 import StatusBar from "@components/status-bar";
 
 import { WikiCharacterType } from '../../constants/type'
@@ -29,7 +29,7 @@ const Wiki: React.FC<any> = () => {
 
   useEffect(() => {
     getCharacter(1).then(res => {
-      console.log(res);
+      setRandomCharacters([res])
     })
   }, [])
   
@@ -45,7 +45,10 @@ const Wiki: React.FC<any> = () => {
 
         </View>
       </View>
-      <View className='wiki-content'></View>
+      <View className='wiki-content'>
+        {JSON.stringify(randomCharacters)}
+        <Image src='https://rickandmortyapi.com/api/character/avatar/1.jpeg' />
+      </View>
       <View className='wiki-footer'></View>
     </View>
   )

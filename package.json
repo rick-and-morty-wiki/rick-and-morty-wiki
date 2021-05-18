@@ -13,9 +13,9 @@
 		"ios2": "curl -I http://localhost:8081/index.bundle?platform=android&dev=true -o /dev/null",
 		"ios3": "cd taro-native-shell  &&  npm run ios",
 
-		"android1": "npm run build:rn -- --watch",
-		"android2": "curl -I http://localhost:8081/index.bundle?platform=android&dev=true -o /dev/null",
-		"android3": "cd taro-native-shell  &&  npm run android ",
+		"and1": "npm run build:rn -- --watch",
+		"and2": "curl -I http://localhost:8081/index.bundle?platform=android&dev=true -o /dev/null",
+		"and3": "cd taro-native-shell  &&  npm run android ",
 
 		"build:weapp": "taro build --type weapp",
 		"build:swan": "taro build --type swan",

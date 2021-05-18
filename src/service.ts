@@ -1,8 +1,11 @@
 import Taro from "@tarojs/taro";
 
-const baseUrl = "https://rickandmortyapi.com/api/";
+let baseUrl = "https://rickandmortyapi.com/api/";
+if (process.env.TARO_ENV === 'weapp') {
+  baseUrl = 'https://rickandmortyapi.cavano.vip/'
+}
 
-const request = (endpointUrl) => {
+const request: any = (endpointUrl: string) => {
   return new Promise((resolve, reject) => {
     const url = `${baseUrl}${endpointUrl}`
     Taro.request({
@@ -19,7 +22,7 @@ const request = (endpointUrl) => {
   })
 }
 
-const validate = qry => {
+const validate = (qry: any) => {
   if (typeof qry === 'number' && Number.isInteger(qry) || Array.isArray(qry)) {
     return `/${qry}`
   }
@@ -33,7 +36,7 @@ const validate = qry => {
   throw new Error('As argument use an object, an array, an integer or leave it blank')
 }
 
-const getEndpoint = async (endpoint = '', opt = {}) => {
+const getEndpoint = async (endpoint: string = '', opt: any = {}) => {
   const query = validate(opt)
 
   try {
@@ -47,7 +50,7 @@ const getEndpoint = async (endpoint = '', opt = {}) => {
   }
 }
 
-export const getEndpoints = () => getEndpoint()
-export const getCharacter = (opt = {}) => getEndpoint('character', opt)
-export const getLocation = (opt = {}) => getEndpoint('location', opt)
-export const getEpisode = (opt = {}) => getEndpoint('episode', opt)
+export const getEndpoints: any = () => getEndpoint()
+export const getCharacter: any = (opt = {}) => getEndpoint('character', opt)
+export const getLocation: any = (opt = {}) => getEndpoint('location', opt)
+export const getEpisode: any = (opt = {}) => getEndpoint('episode', opt)
