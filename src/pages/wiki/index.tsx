@@ -5,6 +5,8 @@ import StatusBar from "@components/status-bar";
 import { WikiCharacterType } from '../../constants/type'
 import { headerBtnsType } from './type'
 
+import { getCharacter } from '../../service'
+
 import './index.less'
 
 const headerBtns: headerBtnsType[] = [
@@ -26,8 +28,11 @@ const Wiki: React.FC<any> = () => {
   const [randomCharacters, setRandomCharacters] = useState<WikiCharacterType[]>([])
 
   useEffect(() => {
-    
+    getCharacter(1).then(res => {
+      console.log(res);
+    })
   }, [])
+  
 
   return (
     <View className='wiki'>

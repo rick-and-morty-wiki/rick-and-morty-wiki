@@ -2,9 +2,9 @@
   "miniprogramRoot": "./",
   "projectname": "rick-and-morty-wiki",
   "description": "Rick and Morty wiki based on rick-and-morty-api",
-  "appid": "touristappid",
+  "appid": "wxf0fe8fc76d759e30",
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": false,
     "postcss": false,
     "minified": false
