@@ -10,15 +10,12 @@
 	},
 	"scripts": {
 		"dev": "npm run build:weapp -- --watch",
-
 		"ios1": "npm run build:rn -- --watch",
-		"ios2": "curl -I http://localhost:8081/index.bundle?platform=android&dev=true -o /dev/null",
+		"ios2": "curl -I http://localhost:8081/index.bundle?platform=ios&dev=true -o /dev/null",
 		"ios3": "cd taro-native-shell  &&  npm run ios",
-
 		"and1": "npm run build:rn -- --watch",
 		"and2": "curl -I http://localhost:8081/index.bundle?platform=android&dev=true -o /dev/null",
 		"and3": "cd taro-native-shell  &&  npm run android ",
-
 		"build:weapp": "taro build --type weapp",
 		"build:swan": "taro build --type swan",
 		"build:alipay": "taro build --type alipay",
@@ -53,6 +50,7 @@
 		"@tarojs/runtime": "3.2.8",
 		"@tarojs/taro": "3.2.8",
 		"@tarojs/taro-rn": "^3.2.8",
+		"classnames": "^2.3.1",
 		"react": "^17.0.0",
 		"react-dom": "^16.10.0",
 		"react-native": "^0.64.0",

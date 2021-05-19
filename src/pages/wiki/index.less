@@ -1,23 +1,112 @@
+@import "@style/theme.less";
+
 .wiki {
-  background-color: #ffffff;
+  height: 100%;
   min-height: 100%;
+  position: relative;
+  background-color: #ffffff;
 
   &-title {
-    font-size: 58px;
+    font-size: 88px;
+    font-weight: bold;
     text-align: center;
+    color: @color-semi;
+    z-index: 2;
+    padding: 0 32px;
+    line-height: 108px;
   }
-  
+
   &-header {
+    position: relative;
+    min-height: 420px;
 
     &-top {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 200px;
+      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      // background-color: red;
     }
 
-    margin-bottom: 40px;
+    &-background {
+      margin-top: 12px;
+      width: 100%;
+      z-index: 1;
+    }
+  }
+
+  &-content {
+    padding: 80px;
+    background-color: @theme-background;
+    min-height: 100%;
+  }
+
+  &-card {
+    background-color: rgb(61, 62, 67);
+    border-radius: 16px;
+    margin-bottom: 56px;
+    overflow: hidden;
+
+    &-image {
+      width: 100%;
+    }
+
+    &-content {
+      padding: 24px;
+      padding-top: 12px;
+    }
+
+    &-name {
+      font-size: 42px;
+      font-weight: bold;
+      color: @color-white-grey;
+    }
+
+    &-status {
+      color: blue;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      &-point {
+        width: 16px;
+        height: 16px;
+        border-radius: 50px;
+        margin-right: 12px;
+      }
+
+      &_Alive {
+        background-color: @color-success;
+      }
+      &_Dead {
+        background-color: @color-error;
+      }
+      &_unknown {
+        background-color: @color-light;
+      }
+
+      &-text {
+        font-size: 31px;
+        color: @color-white-light;
+      }
+    }
+
+    &-title {
+      margin-top: 36px;
+      margin-bottom: 4px;
+
+      &-text {
+        font-size: 31px;
+        color: @color-light;
+      }
+    }
+
+    &-text {
+      font-size: 34px;
+      color: @color-white-grey;
+    }
   }
 }

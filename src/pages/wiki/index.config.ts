@@ -1,6 +1,12 @@
 export default {
-  navigationBarTitleText: ' ',
-  navigationBarBackgroundColor: '#ffffff',
+  navigationStyle: 'custom',
   navigationBarTextStyle: 'black',
-  backgroundColor: '#ffffff',
+  enablePullDownRefresh: true,
+  backgroundTextStyle: 'dark',
+
+  rn:{
+    screenOptions:{// 设置当前页面的options，参考https://reactnavigation.org/docs/stack-navigator/#options
+          
+      }
+  }
 }

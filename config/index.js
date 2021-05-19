@@ -21,9 +21,9 @@ const config = {
   alias: {
     "@src": path.resolve(__dirname, "..", "src"),
     "@components": path.resolve(__dirname, "..", "src/components"),
-    "@scss": path.resolve(__dirname, "..", "src/scss"),
+    "@style": path.resolve(__dirname, "..", "src/style"),
     "@utils": path.resolve(__dirname, "..", "src/utils"),
-    "@service": path.resolve(__dirname, "..", "src/service")
+    "@service": path.resolve(__dirname, "..", "src/service.ts")
   },
   copy: {
     patterns: [],

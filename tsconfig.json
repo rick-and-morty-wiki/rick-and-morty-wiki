@@ -36,11 +36,11 @@
       "@utils/*": [
         "src/utils/*"
       ],
-      "@service": [
-        "src/service"
+      "@style/*": [
+        "src/style/*"
       ],
-      "@service/*": [
-        "src/service/*"
+      "@service": [
+        "src/service.ts"
       ],
     },
   },

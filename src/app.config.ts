@@ -5,8 +5,8 @@ export default {
   window: {
     backgroundTextStyle: "light",
     navigationBarBackgroundColor: "#fff",
-    navigationBarTitleText: "WeChat",
-    navigationBarTextStyle: "black"
+    navigationBarTitleText: " ",
+    // navigationBarTextStyle: "black"
   },
   tabBar: {
     color: "#606468",
@@ -17,13 +17,13 @@ export default {
     list: [
       {
         pagePath: "pages/wiki/index",
-        text: "wiki",
+        text: "Wiki",
         iconPath: "assets/tab/event.png",
         selectedIconPath: "assets/tab/event_active.png"
       },
       {
         pagePath: "pages/game/index",
-        text: "game",
+        text: "Game",
         iconPath: "assets/tab/schedule.png",
         selectedIconPath: "assets/tab/schedule_active.png"
       },
