@@ -51,6 +51,7 @@
 		"@tarojs/taro": "3.2.8",
 		"@tarojs/taro-rn": "^3.2.8",
 		"classnames": "^2.3.1",
+		"lodash": "^4.17.21",
 		"react": "^17.0.0",
 		"react-dom": "^16.10.0",
 		"react-native": "^0.64.0",

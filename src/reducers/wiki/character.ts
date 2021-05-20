@@ -1,4 +1,4 @@
-import { UPDATE_WIKI_CHARACTER } from "../../constants/wiki";
+import { UPDATE_WIKI_CHARACTER, defaultCharacter } from "../../constants/wiki";
 import { WikiCharacterType } from "../../constants/type";
 
 type StateType = {
@@ -6,25 +6,7 @@ type StateType = {
 };
 
 const INITIAL_STATE: StateType = {
-  wikiCharacter: {
-    id: 0,
-    name: "",
-    status: "",
-    species: "",
-    type: "",
-    gender: "",
-    origin: {
-      name: "",
-      url: ""
-    },
-    location: {
-      name: "",
-      url: ""
-    },
-    image: "",
-    episode: [""],
-    url: ""
-  }
+  wikiCharacter: defaultCharacter
 };
 
 export default function wiki(state = INITIAL_STATE, action) {

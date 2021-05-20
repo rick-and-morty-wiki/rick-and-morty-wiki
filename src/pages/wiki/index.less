@@ -1,5 +1,25 @@
 @import "@style/theme.less";
 
+@keyframes waiting {
+  0% {
+    opacity: 0.5;
+    background-color: @color-grey;
+  }
+
+  50% {
+    opacity: 1;
+    background-color: @color-grey;
+  }
+
+  100% {
+    opacity: 0.5;
+    background-color: @color-grey;
+  }
+}
+
+// 加载状态组件的呼吸周期
+@wTiming: 1s;
+
 .wiki {
   height: 100%;
   min-height: 100%;
@@ -13,6 +33,9 @@
     color: @color-semi;
     padding: 0 32px;
     line-height: 108px;
+    // font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    //   sans-serif;
+    font-family: 'Velcro';
   }
 
   &-header {
@@ -45,17 +68,18 @@
 
   &-card {
     background-color: rgb(61, 62, 67);
-    border-radius: 16px;
+    border-radius: 20px;
     margin-bottom: 56px;
     overflow: hidden;
 
-    &-image {
+    &-img {
       width: 100%;
     }
 
     &-content {
       padding: 24px;
       padding-top: 12px;
+      padding-bottom: 28px;
     }
 
     &-name {
@@ -69,6 +93,7 @@
       display: flex;
       flex-direction: row;
       align-items: center;
+      margin-top: 4px;
 
       &-point {
         width: 16px;
@@ -94,7 +119,7 @@
     }
 
     &-title {
-      margin-top: 36px;
+      margin-top: 40px;
       margin-bottom: 4px;
 
       &-text {
@@ -106,6 +131,56 @@
     &-text {
       font-size: 34px;
       color: @color-white-grey;
+    }
+
+    &-loading {
+      // rn不支持animation，需要剔除
+
+      &-img {
+        /*  #ifndef  rn  */
+        animation: waiting @wTiming linear infinite;
+        /*  #endif  */
+      }
+
+      &-name {
+        height: 52px;
+        width: 200px;
+        background-color: @color-grey;
+        margin-top: 12px;
+        /*  #ifndef  rn  */
+        animation: waiting @wTiming linear infinite;
+        /*  #endif  */
+      }
+
+      &-status {
+        height: 36px;
+        width: 150px;
+        margin-top: 12px;
+        background-color: @color-grey;
+        /*  #ifndef  rn  */
+        animation: waiting @wTiming linear infinite;
+        /*  #endif  */
+      }
+
+      &-title {
+        height: 36px;
+        width: 240px;
+        margin-top: 40px;
+        background-color: @color-grey;
+        /*  #ifndef  rn  */
+        animation: waiting @wTiming linear infinite;
+        /*  #endif  */
+      }
+
+      &-text {
+        height: 42px;
+        width: 280px;
+        margin-top: 12px;
+        background-color: @color-grey;
+        /*  #ifndef  rn  */
+        animation: waiting @wTiming linear infinite;
+        /*  #endif  */
+      }
     }
   }
 }

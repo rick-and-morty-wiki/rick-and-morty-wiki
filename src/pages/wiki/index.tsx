@@ -6,7 +6,8 @@ import { getCharacter } from '@service'
 
 import { WikiCharacterType } from '../../constants/type'
 import { headerBtnsType } from './type'
-import wikiBackground from '../../assets/image/wiki_background.png'
+import { wikiBackground, defaultCharacterImage } from '../../assets/image'
+import { defaultRandomCharacters } from '../../constants/wiki'
 
 import './index.less'
 
@@ -25,8 +26,23 @@ const headerBtns: headerBtnsType[] = [
   },
 ]
 
+
+// 随机获取角色信息列表
+const generateRandomCharacters = (number: number) => {
+  const randomIds: number[] = []
+  for (let i = 0; i < number; i++) {
+    let rid: number = 1
+    do {
+      rid = Math.floor(Math.random() * 671) + 1
+    } while (randomIds.indexOf(rid) !== -1)
+    randomIds.push(rid)
+  }
+  return getCharacter(randomIds)
+}
+
+
 const Wiki: React.FC<any> = () => {
-  const [randomCharacters, setRandomCharacters] = useState<WikiCharacterType[]>([])
+  const [randomCharacters, setRandomCharacters] = useState<WikiCharacterType[]>(defaultRandomCharacters)
   const [statusBarHeight, setStatusBarHeight] = useState<number>(0)
 
   // 给微信小程序导航栏那里垫一下
@@ -38,23 +54,25 @@ const Wiki: React.FC<any> = () => {
     })
   })
 
-  usePullDownRefresh(() => { })
+  // 下拉刷新，再随机6个
+  usePullDownRefresh(() => generateRandomCharacters(6)
+    .then((data: WikiCharacterType[]) => {
+      setRandomCharacters(data)
+      Taro.stopPullDownRefresh()
+    }))
 
+  // 默认随机生成6个
   useEffect(() => {
-    // 生成6个随机的不重复的id
-    const randomIds: number[] = []
-    for (let i = 0; i < 6; i++) {
-      let rid: number = 1
-      do {
-        rid = Math.floor(Math.random() * 671) + 1
-      } while (randomIds.indexOf(rid) !== -1)
-      randomIds.push(rid)
-    }
-    getCharacter(randomIds)
-      .then(data => setRandomCharacters(data))
+    generateRandomCharacters(6)
+      .then((data: WikiCharacterType[]) => setRandomCharacters(data))
 
   }, [])
 
+
+  const handleImageOnload = (e) => {
+    console.log(e);
+    
+  }
 
   return (
     <SafeAreaView>
@@ -73,29 +91,47 @@ const Wiki: React.FC<any> = () => {
         </View>
         <View className='wiki-content'>
           {
-            randomCharacters.map(character => (
-              <View key={character.id} className='wiki-card'>
-                <Image className='wiki-card-image' src={character.image} mode='widthFix' />
-                <View className='wiki-card-content'>
-                  <Text className='wiki-card-name'>{character.name}</Text>
-                  <View className='wiki-card-status'>
-                    <View className={`wiki-card-status-point wiki-card-status_${character.status}`}></View>
-                    <Text className='wiki-card-status-text'>{character.status + ' '}</Text>
-                    <Text className='wiki-card-status-text'>&nbsp;-&nbsp;</Text>
-                    <Text className='wiki-card-status-text'>{character.species + ' '}</Text>
-                  </View>
+            randomCharacters.map(character => {
+              if (character.name) {
+                return (
+                  <View key={character.id} className='wiki-card'>
+                    <Image className='wiki-card-img' src={character.image} onLoad={handleImageOnload} mode='widthFix' />
+                    <View className='wiki-card-content'>
+                      <Text className='wiki-card-name'>{character.name}</Text>
+                      <View className='wiki-card-status'>
+                        <View className={`wiki-card-status-point wiki-card-status_${character.status}`}></View>
+                        <Text className='wiki-card-status-text'>{character.status + ' '}</Text>
+                        <Text className='wiki-card-status-text'>&nbsp;-&nbsp;</Text>
+                        <Text className='wiki-card-status-text'>{character.species + ' '}</Text>
+                      </View>
 
-                  <View className='wiki-card-title'>
-                    <Text className='wiki-card-title-text'>Last known location:</Text>
+                      <View className='wiki-card-title'>
+                        <Text className='wiki-card-title-text'>Last known location:</Text>
+                      </View>
+                      <Text className='wiki-card-text'>{character.location.name}</Text>
+                      <View className='wiki-card-title'>
+                        <Text className='wiki-card-title-text'>First seen in:</Text>
+                      </View>
+                      <Text className='wiki-card-text'>{character.origin.name}</Text>
+                    </View>
                   </View>
-                  <Text className='wiki-card-text'>{character.location.name}</Text>
-                  <View className='wiki-card-title'>
-                    <Text className='wiki-card-title-text'>First seen in:</Text>
+                )
+              }
+              // 返回加载状态的组件
+              return (
+                <View key={character.id} className='wiki-card'>
+                  <Image className='wiki-card-img wiki-card-loading-img' src={defaultCharacterImage} mode='widthFix' />
+                  <View className='wiki-card-content'>
+                    <View className='wiki-card-loading-name'></View>
+                    <View className='wiki-card-loading-status'></View>
+                    <View className='wiki-card-loading-title'></View>
+                    <View className='wiki-card-loading-text'></View>
+                    <View className='wiki-card-loading-title'></View>
+                    <View className='wiki-card-loading-text'></View>
                   </View>
-                  <Text className='wiki-card-text'>{character.origin.name}</Text>
                 </View>
-              </View>
-            ))
+              )
+            })
           }
         </View>
         <View className='wiki-footer'></View>
