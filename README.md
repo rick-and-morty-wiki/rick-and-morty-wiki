@@ -18,7 +18,8 @@
 - [ ] 基础角色/地点/剧集图鉴
 - [ ] 其他图鉴（音乐等）
 - [ ] Alive or Dead Game
-- [ ] UGC
+- [ ] UGC社区
+- [ ] 真正的Wiki
 
 
 ## 开发
@@ -39,9 +40,9 @@ $ npm run dev:rn
 Android: http://127.0.0.1:8081/index.bundle?platform=android&dev=true  
 IOS: http://127.0.0.1:8081/index.bundle?platform=ios&dev=true
 
-3. 将[NervJS/taro-native-shell](https://github.com/NervJS/taro-native-shell)克隆到项目内
+3. 将[rick-and-morty-wiki/RMwiki-native-shell](https://github.com/rick-and-morty-wiki/RMwiki-native-shell)克隆到项目内
 ```
-$ git clone https://github.com/NervJS/taro-native-shell.git
+$ git clone https://github.com/rick-and-morty-wiki/RMwiki-native-shell.git
 ```
 4. 安装依赖
 ```
