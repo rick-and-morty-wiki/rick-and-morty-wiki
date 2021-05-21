@@ -9,6 +9,7 @@ import { WikiCharacterType } from '@constants/type'
 import { wikiBackground, defaultCharacterImage } from '@assets/image'
 import { defaultRandomCharacters } from '@constants/wiki'
 import { updateWikiCharacter } from '@actions/wiki'
+import { isArray } from '@utils'
 
 import { headerBtnsType } from './type'
 import './index.less'
@@ -65,7 +66,9 @@ const Wiki: React.FC<any> = () => {
     })
     generateRandomCharacters(6)
     .then((data: WikiCharacterType[]) => {
-      setRandomCharacters(data)
+      if (isArray(data)) {
+        setRandomCharacters(data)
+      }
       Taro.stopPullDownRefresh()
       Taro.hideLoading()
     })
