@@ -24,20 +24,39 @@
       "global.d.ts"
     ],
     "paths": {
+      // 让ts识别的绝对路径
+      "@actions": [
+        "src/actions/"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
       "@components": [
         "src/components/"
       ],
       "@components/*": [
         "src/components/*"
       ],
+      "@constants/*": [
+        "src/constants/*"
+      ],
+      "@pages/*": [
+        "src/pages/*"
+      ],
+      "@reducers": [
+        "src/reducers"
+      ],
+      "@reducers/*": [
+        "src/reducers/*"
+      ],
+      "@style/*": [
+        "src/style/*"
+      ],
       "@utils": [
         "src/utils"
       ],
       "@utils/*": [
         "src/utils/*"
-      ],
-      "@style/*": [
-        "src/style/*"
       ],
       "@service": [
         "src/service.ts"

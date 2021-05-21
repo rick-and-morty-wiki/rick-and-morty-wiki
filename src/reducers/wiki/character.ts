@@ -1,5 +1,5 @@
-import { UPDATE_WIKI_CHARACTER, defaultCharacter } from "../../constants/wiki";
-import { WikiCharacterType } from "../../constants/type";
+import { UPDATE_WIKI_CHARACTER, defaultCharacter } from "@constants/wiki";
+import { WikiCharacterType } from "@constants/type";
 
 type StateType = {
   wikiCharacter: WikiCharacterType;

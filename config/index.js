@@ -19,11 +19,16 @@ const config = {
     IS_WEAPP: process.env.TARO_ENV === "weapp"
   },
   alias: {
-    "@src": path.resolve(__dirname, "..", "src"),
+    // 配置taro项目的绝对路径
+    "@actions": path.resolve(__dirname, "..", "actions"),
+    "@assets": path.resolve(__dirname, "..", "src/assets"),
     "@components": path.resolve(__dirname, "..", "src/components"),
+    "@constants": path.resolve(__dirname, "..", "src/constants"),
+    "@pages": path.resolve(__dirname, "..", "src/pages"),
+    "@reducers": path.resolve(__dirname, "..", "src/reducers"),
     "@style": path.resolve(__dirname, "..", "src/style"),
     "@utils": path.resolve(__dirname, "..", "src/utils"),
-    "@service": path.resolve(__dirname, "..", "src/service.ts")
+    "@service": path.resolve(__dirname, "..", "src/service.ts"),
   },
   copy: {
     patterns: [],

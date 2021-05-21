@@ -4,10 +4,10 @@ import { View, Text, Image } from '@tarojs/components'
 import { StatusBar, SafeAreaView } from "@components";
 import { getCharacter } from '@service'
 
-import { WikiCharacterType } from '../../constants/type'
+import { WikiCharacterType } from '@constants/type'
+import { wikiBackground, defaultCharacterImage } from '@assets/image'
+import { defaultRandomCharacters } from '@constants/wiki'
 import { headerBtnsType } from './type'
-import { wikiBackground, defaultCharacterImage } from '../../assets/image'
-import { defaultRandomCharacters } from '../../constants/wiki'
 
 import './index.less'
 
@@ -75,12 +75,6 @@ const Wiki: React.FC<any> = () => {
 
   }, [])
 
-
-  const handleImageOnload = (e) => {
-    console.log(e);
-    
-  }
-
   return (
     <SafeAreaView>
       <View className='wiki'>
@@ -102,7 +96,7 @@ const Wiki: React.FC<any> = () => {
               if (character.name) {
                 return (
                   <View key={character.id} className='wiki-card'>
-                    <Image className='wiki-card-img' src={character.image} onLoad={handleImageOnload} mode='widthFix' />
+                    <Image className='wiki-card-img' src={character.image} mode='widthFix' />
                     <View className='wiki-card-content'>
                       <Text className='wiki-card-name'>{character.name}</Text>
                       <View className='wiki-card-status'>

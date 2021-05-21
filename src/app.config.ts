@@ -1,11 +1,15 @@
-
-
 export default {
-  pages: ["pages/wiki/index", "pages/game/index", "pages/about/index"],
+  pages: [
+    "pages/wiki/index",
+    "pages/game/index",
+    "pages/about/index",
+
+    // "pages/wiki/pages/index",
+  ],
   window: {
     backgroundTextStyle: "light",
     navigationBarBackgroundColor: "#fff",
-    navigationBarTitleText: " ",
+    navigationBarTitleText: " "
     // navigationBarTextStyle: "black"
   },
   tabBar: {
@@ -34,5 +38,5 @@ export default {
         selectedIconPath: "assets/tab/home_active.png"
       }
     ]
-  },
+  }
 };
