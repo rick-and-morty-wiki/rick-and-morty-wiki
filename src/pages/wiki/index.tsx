@@ -55,11 +55,18 @@ const Wiki: React.FC<any> = () => {
   })
 
   // 下拉刷新，再随机6个
-  usePullDownRefresh(() => generateRandomCharacters(6)
+  usePullDownRefresh(() => {
+    Taro.showLoading({
+      title: '加载中',
+      mask: true,
+    })
+    generateRandomCharacters(6)
     .then((data: WikiCharacterType[]) => {
       setRandomCharacters(data)
       Taro.stopPullDownRefresh()
-    }))
+      Taro.hideLoading()
+    })
+  })
 
   // 默认随机生成6个
   useEffect(() => {
