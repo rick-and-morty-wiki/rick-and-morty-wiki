@@ -35,16 +35,24 @@ const Wiki: React.FC<any> = () => {
   return (
     <SafeAreaView>
       <View className='wiki-c'>
+        <Image src={character.image} className='wiki-c-background' mode='aspectFill' />
         <StatusBar barStyle='dark-content' backgroundColor='rgba(0,0,0,0)' translucent animated />
-        <Button className='wiki-c-back' style={{ top: statusBarHeight + 8, left: 16 }} onClick={handleBack}></Button>
 
+        <View style={{ height: statusBarHeight + 4 }}></View>
         <View className='wiki-c-header'>
+          <Button className='wiki-c-back' onClick={handleBack}></Button>
           <Image src={character.image} className='wiki-c-header-background' mode='widthFix' />
         </View>
         <View className='wiki-c-content'>
-          {
-            JSON.stringify(character)
-          }
+          <View className='wiki-c-title'>
+            <Text className='wiki-c-title-text'>{character.name}</Text>
+          </View>
+          <View className='wiki-c-content-status'>
+            <View className={`wiki-c-content-status-point wiki-c-content-status_${character.status}`}></View>
+            <Text className='wiki-c-content-status-text'>{character.status + ' '}</Text>
+            <Text className='wiki-c-content-status-text'>&nbsp;-&nbsp;</Text>
+            <Text className='wiki-c-content-status-text'>{character.species + ' '}</Text>
+          </View>
         </View>
         <View className='wiki-c-footer'>
 

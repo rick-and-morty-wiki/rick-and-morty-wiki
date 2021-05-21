@@ -116,13 +116,9 @@ const Wiki: React.FC<any> = () => {
                       </View>
 
                       <View className='wiki-card-title'>
-                        <Text className='wiki-card-title-text'>Last known location:</Text>
+                        <Text className='wiki-card-title-text'>location:</Text>
                       </View>
                       <Text className='wiki-card-text'>{character.location.name}</Text>
-                      <View className='wiki-card-title'>
-                        <Text className='wiki-card-title-text'>First seen in:</Text>
-                      </View>
-                      <Text className='wiki-card-text'>{character.origin.name}</Text>
                     </View>
                   </View>
                 )
@@ -134,8 +130,6 @@ const Wiki: React.FC<any> = () => {
                   <View className='wiki-card-content'>
                     <View className='wiki-card-loading-name'></View>
                     <View className='wiki-card-loading-status'></View>
-                    <View className='wiki-card-loading-title'></View>
-                    <View className='wiki-card-loading-text'></View>
                     <View className='wiki-card-loading-title'></View>
                     <View className='wiki-card-loading-text'></View>
                   </View>

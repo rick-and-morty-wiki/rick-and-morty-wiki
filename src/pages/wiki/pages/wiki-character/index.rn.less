@@ -5,19 +5,68 @@
 .wiki-c {
   height: 100%;
   min-height: 100%;
+  width: 100%;
   position: relative;
-  background-color: @theme-grey;
+
+  &-background {
+    position: absolute;
+    opacity: 0.15;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
 
   &-header {
     position: relative;
     min-height: 420px;
 
     &-background {
-      width: 100%;
-      z-index: -1;
-      border-bottom-left-radius: 80px;
-      border-bottom-right-radius: 80px;
+      width: 94%;
+      margin-left: 3%;
+      border-radius: 72px;
       border-bottom-width: 2px;
+    }
+  }
+
+  &-title {
+    &-text {
+      font-size: 56px;
+      font-weight: bold;
+      color: @color-semi;
+    }
+  }
+
+  &-content {
+    padding: 26px 48px;
+
+    &-status {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-top: 8px;
+
+      &-point {
+        width: 22px;
+        height: 22px;
+        border-radius: 50px;
+        margin-right: 16px;
+      }
+
+      &_Alive {
+        background-color: @color-success;
+      }
+      &_Dead {
+        background-color: @color-error;
+      }
+      &_unknown {
+        background-color: @color-light;
+      }
+
+      &-text {
+        font-size: 34px;
+        color: @color-grey;
+      }
     }
   }
 
@@ -31,8 +80,9 @@
     justify-content: center;
     align-items: center;
     border-width: 0;
-    background-color: @theme-grey;
-    opacity: 0.5;
+    background-color: #ffffff;
+    opacity: 0.8;
+    left: 6%;
+    top: 3%;
   }
-  
 }
