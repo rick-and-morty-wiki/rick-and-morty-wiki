@@ -2,11 +2,11 @@ import { UPDATE_WIKI_CHARACTER, defaultCharacter } from "@constants/wiki";
 import { WikiCharacterType } from "@constants/type";
 
 type StateType = {
-  wikiCharacter: WikiCharacterType;
+  character: WikiCharacterType;
 };
 
 const INITIAL_STATE: StateType = {
-  wikiCharacter: defaultCharacter
+  character: defaultCharacter
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -16,7 +16,7 @@ export default (state = INITIAL_STATE, action) => {
     case UPDATE_WIKI_CHARACTER:
       return {
         ...state,
-        ...payload
+        character: payload
       };
     default:
       return state;

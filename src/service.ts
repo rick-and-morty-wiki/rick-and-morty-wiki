@@ -43,10 +43,12 @@ const getEndpoint = async (endpoint: string = '', opt: any = {}) => {
     const { data } = await request(endpoint + query)
     return data
   } catch (e) {
-    return {
-      status: e.statusCode,
-      error: e.data.error
-    }
+    Taro.showToast({
+      title: '网络出错',
+      icon: 'none',
+      duration: 2000,
+    })
+    return null
   }
 }
 

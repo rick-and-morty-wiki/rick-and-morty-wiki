@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import Taro, { useDidShow, usePullDownRefresh } from '@tarojs/taro'
 import { useDispatch } from 'react-redux'
 import { View, Text, Image } from '@tarojs/components'
+
 import { StatusBar, SafeAreaView } from "@components";
 import { getCharacter } from '@service'
-
 import { WikiCharacterType } from '@constants/type'
 import { wikiBackground, defaultCharacterImage } from '@assets/image'
 import { defaultRandomCharacters } from '@constants/wiki'
@@ -79,6 +79,9 @@ const Wiki: React.FC<any> = () => {
 
   const handleClickCard = (id) => {
     dispatch(updateWikiCharacter(id))
+    Taro.navigateTo({ 
+      url: '/pages/wiki/pages/wiki-character/index',
+    })
   }
 
   return (

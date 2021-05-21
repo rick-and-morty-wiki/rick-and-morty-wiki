@@ -1,6 +1,9 @@
 import { combineReducers } from 'redux'
 import wikiCharacter from './wiki/character'
 
-export default combineReducers({
+const rootReducer = combineReducers({
   wikiCharacter
 })
+
+export default rootReducer
+export type RootState = ReturnType<typeof rootReducer>
