@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Taro, { useDidShow } from '@tarojs/taro'
 import { useSelector } from 'react-redux'
-import { View, Text, Image } from '@tarojs/components'
+import { View, Text, Image, Button } from '@tarojs/components'
 
 import { StatusBar, SafeAreaView } from "@components";
 import { getCharacter } from '@service'
@@ -25,16 +25,21 @@ const Wiki: React.FC<any> = () => {
     })
   })
 
-  // 获取该角色信息，等等
-  useEffect(() => {
-  }, [character])
+  const handleBack = () => Taro.navigateBack()
+
+  // 请求未完成，渲染骨架屏
+  if (!character.name) {
+    return <Text>2222</Text>
+  }
 
   return (
     <SafeAreaView>
       <View className='wiki-c'>
-        {/* <StatusBar barStyle='dark-content' backgroundColor='rgba(0,0,0,0)' translucent /> */}
-        <View className='wiki-c-header'>
+        <StatusBar barStyle='dark-content' backgroundColor='rgba(0,0,0,0)' translucent animated />
+        <Button className='wiki-c-back' style={{ top: statusBarHeight + 8, left: 16 }} onClick={handleBack}></Button>
 
+        <View className='wiki-c-header'>
+          <Image src={character.image} className='wiki-c-header-background' mode='widthFix' />
         </View>
         <View className='wiki-c-content'>
           {

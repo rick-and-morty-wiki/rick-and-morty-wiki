@@ -16,7 +16,10 @@ export default (state = INITIAL_STATE, action) => {
     case UPDATE_WIKI_CHARACTER:
       return {
         ...state,
-        character: payload
+        character: {
+          ...state.character,
+          ...payload,
+        }
       };
     default:
       return state;

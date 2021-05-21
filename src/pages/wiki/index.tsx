@@ -77,8 +77,8 @@ const Wiki: React.FC<any> = () => {
       .then((data: WikiCharacterType[]) => setRandomCharacters(data))
   }, [])
 
-  const handleClickCard = (id) => {
-    dispatch(updateWikiCharacter(id))
+  const handleClickCard = (character) => {
+    dispatch(updateWikiCharacter(character))
     Taro.navigateTo({ 
       url: '/pages/wiki/pages/wiki-character/index',
     })
@@ -87,7 +87,7 @@ const Wiki: React.FC<any> = () => {
   return (
     <SafeAreaView>
       <View className='wiki'>
-        <StatusBar barStyle='dark-content' backgroundColor='rgba(0,0,0,0)' translucent />
+        <StatusBar barStyle='dark-content' backgroundColor='rgba(0,0,0,0)' translucent animated />
         <View className='wiki-header' style={{ marginTop: statusBarHeight }}>
 
           <Image src={wikiBackground} className='wiki-header-background' mode='aspectFit' />
@@ -104,7 +104,7 @@ const Wiki: React.FC<any> = () => {
             randomCharacters.map(character => {
               if (character.name) {
                 return (
-                  <View key={character.id} className='wiki-card' onClick={() => handleClickCard(character.id)}>
+                  <View key={character.id} className='wiki-card' onClick={() => handleClickCard(character)}>
                     <Image className='wiki-card-img' src={character.image} mode='widthFix' />
                     <View className='wiki-card-content'>
                       <Text className='wiki-card-name'>{character.name}</Text>

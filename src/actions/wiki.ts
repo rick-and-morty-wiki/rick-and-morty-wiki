@@ -1,19 +1,18 @@
-import { UPDATE_WIKI_CHARACTER, defaultCharacter } from '@constants/wiki'
+import { UPDATE_WIKI_CHARACTER } from '@constants/wiki'
 import { getCharacter } from '@service'
 import { WikiCharacterType } from '@constants/type'
 
-export const updateWikiCharacter = (id) => async (dispatch) => {
-  // 先清空之前的数据
+export const updateWikiCharacter = (character: WikiCharacterType) => async (dispatch) => {
   dispatch({
     type: UPDATE_WIKI_CHARACTER,
-    payload: defaultCharacter,
+    payload: character,
   })
-  // 请求获得新数据
-  const character: WikiCharacterType = await getCharacter(id)
-  if (character) {
+  if (!character.name) {
+    // 请求获得新数据
+    const character_: WikiCharacterType = await getCharacter(character.id)
     dispatch({
       type: UPDATE_WIKI_CHARACTER,
-      payload: character,
+      payload: character_,
     })
   }
 }

@@ -8,8 +8,8 @@ export default {
   ],
   window: {
     backgroundTextStyle: "light",
-    navigationBarBackgroundColor: "#fff",
-    navigationBarTitleText: " "
+    navigationBarBackgroundColor: "#ffffff",
+    navigationStyle: 'custom',
     // navigationBarTextStyle: "black"
   },
   rn: {
