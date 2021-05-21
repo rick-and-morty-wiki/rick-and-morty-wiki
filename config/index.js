@@ -20,7 +20,7 @@ const config = {
   },
   alias: {
     // 配置taro项目的绝对路径
-    "@actions": path.resolve(__dirname, "..", "actions"),
+    "@actions": path.resolve(__dirname, "..", "src/actions"),
     "@assets": path.resolve(__dirname, "..", "src/assets"),
     "@components": path.resolve(__dirname, "..", "src/components"),
     "@constants": path.resolve(__dirname, "..", "src/constants"),

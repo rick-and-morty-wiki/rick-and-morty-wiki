@@ -21,19 +21,19 @@ export default {
     list: [
       {
         pagePath: "pages/wiki/index",
-        text: "Wiki",
+        text: "百科",
         iconPath: "assets/tab/event.png",
         selectedIconPath: "assets/tab/event_active.png"
       },
       {
         pagePath: "pages/game/index",
-        text: "Game",
+        text: "游戏",
         iconPath: "assets/tab/schedule.png",
         selectedIconPath: "assets/tab/schedule_active.png"
       },
       {
         pagePath: "pages/about/index",
-        text: "About",
+        text: "关于",
         iconPath: "assets/tab/home.png",
         selectedIconPath: "assets/tab/home_active.png"
       }

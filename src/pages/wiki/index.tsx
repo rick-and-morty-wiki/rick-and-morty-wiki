@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Taro, { useDidShow, usePullDownRefresh } from '@tarojs/taro'
+import { useDispatch } from 'react-redux'
 import { View, Text, Image } from '@tarojs/components'
 import { StatusBar, SafeAreaView } from "@components";
 import { getCharacter } from '@service'
@@ -7,8 +8,9 @@ import { getCharacter } from '@service'
 import { WikiCharacterType } from '@constants/type'
 import { wikiBackground, defaultCharacterImage } from '@assets/image'
 import { defaultRandomCharacters } from '@constants/wiki'
-import { headerBtnsType } from './type'
+import { updateWikiCharacter } from '@actions/wiki'
 
+import { headerBtnsType } from './type'
 import './index.less'
 
 const headerBtns: headerBtnsType[] = [
@@ -42,6 +44,7 @@ const generateRandomCharacters = (number: number) => {
 
 
 const Wiki: React.FC<any> = () => {
+  const dispatch = useDispatch()
   const [randomCharacters, setRandomCharacters] = useState<WikiCharacterType[]>(defaultRandomCharacters)
   const [statusBarHeight, setStatusBarHeight] = useState<number>(0)
 
@@ -72,8 +75,11 @@ const Wiki: React.FC<any> = () => {
   useEffect(() => {
     generateRandomCharacters(6)
       .then((data: WikiCharacterType[]) => setRandomCharacters(data))
-
   }, [])
+
+  const handleClickCard = (id) => {
+    dispatch(updateWikiCharacter(id))
+  }
 
   return (
     <SafeAreaView>
@@ -95,7 +101,7 @@ const Wiki: React.FC<any> = () => {
             randomCharacters.map(character => {
               if (character.name) {
                 return (
-                  <View key={character.id} className='wiki-card'>
+                  <View key={character.id} className='wiki-card' onClick={() => handleClickCard(character.id)}>
                     <Image className='wiki-card-img' src={character.image} mode='widthFix' />
                     <View className='wiki-card-content'>
                       <Text className='wiki-card-name'>{character.name}</Text>

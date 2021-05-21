@@ -28,6 +28,9 @@
       "@actions": [
         "src/actions/"
       ],
+      "@actions/*": [
+        "src/actions/*"
+      ],
       "@assets/*": [
         "src/assets/*"
       ],

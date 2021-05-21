@@ -17,4 +17,5 @@ export type WikiCharacterType = {
   image: string,
   episode: string[],
   url: string,
+  created?: string,
 }

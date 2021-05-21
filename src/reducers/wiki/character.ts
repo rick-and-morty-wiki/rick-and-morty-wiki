@@ -9,7 +9,7 @@ const INITIAL_STATE: StateType = {
   wikiCharacter: defaultCharacter
 };
 
-export default function wiki(state = INITIAL_STATE, action) {
+export default (state = INITIAL_STATE, action) => {
   const { payload } = action;
 
   switch (action.type) {
