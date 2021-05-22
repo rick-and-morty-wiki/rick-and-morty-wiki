@@ -3,7 +3,7 @@ import Taro, { useDidShow, usePullDownRefresh } from '@tarojs/taro'
 import { useDispatch } from 'react-redux'
 import { View, Text, Image } from '@tarojs/components'
 
-import { StatusBar, SafeAreaView } from "@components";
+import { StatusBar, SafeAreaView, CustomScrollView } from "@components";
 import { getCharacter } from '@service'
 import { WikiCharacterType } from '@constants/type'
 import { wikiBackground, defaultCharacterImage } from '@assets/image'
@@ -48,6 +48,7 @@ const Wiki: React.FC<any> = () => {
   const dispatch = useDispatch()
   const [randomCharacters, setRandomCharacters] = useState<WikiCharacterType[]>(defaultRandomCharacters)
   const [statusBarHeight, setStatusBarHeight] = useState<number>(0)
+  
 
   // 给微信小程序导航栏那里垫一下
   useDidShow(() => {
@@ -65,13 +66,13 @@ const Wiki: React.FC<any> = () => {
       mask: true,
     })
     generateRandomCharacters(6)
-    .then((data: WikiCharacterType[]) => {
-      if (isArray(data)) {
-        setRandomCharacters(data)
-      }
-      Taro.stopPullDownRefresh()
-      Taro.hideLoading()
-    })
+      .then((data: WikiCharacterType[]) => {
+        if (isArray(data)) {
+          setRandomCharacters(data)
+        }
+        Taro.stopPullDownRefresh()
+        Taro.hideLoading()
+      })
   })
 
   // 默认随机生成6个
@@ -82,22 +83,22 @@ const Wiki: React.FC<any> = () => {
 
   const handleClickCard = (character) => {
     dispatch(updateWikiCharacter(character))
-    Taro.navigateTo({ 
+    Taro.navigateTo({
       url: '/pages/wiki/pages/wiki-character/index',
     })
   }
 
   return (
     <SafeAreaView>
-      <View className='wiki'>
+      <CustomScrollView className='wiki' >
         <StatusBar barStyle='dark-content' backgroundColor='rgba(0,0,0,0)' translucent animated />
         <View className='wiki-header' style={{ marginTop: statusBarHeight }}>
 
-          <Image src={wikiBackground} className='wiki-header-background' mode='aspectFit' />
+          <Image src={wikiBackground} className='wiki-header-background' mode='widthFix' />
 
-          <View className='wiki-header-top'>
+          {/* <View className='wiki-header-top'>
             <Text className='wiki-title'>The Rick and Morty Wiki</Text>
-          </View>
+          </View> */}
           <View className='wiki-header-bottom'>
 
           </View>
@@ -108,7 +109,7 @@ const Wiki: React.FC<any> = () => {
               if (character.name) {
                 return (
                   <View key={character.id} className='wiki-card' onClick={() => handleClickCard(character)}>
-                    <Image className='wiki-card-img' src={character.image} mode='widthFix' />
+                    <Image className='wiki-card-img' src={character.image} mode='widthFix' lazyLoad />
                     <View className='wiki-card-content'>
                       <Text className='wiki-card-name'>{character.name}</Text>
                       <View className='wiki-card-status'>
@@ -142,7 +143,7 @@ const Wiki: React.FC<any> = () => {
           }
         </View>
         <View className='wiki-footer'></View>
-      </View>
+      </CustomScrollView>
     </SafeAreaView>
   )
 }

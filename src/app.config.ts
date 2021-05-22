@@ -20,7 +20,11 @@ export default {
       elevation: 0,
       shadowOpacity: 1,
       borderBottomWidth: 0,
-    }
+    },
+    options:{
+      // tabBarVisible: false,
+      title: '222',
+   },
   },
   tabBar: {
     color: "#606468",
