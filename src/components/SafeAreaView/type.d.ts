@@ -1,10 +1,3 @@
-/*
- * @Author: qiuz
- * @Github: <https://github.com/qiuziz>
- * @Date:  2021-01-09 14:00:01
- * @Last Modified by: qiuz
- */
-
 import { ViewProps } from '@tarojs/components/types/view';
 import { ComponentOptions } from '@tarojs/taro';
 import { FunctionComponent } from 'react';
@@ -20,6 +13,6 @@ export type TaroSafeAreaViewType = FunctionComponent<
   options?: ComponentOptions;
 };
 
-declare const TaroSafeAreaView: TaroSafeAreaViewType;
+// declare const TaroSafeAreaView: TaroSafeAreaViewType;
 
-export default TaroSafeAreaView;
+export default TaroSafeAreaViewType;

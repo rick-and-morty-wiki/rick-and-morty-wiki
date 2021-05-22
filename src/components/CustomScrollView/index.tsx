@@ -4,15 +4,24 @@ import Taro from '@tarojs/taro'
 import './index.less'
 
 let ScrollView: any;
+let RefreshControl: any;
 if (process.env.TARO_ENV === "rn") {
   ScrollView = require("react-native").ScrollView;
+  RefreshControl = require("react-native").RefreshControl;
 } else {
   ScrollView = require("@tarojs/components").ScrollView;
+}
+
+const wait = (timeout) => {
+  return new Promise(resolve => {
+    setTimeout(resolve, timeout);
+  });
 }
 
 const CustomScrollView = props => {
   const { className = '', style = {} } = props;
   const [showTab, setShowTab] = useState<boolean>(true)
+  const [refreshing, setRefreshing] = useState<boolean>(false);
 
   useEffect(() => {
     // 只有RN端做tabbar自动隐藏
@@ -42,6 +51,12 @@ const CustomScrollView = props => {
     }
   }
 
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+
+    wait(2000).then(() => setRefreshing(false));
+  }, []);
+
   // 只有RN端做tabbar自动隐藏
   if (process.env.TARO_ENV !== 'rn') {
     return (
@@ -49,6 +64,7 @@ const CustomScrollView = props => {
         className={`custom-scroll-view ${className}`}
         style={{ ...(style as object) }}
         scrollY
+        refresherEnabled
       >
         {props.children}
       </ScrollView>
@@ -61,6 +77,9 @@ const CustomScrollView = props => {
       style={{ ...(style as object) }}
       onScroll={handleScroll}
       scrollY
+      refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+      }
     >
       {props.children}
     </ScrollView>
