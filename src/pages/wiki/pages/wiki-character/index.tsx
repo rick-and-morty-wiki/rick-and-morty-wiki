@@ -4,9 +4,7 @@ import { useSelector } from 'react-redux'
 import { View, Text, Image, Button } from '@tarojs/components'
 
 import { StatusBar, SafeAreaView } from "@components";
-import { getCharacter } from '@service'
 import { WikiCharacterType } from '@constants/type'
-import { defaultCharacterImage } from '@assets/image'
 import { RootState } from '@reducers'
 
 import './index.less'
@@ -36,6 +34,7 @@ const Wiki: React.FC<any> = () => {
     <SafeAreaView>
       <View className='wiki-c'>
         <Image src={character.image} className='wiki-c-background' mode='aspectFill' />
+        <View className='wiki-c-background wiki-c-background-mask'></View>
         <StatusBar barStyle='dark-content' backgroundColor='rgba(0,0,0,0)' translucent animated />
 
         <View style={{ height: statusBarHeight + 4 }}></View>

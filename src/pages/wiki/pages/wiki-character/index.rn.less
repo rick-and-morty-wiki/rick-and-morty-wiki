@@ -10,11 +10,15 @@
 
   &-background {
     position: absolute;
-    opacity: 0.15;
     height: 100%;
     width: 100%;
     top: 0;
     left: 0;
+
+    &-mask {
+      opacity: 0.85;
+      background-color: @theme-background;
+    }
   }
 
   &-header {
@@ -30,14 +34,17 @@
   }
 
   &-title {
+    position: relative;
+
     &-text {
       font-size: 56px;
       font-weight: bold;
-      color: @color-semi;
+      color: @color-white-grey;
     }
   }
 
   &-content {
+    position: relative;
     padding: 26px 48px;
 
     &-status {
@@ -65,7 +72,7 @@
 
       &-text {
         font-size: 34px;
-        color: @color-grey;
+        color: @color-white-light;
       }
     }
   }
@@ -79,7 +86,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-width: 0;
+    // border-width: 0;
     background-color: #ffffff;
     opacity: 0.8;
     left: 6%;
