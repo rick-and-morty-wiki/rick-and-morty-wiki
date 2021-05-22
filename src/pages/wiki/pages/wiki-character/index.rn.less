@@ -16,7 +16,7 @@
     left: 0;
 
     &-mask {
-      opacity: 0.85;
+      opacity: 0.88;
       background-color: @theme-background;
     }
   }
@@ -35,7 +35,7 @@
 
   &-title {
     position: relative;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
 
     &-text {
       font-size: 56px;
@@ -48,33 +48,49 @@
   &-content {
     position: relative;
     padding: 26px 48px;
+    padding-bottom: 16px;
 
-    &-status {
+    &-box {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    &-row {
       display: flex;
       flex-direction: row;
       align-items: center;
-
-      &-point {
-        width: 22px;
-        height: 22px;
-        border-radius: 50px;
-        margin-right: 16px;
-      }
-
-      &_Alive {
-        background-color: @color-success;
-      }
-      &_Dead {
-        background-color: @color-error;
-      }
-      &_unknown {
-        background-color: @color-light;
-      }
+      margin-top: 6px;
+      width: 50%;
 
       &-text {
         font-size: 34px;
         color: @color-white-light;
+
+        &_a {
+          font-size: 34px;
+          color: @color-blue;
+        }
       }
+
+      &_two {
+        width: 100%;
+      }
+
+    }
+  }
+
+  &-footer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 32px;
+
+    &-btn {
+      margin: 0 16px;
     }
   }
 
