@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Taro, { useDidShow, usePullDownRefresh } from '@tarojs/taro'
+import Taro, { useDidShow } from '@tarojs/taro'
 import { useDispatch } from 'react-redux'
 import { View, Text, Image } from '@tarojs/components'
 
@@ -48,7 +48,7 @@ const Wiki: React.FC<any> = () => {
   const dispatch = useDispatch()
   const [randomCharacters, setRandomCharacters] = useState<WikiCharacterType[]>(defaultRandomCharacters)
   const [statusBarHeight, setStatusBarHeight] = useState<number>(0)
-  
+
 
   // 给微信小程序导航栏那里垫一下
   useDidShow(() => {
@@ -57,22 +57,6 @@ const Wiki: React.FC<any> = () => {
         setStatusBarHeight(res.statusBarHeight)
       }
     })
-  })
-
-  // 下拉刷新，再随机6个
-  usePullDownRefresh(() => {
-    Taro.showLoading({
-      title: '加载中',
-      mask: true,
-    })
-    generateRandomCharacters(6)
-      .then((data: WikiCharacterType[]) => {
-        if (isArray(data)) {
-          setRandomCharacters(data)
-        }
-        Taro.stopPullDownRefresh()
-        Taro.hideLoading()
-      })
   })
 
   // 默认随机生成6个
@@ -88,9 +72,18 @@ const Wiki: React.FC<any> = () => {
     })
   }
 
+  const onRefresh = () => {
+    return generateRandomCharacters(6)
+      .then((data: WikiCharacterType[]) => {
+        if (isArray(data)) {
+          setRandomCharacters(data)
+        }
+      })
+  }
+
   return (
     <SafeAreaView>
-      <CustomScrollView className='wiki' >
+      <CustomScrollView className='wiki' onRefresh={onRefresh} >
         <StatusBar barStyle='dark-content' backgroundColor='rgba(0,0,0,0)' translucent />
         <View className='wiki-header' style={{ marginTop: statusBarHeight }}>
 

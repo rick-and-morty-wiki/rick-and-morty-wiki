@@ -6,20 +6,17 @@ import './index.less'
 let ScrollView: any;
 let RefreshControl: any;
 if (process.env.TARO_ENV === "rn") {
+  // 这里为什么要用react native的ScrollView呢？
+  // 1.便于写跨端的自定义下拉刷新
+  // 2.rn的api可以计算到当前到页面底部的距离，taro的不行
   ScrollView = require("react-native").ScrollView;
   RefreshControl = require("react-native").RefreshControl;
 } else {
   ScrollView = require("@tarojs/components").ScrollView;
 }
 
-const wait = (timeout) => {
-  return new Promise(resolve => {
-    setTimeout(resolve, timeout);
-  });
-}
-
 const CustomScrollView = props => {
-  const { className = '', style = {} } = props;
+  const { className = '', style = {}, onRefresh = null } = props;
   const [showTab, setShowTab] = useState<boolean>(true)
   const [refreshing, setRefreshing] = useState<boolean>(false);
 
@@ -51,11 +48,11 @@ const CustomScrollView = props => {
     }
   }
 
-  const onRefresh = React.useCallback(() => {
-    setRefreshing(true);
-
-    wait(2000).then(() => setRefreshing(false));
-  }, []);
+  const onPulldownRefresh = React.useCallback(async () => {
+    setRefreshing(true)
+    await onRefresh()
+    setRefreshing(false)
+  }, [onRefresh]);
 
   // 只有RN端做tabbar自动隐藏
   if (process.env.TARO_ENV !== 'rn') {
@@ -65,6 +62,8 @@ const CustomScrollView = props => {
         style={{ ...(style as object) }}
         scrollY
         refresherEnabled
+        refresherTriggered={refreshing}
+        onRefresherRefresh={onPulldownRefresh}
       >
         {props.children}
       </ScrollView>
@@ -78,7 +77,7 @@ const CustomScrollView = props => {
       onScroll={handleScroll}
       scrollY
       refreshControl={
-        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        <RefreshControl refreshing={refreshing} onRefresh={onPulldownRefresh} />
       }
     >
       {props.children}
