@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Taro from '@tarojs/taro'
 
+import { CustomScrollViewType } from './type'
 import './index.less'
 
 let ScrollView: any;
@@ -15,8 +16,8 @@ if (process.env.TARO_ENV === "rn") {
   ScrollView = require("@tarojs/components").ScrollView;
 }
 
-const CustomScrollView = props => {
-  const { className = '', style = {}, onRefresh = null } = props;
+const CustomScrollView: CustomScrollViewType = props => {
+  const { className = '', style = {}, onRefresh } = props;
   const [showTab, setShowTab] = useState<boolean>(true)
   const [refreshing, setRefreshing] = useState<boolean>(false);
 
@@ -36,7 +37,7 @@ const CustomScrollView = props => {
       contentOffset: { y: toTop },  // 距离顶部距离
       velocity: { y: yVelo },  // y方向速度。+为向下滑
     } = e.nativeEvent
-    
+
     // 如果在向下滑且没有滑倒最下面，则隐藏tab
     if (showTab && yVelo > 0 && toTop > 200) {
       setShowTab(false)
@@ -50,7 +51,9 @@ const CustomScrollView = props => {
 
   const onPulldownRefresh = React.useCallback(async () => {
     setRefreshing(true)
-    await onRefresh()
+    if (onRefresh) {
+      await onRefresh()
+    }
     setRefreshing(false)
   }, [onRefresh]);
 

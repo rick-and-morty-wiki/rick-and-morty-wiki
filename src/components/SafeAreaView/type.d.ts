@@ -12,7 +12,3 @@ export type TaroSafeAreaViewType = FunctionComponent<
 > & {
   options?: ComponentOptions;
 };
-
-// declare const TaroSafeAreaView: TaroSafeAreaViewType;
-
-export default TaroSafeAreaViewType;
