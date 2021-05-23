@@ -72,7 +72,7 @@ const Wiki: React.FC<any> = () => {
       <View className='wiki-c'>
         <Image src={character.image} className='wiki-c-background' mode='aspectFill' />
         <View className='wiki-c-background wiki-c-background-mask'></View>
-        <StatusBar barStyle='dark-content' backgroundColor='rgba(0,0,0,0)' translucent animated />
+        <StatusBar barStyle='light-content' backgroundColor='rgba(0,0,0,0)' translucent />
 
         <View style={{ height: statusBarHeight + 4 }}></View>
         <View className='wiki-c-header'>

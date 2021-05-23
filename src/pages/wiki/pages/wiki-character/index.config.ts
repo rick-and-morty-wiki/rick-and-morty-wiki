@@ -1,6 +1,6 @@
 export default {
   navigationStyle: 'custom',
-  navigationBarTextStyle: 'black',
+  navigationBarTextStyle: 'white',
 
   rn: {
     screenOptions: {

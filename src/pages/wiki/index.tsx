@@ -91,7 +91,7 @@ const Wiki: React.FC<any> = () => {
   return (
     <SafeAreaView>
       <CustomScrollView className='wiki' >
-        <StatusBar barStyle='dark-content' backgroundColor='rgba(0,0,0,0)' translucent animated />
+        <StatusBar barStyle='dark-content' backgroundColor='rgba(0,0,0,0)' translucent />
         <View className='wiki-header' style={{ marginTop: statusBarHeight }}>
 
           <Image src={wikiBackground} className='wiki-header-background' mode='widthFix' />
