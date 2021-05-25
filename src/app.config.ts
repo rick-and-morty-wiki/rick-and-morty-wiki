@@ -27,29 +27,29 @@ export default {
    },
   },
   tabBar: {
-    color: "#606468",
+    color: "#9c9d9e",
     selectedColor: "#0089ff",
-    backgroundColor: "#fff",
-    borderStyle: "white",
+    backgroundColor: "#24292F",
+    borderStyle: "black",
     custom: false,
     list: [
       {
         pagePath: "pages/wiki/index",
         text: "百科",
-        iconPath: "assets/tab/event.png",
-        selectedIconPath: "assets/tab/event_active.png"
+        iconPath: "assets/tab/wiki.png",
+        selectedIconPath: "assets/tab/wiki_active.png"
       },
       {
         pagePath: "pages/game/index",
         text: "游戏",
-        iconPath: "assets/tab/schedule.png",
-        selectedIconPath: "assets/tab/schedule_active.png"
+        iconPath: "assets/tab/game.png",
+        selectedIconPath: "assets/tab/game_active.png"
       },
       {
         pagePath: "pages/about/index",
         text: "关于",
-        iconPath: "assets/tab/home.png",
-        selectedIconPath: "assets/tab/home_active.png"
+        iconPath: "assets/tab/about.png",
+        selectedIconPath: "assets/tab/about_active.png"
       }
     ]
   },
