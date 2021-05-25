@@ -82,62 +82,60 @@ const Wiki: React.FC<any> = () => {
   }
 
   return (
-    <SafeAreaView>
-      <CustomScrollView className='wiki' onRefresh={onRefresh} >
-        <StatusBar barStyle='dark-content' backgroundColor='rgba(0,0,0,0)' translucent />
-        <View className='wiki-header' style={{ marginTop: statusBarHeight }}>
+    <CustomScrollView className='wiki' onRefresh={onRefresh} >
+      <StatusBar barStyle='dark-content' backgroundColor='rgba(0,0,0,0)' translucent />
+      <View className='wiki-header' style={{ marginTop: statusBarHeight }}>
 
-          <Image src={wikiBackground} className='wiki-header-background' mode='widthFix' />
+        <Image src={wikiBackground} className='wiki-header-background' mode='widthFix' />
 
-          {/* <View className='wiki-header-top'>
+        {/* <View className='wiki-header-top'>
             <Text className='wiki-title'>The Rick and Morty Wiki</Text>
           </View> */}
-          <View className='wiki-header-bottom'>
+        <View className='wiki-header-bottom'>
 
-          </View>
         </View>
-        <View className='wiki-content'>
-          {
-            randomCharacters.map(character => {
-              if (character.name) {
-                return (
-                  <View key={character.id} className='wiki-card' onClick={() => handleClickCard(character)}>
-                    <Image className='wiki-card-img' src={character.image} mode='widthFix' lazyLoad />
-                    <View className='wiki-card-content'>
-                      <Text className='wiki-card-name'>{character.name}</Text>
-                      <View className='wiki-card-status'>
-                        <View className={`wiki-card-status-point wiki-card-status_${character.status}`}></View>
-                        <Text className='wiki-card-status-text'>{character.status + ' '}</Text>
-                        <Text className='wiki-card-status-text'>&nbsp;-&nbsp;</Text>
-                        <Text className='wiki-card-status-text'>{character.species + ' '}</Text>
-                      </View>
-
-                      <View className='wiki-card-title'>
-                        <Text className='wiki-card-title-text'>location:</Text>
-                      </View>
-                      <Text className='wiki-card-text'>{character.location.name}</Text>
-                    </View>
-                  </View>
-                )
-              }
-              // 返回加载状态的组件
+      </View>
+      <View className='wiki-content'>
+        {
+          randomCharacters.map(character => {
+            if (character.name) {
               return (
-                <View key={character.id} className='wiki-card'>
-                  <Image className='wiki-card-img wiki-card-loading-img' src={defaultCharacterImage} mode='widthFix' />
+                <View key={character.id} className='wiki-card' onClick={() => handleClickCard(character)}>
+                  <Image className='wiki-card-img' src={character.image} mode='widthFix' lazyLoad />
                   <View className='wiki-card-content'>
-                    <View className='wiki-card-loading-name'></View>
-                    <View className='wiki-card-loading-status'></View>
-                    <View className='wiki-card-loading-title'></View>
-                    <View className='wiki-card-loading-text'></View>
+                    <Text className='wiki-card-name'>{character.name}</Text>
+                    <View className='wiki-card-status'>
+                      <View className={`wiki-card-status-point wiki-card-status_${character.status}`}></View>
+                      <Text className='wiki-card-status-text'>{character.status + ' '}</Text>
+                      <Text className='wiki-card-status-text'>&nbsp;-&nbsp;</Text>
+                      <Text className='wiki-card-status-text'>{character.species + ' '}</Text>
+                    </View>
+
+                    <View className='wiki-card-title'>
+                      <Text className='wiki-card-title-text'>location:</Text>
+                    </View>
+                    <Text className='wiki-card-text'>{character.location.name}</Text>
                   </View>
                 </View>
               )
-            })
-          }
-        </View>
-        <View className='wiki-footer'></View>
-      </CustomScrollView>
-    </SafeAreaView>
+            }
+            // 返回加载状态的组件
+            return (
+              <View key={character.id} className='wiki-card'>
+                <Image className='wiki-card-img wiki-card-loading-img' src={defaultCharacterImage} mode='widthFix' />
+                <View className='wiki-card-content'>
+                  <View className='wiki-card-loading-name'></View>
+                  <View className='wiki-card-loading-status'></View>
+                  <View className='wiki-card-loading-title'></View>
+                  <View className='wiki-card-loading-text'></View>
+                </View>
+              </View>
+            )
+          })
+        }
+      </View>
+      <View className='wiki-footer'></View>
+    </CustomScrollView>
   )
 }
 
