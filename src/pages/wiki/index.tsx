@@ -106,9 +106,9 @@ const Wiki: React.FC<any> = () => {
                     <Text className='wiki-card-name'>{character.name}</Text>
                     <View className='wiki-card-status'>
                       <View className={`wiki-card-status-point wiki-card-status_${character.status}`}></View>
-                      <Text className='wiki-card-status-text'>{character.status + ' '}</Text>
+                      <Text className='wiki-card-status-text'>{character.status}</Text>
                       <Text className='wiki-card-status-text'>&nbsp;-&nbsp;</Text>
-                      <Text className='wiki-card-status-text'>{character.species + ' '}</Text>
+                      <Text className='wiki-card-status-text'>{character.species}</Text>
                     </View>
 
                     <View className='wiki-card-title'>
