@@ -1,7 +1,8 @@
 export default {
   pages: [
-    "pages/wiki/index",
     "pages/game/index",
+    "pages/wiki/index",
+    
     "pages/about/index",
 
     "pages/wiki/pages/wiki-character/index",

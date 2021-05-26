@@ -4,6 +4,52 @@
   width: 100%;
   height: 100%;
   background-color: @theme-background;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
+  &-pre {
+    &-title {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
 
+      &-text {
+        font-size: 60px;
+        font-weight: bold;
+        color: @color-white-grey;
+
+        &_red {
+          color: @color-error;
+          margin-right: 16px;
+        }
+        &_green {
+          color: @color-success;
+          margin-left: 16px;
+        }
+      }
+    }
+
+    &-comment {
+      width: 100%;
+      text-align: center;
+      margin-top: 40px;
+      
+      &-text {
+        color: @color-white-grey;
+      }
+    }
+
+    &-btn {
+      width: 132px;
+      height: 132px;
+      border-radius: 160px;
+      margin-top: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: @color-grey;
+    }
+  }
 }

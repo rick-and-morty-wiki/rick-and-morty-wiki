@@ -3,7 +3,7 @@ import Taro, { useDidShow } from '@tarojs/taro'
 import { useDispatch } from 'react-redux'
 import { View, Text, Image } from '@tarojs/components'
 
-import { StatusBar, SafeAreaView, CustomScrollView } from "@components";
+import { StatusBar, CustomScrollView } from "@components";
 import { getCharacter } from '@service'
 import { WikiCharacterType } from '@constants/type'
 import { wikiBackground, defaultCharacterImage } from '@assets/image'
@@ -32,15 +32,15 @@ const headerBtns: headerBtnsType[] = [
 
 // 随机获取角色信息列表
 const generateRandomCharacters = (number: number) => {
-  const randomIds: number[] = []
+  const rids: number[] = []
   for (let i = 0; i < number; i++) {
-    let rid: number = 1
+    let rid: number
     do {
       rid = Math.floor(Math.random() * 671) + 1
-    } while (randomIds.indexOf(rid) !== -1)
-    randomIds.push(rid)
+    } while (rids.indexOf(rid) !== -1)
+    rids.push(rid)
   }
-  return getCharacter(randomIds)
+  return getCharacter(rids)
 }
 
 
