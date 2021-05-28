@@ -86,30 +86,30 @@ const Wiki: React.FC<any> = () => {
 
           <View className='wiki-c-content-box'>
             <View className='wiki-c-content-row'>
-              <Text className='wiki-c-content-row-text'>状态：{character.status + ' '}</Text>
+              <Text className='wiki-c-content-row-text'>状态：{character.status}</Text>
             </View>
             <View className='wiki-c-content-row'>
-              <Text className='wiki-c-content-row-text'>物种：{character.species + ' '}</Text>
+              <Text className='wiki-c-content-row-text'>物种：{character.species}</Text>
             </View>
             <View className='wiki-c-content-row'>
-              <Text className='wiki-c-content-row-text'>性别：{character.gender + ' '}</Text>
+              <Text className='wiki-c-content-row-text'>性别：{character.gender}</Text>
             </View>
             {
               character.type &&
               <View className='wiki-c-content-row'>
-                <Text className='wiki-c-content-row-text'>分类：{character.type + ' '}</Text>
+                <Text className='wiki-c-content-row-text'>分类：{character.type}</Text>
               </View>
             }
           </View>
 
           <View className='wiki-c-content-row wiki-c-content-row_two' style={{ marginTop: 16 }}>
             <Text className='wiki-c-content-row-text'>首次出现地点：</Text>
-            <Text className='wiki-c-content-row-text_a'>{character.origin.name + ' '}</Text>
+            <Text className='wiki-c-content-row-text_a'>{character.origin.name}</Text>
           </View>
 
           <View className='wiki-c-content-row wiki-c-content-row_two'>
             <Text className='wiki-c-content-row-text'>最后出现地点：</Text>
-            <Text className='wiki-c-content-row-text_a'>{character.location.name + ' '}</Text>
+            <Text className='wiki-c-content-row-text_a'>{character.location.name}</Text>
           </View>
 
           <View className='wiki-c-content-row wiki-c-content-row_two' style={{ marginTop: 16 }}>
@@ -120,7 +120,7 @@ const Wiki: React.FC<any> = () => {
         <View className='wiki-c-footer'>
           {
             episodes.map(episode => (
-              <Button className='wiki-c-footer-btn' key={episode.episode}>{episode.episode}</Button>
+              <Button className='wiki-c-footer-btn' key={episode.episode}>{episode.episode + ' '}</Button>
             ))
           }
         </View>
