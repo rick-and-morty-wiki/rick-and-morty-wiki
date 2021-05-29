@@ -3,11 +3,101 @@
 .game {
   width: 100%;
   height: 100%;
+  position: relative;
   background-color: @theme-background;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  &-countdown {
+    margin-bottom: 36px;
+    background-color: @theme-grey;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 80px;
+
+    &-text {
+      color: @color-white-grey;
+      font-size: 48px;
+      font-family: '';
+    }
+  }
+
+  &-img {
+    border-radius: 72px;
+    overflow: hidden;
+  }
+
+  &-name {
+    margin-top: 48px;
+
+    &-text {
+      color: @color-white-grey;
+      font-size: 46px;
+      font-family: '';
+    }
+  }
+
+  &-location {
+    margin-top: 12px;
+
+    &-text {
+      color: @color-light;
+      font-size: 32px;
+      font-family: '';
+    }
+  }
+
+  &-btns {
+    margin-top: 64px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 68%;
+
+    &-btn {
+      border-radius: 50px;
+      height: 108px;
+      width: 40%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &-text {
+        font-size: 36px;
+        color: @color-white-light;
+        font-family: '';
+      }
+
+      &_dead {
+        background-color: @color-error;
+      }
+
+      &_alive {
+        background-color: @color-success;
+      }
+
+      &_active {
+        opacity: 0;
+        background-color: #000000;
+      }
+    }
+  }
+
+  &-count {
+    margin-top: 48px;
+    margin-bottom: 80px;
+
+    &-text {
+      font-size: 32px;
+      color: @color-white-grey;
+      font-family: '';
+    }
+  }
 
   &-pre {
     &-title {
@@ -35,10 +125,10 @@
 
     &-comment {
       margin-top: 40px;
-      
+
       &-text {
         color: @color-white-grey;
-        font-family: '';
+        font-family: "";
       }
     }
 

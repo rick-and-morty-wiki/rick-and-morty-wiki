@@ -21,7 +21,7 @@ const Loading = props => {
   }
  
   return (
-    <View>hahaha</View>
+    <View>加载中。。。</View>
   );
 };
 

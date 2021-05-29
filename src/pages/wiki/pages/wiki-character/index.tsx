@@ -3,7 +3,7 @@ import Taro, { useDidShow } from '@tarojs/taro'
 import { useSelector, useDispatch } from 'react-redux'
 import { View, Text, Image, Button } from '@tarojs/components'
 
-import { StatusBar, SafeAreaView } from "@components";
+import { StatusBar } from "@components";
 import { WikiCharacterType, WikiEpisodeType } from '@constants/type'
 import { defaultCharacter, defaultEpisode } from '@constants/wiki'
 import { RootState } from '@reducers'
@@ -68,64 +68,62 @@ const Wiki: React.FC<any> = () => {
   }
 
   return (
-    <SafeAreaView>
-      <View className='wiki-c'>
-        <Image src={character.image} className='wiki-c-background' mode='aspectFill' />
-        <View className='wiki-c-background wiki-c-background-mask'></View>
-        <StatusBar barStyle='light-content' backgroundColor='rgba(0,0,0,0)' translucent />
+    <View className='wiki-c'>
+      <Image src={character.image} className='wiki-c-background' mode='aspectFill' />
+      <View className='wiki-c-background wiki-c-background-mask'></View>
+      <StatusBar barStyle='light-content' backgroundColor='rgba(0,0,0,0)' translucent />
 
-        <View style={{ height: statusBarHeight + 4 }}></View>
-        <View className='wiki-c-header'>
-          <Button className='wiki-c-back' onClick={handleBack}></Button>
-          <Image src={character.image} className='wiki-c-header-background' mode='widthFix' />
+      <View style={{ height: statusBarHeight + 4 }}></View>
+      <View className='wiki-c-header'>
+        <Button className='wiki-c-back' onClick={handleBack}></Button>
+        <Image src={character.image} className='wiki-c-header-background' mode='widthFix' />
+      </View>
+      <View className='wiki-c-content'>
+        <View className='wiki-c-title'>
+          <Text className='wiki-c-title-text'>{character.name}</Text>
         </View>
-        <View className='wiki-c-content'>
-          <View className='wiki-c-title'>
-            <Text className='wiki-c-title-text'>{character.name}</Text>
-          </View>
 
-          <View className='wiki-c-content-box'>
-            <View className='wiki-c-content-row'>
-              <Text className='wiki-c-content-row-text'>状态：{character.status}</Text>
-            </View>
-            <View className='wiki-c-content-row'>
-              <Text className='wiki-c-content-row-text'>物种：{character.species}</Text>
-            </View>
-            <View className='wiki-c-content-row'>
-              <Text className='wiki-c-content-row-text'>性别：{character.gender}</Text>
-            </View>
-            {
-              character.type &&
-              <View className='wiki-c-content-row'>
-                <Text className='wiki-c-content-row-text'>分类：{character.type}</Text>
-              </View>
-            }
+        <View className='wiki-c-content-box'>
+          <View className='wiki-c-content-row'>
+            <Text className='wiki-c-content-row-text'>状态：{character.status}</Text>
           </View>
-
-          <View className='wiki-c-content-row wiki-c-content-row_two' style={{ marginTop: 16 }}>
-            <Text className='wiki-c-content-row-text'>首次出现地点：</Text>
-            <Text className='wiki-c-content-row-text_a'>{character.origin.name}</Text>
+          <View className='wiki-c-content-row'>
+            <Text className='wiki-c-content-row-text'>物种：{character.species}</Text>
           </View>
-
-          <View className='wiki-c-content-row wiki-c-content-row_two'>
-            <Text className='wiki-c-content-row-text'>最后出现地点：</Text>
-            <Text className='wiki-c-content-row-text_a'>{character.location.name}</Text>
+          <View className='wiki-c-content-row'>
+            <Text className='wiki-c-content-row-text'>性别：{character.gender}</Text>
           </View>
-
-          <View className='wiki-c-content-row wiki-c-content-row_two' style={{ marginTop: 16 }}>
-            <Text className='wiki-c-content-row-text'>出现剧集：</Text>
-          </View>
-
-        </View>
-        <View className='wiki-c-footer'>
           {
-            episodes.map(episode => (
-              <Button className='wiki-c-footer-btn' key={episode.episode}>{episode.episode + ' '}</Button>
-            ))
+            character.type &&
+            <View className='wiki-c-content-row'>
+              <Text className='wiki-c-content-row-text'>分类：{character.type}</Text>
+            </View>
           }
         </View>
+
+        <View className='wiki-c-content-row wiki-c-content-row_two' style={{ marginTop: 16 }}>
+          <Text className='wiki-c-content-row-text'>首次出现地点：</Text>
+          <Text className='wiki-c-content-row-text_a'>{character.origin.name}</Text>
+        </View>
+
+        <View className='wiki-c-content-row wiki-c-content-row_two'>
+          <Text className='wiki-c-content-row-text'>最后出现地点：</Text>
+          <Text className='wiki-c-content-row-text_a'>{character.location.name}</Text>
+        </View>
+
+        <View className='wiki-c-content-row wiki-c-content-row_two' style={{ marginTop: 16 }}>
+          <Text className='wiki-c-content-row-text'>出现剧集：</Text>
+        </View>
+
       </View>
-    </SafeAreaView>
+      <View className='wiki-c-footer'>
+        {
+          episodes.map(episode => (
+            <Button className='wiki-c-footer-btn' key={episode.episode}>{episode.episode + ' '}</Button>
+          ))
+        }
+      </View>
+    </View>
   )
 }
 
