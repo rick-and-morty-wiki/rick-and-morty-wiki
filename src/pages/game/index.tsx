@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import Taro from '@tarojs/taro'
 import { View, Button, Text, Image } from '@tarojs/components'
 
@@ -8,17 +8,37 @@ import { WikiCharacterType } from '@constants/type'
 
 import './index.less'
 
+// choice: Dead || Alive
 type selectData = {
   character: WikiCharacterType,
-  choice: string,
+  correct: boolean,
 }
 
+type selectResult = {
+  selected: boolean,
+  correct: boolean,
+}
+const defaultSelectResult = {
+  selected: false,
+  correct: false,
+}
+
+type countdown = {
+  time: number,
+  counter: Function,
+}
+let counterTimeout: any
+
 const Game: React.FC<any> = () => {
-  // 三个状态：blank、loading、gaming
+  // 三个状态：blank || loading || gaming
   const [status, setStatus] = useState<string>('blank')
   const [characters, setCharacters] = useState<WikiCharacterType[]>([])
   const [selectList, setSelectList] = useState<selectData[]>([])
-  const [countdown, setCountdown] = useState<number>(7)
+  const [selectResult, setSelectResult] = useState<selectResult>(defaultSelectResult)
+  const [countdown, setCountdown] = useState<countdown>({
+    time: 8,
+    counter: () => setTimeout(() => setCountdown(preState => ({ ...preState, time: preState.time - 1 })), 1000),
+  })
 
   useEffect(() => {
     // 游戏开始执行的初始化逻辑
@@ -54,10 +74,52 @@ const Game: React.FC<any> = () => {
 
   }, [status])
 
-  const handleClick = () => {
-    console.log(11111);
-    
-  }
+  // 点击Dead或Alive按钮后的逻辑
+  const handleClick = useCallback((character: WikiCharacterType, choice: string, selectList_: selectData[], characters_: WikiCharacterType[]) => {
+    const correct = character.status === choice
+    setSelectResult({
+      selected: true,
+      correct,
+    })
+    setTimeout(() => {
+      if (selectList_.length !== characters_.length - 1) {
+        // 不是最后一个，更新本页面数据
+        // 重载计时器
+        clearTimeout(counterTimeout)
+        setCountdown(preState => ({ ...preState, time: 8 }))
+        setTimeout(() => {
+          setSelectResult(defaultSelectResult)
+          setSelectList(preState => [...preState, {
+            character,
+            correct,
+          }])
+        })
+      } else {
+        // 是最后一个，跳转到结果页，并清空当前页面的数据
+        setStatus('blank')
+        setCharacters([])
+        setSelectList([])
+        setSelectResult(defaultSelectResult)
+        // 重载计时器
+        clearTimeout(counterTimeout)
+        setCountdown(preState => ({ ...preState, time: 8 }))
+      }
+    }, 500);
+  }, [])
+
+  // 倒计时实现
+  useEffect(() => {
+    if (status === 'gaming') {
+      clearTimeout(counterTimeout)
+      if (countdown.time > 0) {
+        counterTimeout = countdown.counter()
+      }
+      else {
+        const character = characters[selectList.length]
+        handleClick(character, '', selectList, characters)
+      }
+    }
+  }, [status, countdown, characters, selectList, handleClick])
 
 
   // 未开始游戏
@@ -78,6 +140,7 @@ const Game: React.FC<any> = () => {
     )
   }
 
+  // 初始化游戏
   if (status === 'loading') {
     return (
       <View className='game'>
@@ -93,20 +156,40 @@ const Game: React.FC<any> = () => {
     <View className='game'>
       <StatusBar barStyle='light-content' backgroundColor='rgba(0,0,0,0)' translucent />
       <View className='game-countdown'>
-        <Text className='game-countdown-text'>{countdown}</Text>
+        <Text className='game-countdown-text'>{countdown.time}</Text>
       </View>
-      <Image src={character.image} className='game-img' mode='widthFix' />
+      <View className='game-img'>
+        {selectResult.selected &&
+          <View className='game-img-mask'>
+            <Text className={`game-img-mask-text game-img-mask-text_${selectResult.correct ? 'correct' : 'wrong'}`}>
+              {selectResult.correct ? 'Correct' : 'Wrong'}
+            </Text>
+          </View>}
+        <Image src={character.image} className={`game-img-value game-img-value_${selectResult.selected && 'grey'}`} mode='widthFix' />
+      </View>
       <View className='game-name'>
-        <Text className='game-name-text'>{character.name}</Text>
+        <Text className='game-name-text'>{character.name} this is the new shit mother fucker</Text>
       </View>
       <View className='game-location'>
         <Text className='game-location-text'>{character.location.name}</Text>
       </View>
       <View className='game-btns'>
-        <Button className='game-btns-btn game-btns-btn_dead' onClick={handleClick} hoverClass='game-btns-btn_active' hoverStyle='game-btns-btn_active'>
-          {/* <Text className='game-btns-btn-text'>Dead</Text> */}
+        <Button
+          className='game-btns-btn game-btns-btn_dead'
+          disabled={selectResult.selected}
+          onClick={() => handleClick(character, 'Dead', selectList, characters)}
+          hoverClass='game-btns-btn_active'
+          hoverStyle={{ opacity: 0.5 }}
+        >
+          <Text className='game-btns-btn-text'>Dead</Text>
         </Button>
-        <Button className='game-btns-btn game-btns-btn_alive'>
+        <Button
+          className='game-btns-btn game-btns-btn_alive'
+          disabled={selectResult.selected}
+          onClick={() => handleClick(character, 'Alive', selectList, characters)}
+          hoverClass='game-btns-btn_active'
+          hoverStyle={{ opacity: 0.5 }}
+        >
           <Text className='game-btns-btn-text'>Alive</Text>
         </Button>
       </View>
