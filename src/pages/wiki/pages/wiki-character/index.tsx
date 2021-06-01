@@ -4,11 +4,11 @@ import { useSelector, useDispatch } from 'react-redux'
 import { View, Text, Image, Button } from '@tarojs/components'
 
 import { StatusBar } from "@components";
-import { WikiCharacterType, WikiEpisodeType } from '@constants/type'
+import { WikiCharacterType, WikiEpisodeType } from '@constants/types'
 import { defaultCharacter, defaultEpisode } from '@constants/wiki'
 import { RootState } from '@reducers'
 import { getCharacter, getEpisode } from '@service'
-import { updateWikiCharacter } from '@actions/wiki'
+import { updateWikiCharacter } from '@actions'
 
 import './index.less'
 

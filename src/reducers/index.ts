@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 import wikiCharacter from './wiki/character'
+import game from './game'
 
 const rootReducer = combineReducers({
-  wikiCharacter
+  wikiCharacter,
+  game,
 })
 
 export default rootReducer

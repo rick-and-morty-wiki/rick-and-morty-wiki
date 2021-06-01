@@ -5,10 +5,10 @@ import { View, Text, Image } from '@tarojs/components'
 
 import { StatusBar, CustomScrollView } from "@components";
 import { getCharacter } from '@service'
-import { WikiCharacterType } from '@constants/type'
+import { WikiCharacterType } from '@constants/types'
 import { wikiBackground, defaultCharacterImage } from '@assets/image'
 import { defaultRandomCharacters } from '@constants/wiki'
-import { updateWikiCharacter } from '@actions/wiki'
+import { updateWikiCharacter } from '@actions'
 import { isArray } from '@utils'
 
 import { headerBtnsType } from './type'
@@ -48,7 +48,6 @@ const Wiki: React.FC<any> = () => {
   const dispatch = useDispatch()
   const [randomCharacters, setRandomCharacters] = useState<WikiCharacterType[]>(defaultRandomCharacters)
   const [statusBarHeight, setStatusBarHeight] = useState<number>(0)
-
 
   // 给微信小程序导航栏那里垫一下
   useDidShow(() => {

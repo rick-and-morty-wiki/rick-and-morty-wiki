@@ -1,4 +1,5 @@
 
+// 单个角色
 export type WikiCharacterType = {
   id: number,
   name: string,
@@ -20,6 +21,7 @@ export type WikiCharacterType = {
   created?: string,
 }
 
+// 单个剧集
 export type WikiEpisodeType = {
   id: number,
   name: string,

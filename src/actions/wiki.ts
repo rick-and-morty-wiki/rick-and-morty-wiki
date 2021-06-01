@@ -1,6 +1,6 @@
 import { UPDATE_WIKI_CHARACTER } from '@constants/wiki'
 import { getCharacter } from '@service'
-import { WikiCharacterType } from '@constants/type'
+import { WikiCharacterType } from '@constants/types'
 
 export const updateWikiCharacter = (character: WikiCharacterType) => async (dispatch) => {
   dispatch({

@@ -1,0 +1,117 @@
+@import "@style/theme.less";
+
+.gameResult {
+  width: 100%;
+  min-height: 100%;
+  background-color: @theme-background;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // padding: 12px;
+    padding-top: 128px;
+
+    &-title {
+      font-size: 64px;
+      color: @color-white-grey;
+      font-family: "";
+    }
+
+    &-score {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin: 12px;
+    }
+
+    &-text {
+      font-size: 38px;
+      color: @color-white-light;
+
+      &_correct {
+        font-size: 40px;
+        color: @color-success;
+      }
+
+      &_wrong {
+        font-size: 40px;
+        color: @color-error;
+      }
+    }
+
+    &-comment {
+      font-size: 32px;
+      color: @color-light;
+      font-family: '';
+    }
+
+    &-btn {
+      margin-top: 52px;
+      border-radius: 50px;
+      background-color: @color-white-grey;
+      
+      &-text {
+        font-size: 32px;
+        color: @color-semi;
+      }
+    }
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 12px;
+
+    &-box {
+      position: relative;
+    }
+
+    &-img {
+      width: 360px;
+      margin-bottom: 8px;
+    }
+
+    &-mask {
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // background-color: rgba(255, 255, 255, 0.5);
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    &-text {
+      font-size: 48px;
+      font-weight: bold;
+      font-family: '';
+
+      &_correct {
+        color: @color-success;
+      }
+
+      &_wrong {
+        color: @color-error;
+      }
+    }
+  }
+
+  &-btn {
+    width: 132px;
+    height: 132px;
+    border-radius: 160px;
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: @color-grey;
+  }
+}

@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import Taro from '@tarojs/taro'
+import Taro, { getCurrentInstance } from '@tarojs/taro'
+import { useDispatch } from 'react-redux'
 import { View, Button, Text, Image } from '@tarojs/components'
 
 import { StatusBar, Loading } from "@components";
 import { getCharacter } from '@service'
-import { WikiCharacterType } from '@constants/type'
+import { WikiCharacterType } from '@constants/types'
+import { updateGameSelectList } from '@actions'
 
 import './index.less'
 
@@ -30,6 +32,7 @@ type countdown = {
 let counterTimeout: any
 
 const Game: React.FC<any> = () => {
+  const dispatch = useDispatch()
   // 三个状态：blank || loading || gaming
   const [status, setStatus] = useState<string>('blank')
   const [characters, setCharacters] = useState<WikiCharacterType[]>([])
@@ -39,6 +42,10 @@ const Game: React.FC<any> = () => {
     time: 8,
     counter: () => setTimeout(() => setCountdown(preState => ({ ...preState, time: preState.time - 1 })), 1000),
   })
+
+  const { router: { params } } = getCurrentInstance()
+  console.log(params);
+  
 
   useEffect(() => {
     // 游戏开始执行的初始化逻辑
@@ -82,30 +89,32 @@ const Game: React.FC<any> = () => {
       correct,
     })
     setTimeout(() => {
+      // 重载计时器
+      clearTimeout(counterTimeout)
+      setCountdown(preState => ({ ...preState, time: 8 }))
+      const newSelectList = [...selectList_, {
+        character,
+        correct,
+      }]
       if (selectList_.length !== characters_.length - 1) {
         // 不是最后一个，更新本页面数据
-        // 重载计时器
-        clearTimeout(counterTimeout)
-        setCountdown(preState => ({ ...preState, time: 8 }))
         setTimeout(() => {
           setSelectResult(defaultSelectResult)
-          setSelectList(preState => [...preState, {
-            character,
-            correct,
-          }])
+          setSelectList(newSelectList)
         })
       } else {
         // 是最后一个，跳转到结果页，并清空当前页面的数据
+        dispatch(updateGameSelectList(newSelectList))
+        Taro.navigateTo({
+          url: '/pages/game/pages/game-result/index',
+        })
         setStatus('blank')
         setCharacters([])
         setSelectList([])
         setSelectResult(defaultSelectResult)
-        // 重载计时器
-        clearTimeout(counterTimeout)
-        setCountdown(preState => ({ ...preState, time: 8 }))
       }
     }, 500);
-  }, [])
+  }, [dispatch])
 
   // 倒计时实现
   useEffect(() => {
@@ -168,7 +177,7 @@ const Game: React.FC<any> = () => {
         <Image src={character.image} className={`game-img-value game-img-value_${selectResult.selected && 'grey'}`} mode='widthFix' />
       </View>
       <View className='game-name'>
-        <Text className='game-name-text'>{character.name} this is the new shit mother fucker</Text>
+        <Text className='game-name-text'>{character.name}</Text>
       </View>
       <View className='game-location'>
         <Text className='game-location-text'>{character.location.name}</Text>
