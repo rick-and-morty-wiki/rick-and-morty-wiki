@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import Taro, { getCurrentInstance } from '@tarojs/taro'
-import { useDispatch } from 'react-redux'
+import Taro from '@tarojs/taro'
+import { useDispatch, useSelector } from 'react-redux'
 import { View, Button, Text, Image } from '@tarojs/components'
 
 import { StatusBar, Loading } from "@components";
 import { getCharacter } from '@service'
-import { WikiCharacterType } from '@constants/types'
-import { updateGameSelectList } from '@actions'
+import { WikiCharacterType, RootState } from '@constants/types'
+import { updateGameSelectList, updateGameStatus } from '@actions'
 
 import './index.less'
 
@@ -33,8 +33,7 @@ let counterTimeout: any
 
 const Game: React.FC<any> = () => {
   const dispatch = useDispatch()
-  // 三个状态：blank || loading || gaming
-  const [status, setStatus] = useState<string>('blank')
+  const gameStatus: string = useSelector((state: RootState) => state.game.gameStatus)
   const [characters, setCharacters] = useState<WikiCharacterType[]>([])
   const [selectList, setSelectList] = useState<selectData[]>([])
   const [selectResult, setSelectResult] = useState<selectResult>(defaultSelectResult)
@@ -42,10 +41,6 @@ const Game: React.FC<any> = () => {
     time: 8,
     counter: () => setTimeout(() => setCountdown(preState => ({ ...preState, time: preState.time - 1 })), 1000),
   })
-
-  const { router: { params } } = getCurrentInstance()
-  console.log(params);
-  
 
   useEffect(() => {
     // 游戏开始执行的初始化逻辑
@@ -72,14 +67,14 @@ const Game: React.FC<any> = () => {
         }
       }
       setCharacters(chas)
-      setStatus('gaming')
+      dispatch(updateGameStatus('gaming'))
     }
 
-    if (status === 'loading') {
+    if (gameStatus === 'loading') {
       getTenRandomCharacters()
     }
 
-  }, [status])
+  }, [dispatch, gameStatus])
 
   // 点击Dead或Alive按钮后的逻辑
   const handleClick = useCallback((character: WikiCharacterType, choice: string, selectList_: selectData[], characters_: WikiCharacterType[]) => {
@@ -108,7 +103,7 @@ const Game: React.FC<any> = () => {
         Taro.navigateTo({
           url: '/pages/game/pages/game-result/index',
         })
-        setStatus('blank')
+        dispatch(updateGameStatus('blank'))
         setCharacters([])
         setSelectList([])
         setSelectResult(defaultSelectResult)
@@ -118,7 +113,7 @@ const Game: React.FC<any> = () => {
 
   // 倒计时实现
   useEffect(() => {
-    if (status === 'gaming') {
+    if (gameStatus === 'gaming') {
       clearTimeout(counterTimeout)
       if (countdown.time > 0) {
         counterTimeout = countdown.counter()
@@ -128,11 +123,11 @@ const Game: React.FC<any> = () => {
         handleClick(character, '', selectList, characters)
       }
     }
-  }, [status, countdown, characters, selectList, handleClick])
+  }, [gameStatus, countdown, characters, selectList, handleClick])
 
 
   // 未开始游戏
-  if (status === 'blank') {
+  if (gameStatus === 'blank') {
     return (
       <View className='game'>
         <StatusBar barStyle='light-content' backgroundColor='rgba(0,0,0,0)' translucent />
@@ -144,13 +139,13 @@ const Game: React.FC<any> = () => {
         <View className='game-pre-comment'>
           <Text className='game-pre-comment-text'>判断每一个出场的角色是Dead还是Alive！</Text>
         </View>
-        <Button className='game-pre-btn' onClick={() => setStatus('loading')}>开始</Button>
+        <Button className='game-pre-btn' onClick={() => dispatch(updateGameStatus('loading'))}>开始</Button>
       </View>
     )
   }
 
   // 初始化游戏
-  if (status === 'loading') {
+  if (gameStatus === 'loading') {
     return (
       <View className='game'>
         <StatusBar barStyle='light-content' backgroundColor='rgba(0,0,0,0)' translucent />

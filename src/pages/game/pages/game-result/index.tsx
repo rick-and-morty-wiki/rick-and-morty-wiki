@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect } from 'react'
 import Taro, { useDidShow } from '@tarojs/taro'
 import { useDispatch, useSelector } from 'react-redux'
 import { View, Button, Text, Image } from '@tarojs/components'
 
 import { StatusBar } from "@components";
-import { updateWikiCharacter } from '@actions'
-import { GameSelectList } from '@constants/types'
-import { RootState } from '@reducers'
+import { updateWikiCharacter, updateGameStatus } from '@actions'
+import { GameSelectList, RootState } from '@constants/types'
 
 import './index.less'
 
@@ -64,6 +63,7 @@ const Game: React.FC<any> = () => {
   }
 
   const handleClickBack = () => {
+    dispatch(updateGameStatus('loading'))
     Taro.navigateBack()
   }
 
