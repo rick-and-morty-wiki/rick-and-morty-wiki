@@ -4,9 +4,11 @@ import {
 } from "@constants/game";
 import { GameSelectList } from "@constants/types";
 
+type GameStatus = 'blank' | 'loading' | 'gaming'
+
 type StateType = {
   selectList: GameSelectList,
-  gameStatus: string,
+  gameStatus: GameStatus,
 };
 
 const INITIAL_STATE: StateType = {

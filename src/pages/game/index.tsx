@@ -114,7 +114,6 @@ const Game: React.FC<any> = () => {
   // 倒计时实现
   useEffect(() => {
     if (gameStatus === 'gaming') {
-      clearTimeout(counterTimeout)
       if (countdown.time > 0) {
         counterTimeout = countdown.counter()
       }
@@ -122,6 +121,10 @@ const Game: React.FC<any> = () => {
         const character = characters[selectList.length]
         handleClick(character, '', selectList, characters)
       }
+    }
+    // 清除
+    return () => {
+      clearTimeout(counterTimeout)
     }
   }, [gameStatus, countdown, characters, selectList, handleClick])
 
@@ -136,10 +139,9 @@ const Game: React.FC<any> = () => {
           <Text className='game-pre-title-text'>or</Text>
           <Text className='game-pre-title-text game-pre-title-text_green'>Alive</Text>
         </View>
-        <View className='game-pre-comment'>
-          <Text className='game-pre-comment-text'>判断每一个出场的角色是Dead还是Alive！</Text>
-        </View>
-        <Button className='game-pre-btn' onClick={() => dispatch(updateGameStatus('loading'))}>开始</Button>
+        <Button className='game-pre-btn' onClick={() => dispatch(updateGameStatus('loading'))}>
+          <Text className='game-pre-btn-text'>开始</Text>
+        </Button>
       </View>
     )
   }

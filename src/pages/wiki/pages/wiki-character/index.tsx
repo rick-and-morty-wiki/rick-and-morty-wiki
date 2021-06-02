@@ -3,7 +3,7 @@ import Taro, { useDidShow } from '@tarojs/taro'
 import { useSelector, useDispatch } from 'react-redux'
 import { View, Text, Image, Button } from '@tarojs/components'
 
-import { StatusBar } from "@components";
+import { StatusBar, Back } from "@components";
 import { WikiCharacterType, WikiEpisodeType, RootState } from '@constants/types'
 import { defaultCharacter, defaultEpisode } from '@constants/wiki'
 import { getCharacter, getEpisode } from '@service'
@@ -74,7 +74,7 @@ const Wiki: React.FC<any> = () => {
 
       <View style={{ height: statusBarHeight + 4 }}></View>
       <View className='wiki-c-header'>
-        <Button className='wiki-c-back' onClick={handleBack}></Button>
+        <Back />
         <Image src={character.image} className='wiki-c-header-background' mode='widthFix' />
       </View>
       <View className='wiki-c-content'>
