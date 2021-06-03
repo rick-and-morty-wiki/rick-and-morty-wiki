@@ -4,4 +4,5 @@
  export { default as CustomScrollView } from "./CustomScrollView";
  export { default as Loading } from "./Loading";
  export { default as Back } from "./Back";
+ export { default as CharacterCard } from "./CharacterCard";
  

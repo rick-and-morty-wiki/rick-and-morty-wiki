@@ -1,0 +1,108 @@
+@import "@style/theme.less";
+
+// 加载状态组件的呼吸周期
+@wTiming: 1s;
+
+.character {
+  background-color: @theme-grey;
+  border-radius: 20px;
+  margin-bottom: 56px;
+  overflow: hidden;
+
+  &-img {
+    width: 100%;
+  }
+
+  &-content {
+    padding: 26px;
+    padding-top: 20px;
+    padding-bottom: 34px;
+  }
+
+  &-name {
+    font-size: 42px;
+    font-weight: bold;
+    color: @color-white-grey;
+    font-family: "";
+  }
+
+  &-status {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 4px;
+
+    &-point {
+      width: 16px;
+      height: 16px;
+      border-radius: 50px;
+      margin-right: 12px;
+    }
+
+    &_Alive {
+      background-color: @color-success;
+    }
+    &_Dead {
+      background-color: @color-error;
+    }
+    &_unknown {
+      background-color: @color-light;
+    }
+
+    &-text {
+      font-size: 31px;
+      color: @color-white-light;
+      font-family: "";
+    }
+  }
+
+  &-title {
+    margin-top: 28px;
+    margin-bottom: 4px;
+
+    &-text {
+      font-size: 31px;
+      color: @color-light;
+      font-family: "";
+    }
+  }
+
+  &-text {
+    font-size: 34px;
+    color: @color-white-grey;
+    font-family: "";
+  }
+
+  &-loading {
+    // rn不支持animation，需要剔除
+
+    &-name {
+      height: 50px;
+      width: 200px;
+      background-color: @color-grey;
+      margin-top: 12px;
+    }
+
+    &-status {
+      height: 34px;
+      width: 150px;
+      margin-top: 12px;
+      background-color: @color-grey;
+    }
+
+    &-title {
+      height: 34px;
+      width: 240px;
+      margin-top: 28px;
+      background-color: @color-grey;
+    }
+
+    &-text {
+      height: 40px;
+      width: 280px;
+      margin-top: 12px;
+      background-color: @color-grey;
+      font-family: "";
+    }
+  }
+}

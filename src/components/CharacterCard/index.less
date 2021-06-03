@@ -1,0 +1,46 @@
+@import "./index.rn.less";
+
+@keyframes waiting {
+  0% {
+    opacity: 0.5;
+    background-color: @color-grey;
+  }
+
+  50% {
+    opacity: 1;
+    background-color: @color-grey;
+  }
+
+  100% {
+    opacity: 0.5;
+    background-color: @color-grey;
+  }
+}
+
+.character {
+  &-content {
+    padding-top: 16px;
+  }
+
+  &-loading {
+    &-img {
+      animation: waiting @wTiming linear infinite;
+    }
+
+    &-name {
+      animation: waiting @wTiming linear infinite;
+    }
+
+    &-status {
+      animation: waiting @wTiming linear infinite;
+    }
+
+    &-title {
+      animation: waiting @wTiming linear infinite;
+    }
+
+    &-text {
+      animation: waiting @wTiming linear infinite;
+    }
+  }
+}
