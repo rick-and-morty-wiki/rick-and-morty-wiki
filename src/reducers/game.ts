@@ -4,6 +4,7 @@ import {
 } from "@constants/game";
 import { GameSelectList } from "@constants/types";
 
+// 三个状态：blank（未开始游戏） | loading（游戏正在加载） | gaming（游戏中）
 type GameStatus = 'blank' | 'loading' | 'gaming'
 
 type StateType = {
@@ -13,8 +14,6 @@ type StateType = {
 
 const INITIAL_STATE: StateType = {
   selectList: [],
-
-  // 三个状态：blank（未开始游戏） || loading（游戏正在加载） || gaming（游戏中）
   gameStatus: 'blank',
 };
 

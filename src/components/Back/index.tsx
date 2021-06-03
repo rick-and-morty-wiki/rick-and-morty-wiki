@@ -1,17 +1,25 @@
-import React from 'react'
+import React, { memo } from 'react'
 import Taro from '@tarojs/taro'
-import { Button, ButtonProps } from '@tarojs/components'
+import { Button } from '@tarojs/components'
 import { StyleProp, ButtonStyle } from 'react-native'
 
 import './index.less'
 
 type BackProps = {
   onBack?: () => void,
-  style: StyleProp<ButtonStyle>,
-
+  left?: string | number,
+  top?: string | number,
+  style?: StyleProp<ButtonStyle>,
+  className?: string,
 }
 
-const Back: React.FC<BackProps> = ({ onBack }) => {
+const Back: React.FC<BackProps> = ({
+  onBack,
+  left = 0,
+  top = 0,
+  style = {},
+  className = '',
+}) => {
 
   const handleClick = () => {
     if (onBack) {
@@ -22,8 +30,12 @@ const Back: React.FC<BackProps> = ({ onBack }) => {
   }
 
   return (
-    <Button className='back-btn' onClick={handleClick}></Button>
+    <Button
+      className={`back-btn ${className}`}
+      onClick={handleClick}
+      style={{ left, top, ...style }}
+    ></Button>
   )
 }
 
-export default Back
+export default memo(Back)

@@ -74,9 +74,10 @@ const Wiki: React.FC<any> = () => {
 
       <View style={{ height: statusBarHeight + 4 }}></View>
       <View className='wiki-c-header'>
-        <Back />
+        <Back left='6%' top='3%' />
         <Image src={character.image} className='wiki-c-header-background' mode='widthFix' />
       </View>
+      
       <View className='wiki-c-content'>
         <View className='wiki-c-title'>
           <Text className='wiki-c-title-text'>{character.name}</Text>

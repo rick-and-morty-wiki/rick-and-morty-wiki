@@ -3,7 +3,7 @@ import Taro, { useDidShow } from '@tarojs/taro'
 import { useDispatch, useSelector } from 'react-redux'
 import { View, Button, Text, Image } from '@tarojs/components'
 
-import { StatusBar } from "@components";
+import { StatusBar, Back } from "@components";
 import { updateWikiCharacter, updateGameStatus } from '@actions'
 import { GameSelectList, RootState } from '@constants/types'
 
@@ -72,6 +72,7 @@ const Game: React.FC<any> = () => {
       <StatusBar barStyle='light-content' backgroundColor='rgba(0,0,0,0)' translucent />
 
       <View className='gameResult-header'>
+        <Back left={statusBarHeight / 2 + 2} top={statusBarHeight + 4} />
         <Text className='gameResult-header-title'>Game Over</Text>
         <View className='gameResult-header-score'>
           <Text className='gameResult-header-text'>正确：</Text>
@@ -85,7 +86,7 @@ const Game: React.FC<any> = () => {
         </Button>
       </View>
 
-      <View className='gameResult-content' style={{ paddingTop: statusBarHeight + 4 }}>
+      <View className='gameResult-content'>
         {
           selectList.map(({ character, correct }) => (
             <View key={character.id} className='gameResult-content-box'>
