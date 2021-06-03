@@ -61,8 +61,6 @@ const Wiki: React.FC<any> = () => {
       .then((data: WikiCharacterType[]) => setRandomCharacters(data))
   }, [])
 
-  
-
   const onRefresh = () => {
     return generateRandomCharacters(6)
       .then((data: WikiCharacterType[]) => {
