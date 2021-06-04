@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components';
+import React, { memo } from 'react';
+import { View, Image } from '@tarojs/components';
+import loadingGif from '@assets/animation/loading.gif'
 
 // 在rn端，使用lottie实现动画
 let LottieView: any;
@@ -13,7 +13,7 @@ const Loading = props => {
   if (process.env.TARO_ENV === "rn") {
     return (
       <LottieView
-        source={require('../../../assets/animation/PinJump.json')}
+        source={require('@assets/animation/loading.json')}
         autoPlay
         loop
       />
@@ -21,8 +21,10 @@ const Loading = props => {
   }
  
   return (
-    <View>加载中。。。</View>
+    <View>
+      <Image src={loadingGif} mode='widthFix' />
+    </View>
   );
 };
 
-export default Loading;
+export default memo(Loading);

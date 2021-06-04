@@ -33,11 +33,15 @@ const CustomScrollView: CustomScrollViewType = props => {
     }
   }, [showTab])
 
-  const handleScroll = (e: { nativeEvent: { contentOffset: { y: any; }; velocity: { y: any; }; }; }) => {
+  const handleScroll = (e) => {
     const {
       contentOffset: { y: toTop },  // 距离顶部距离
       velocity: { y: yVelo },  // y方向速度。+为向下滑
+      contentSize: { height: contentHeight },
+      layoutMeasurement: { height: screenHeight },
     } = e.nativeEvent
+    // 到底部的距离
+    const toBottom = contentHeight - screenHeight - toTop
 
     // 如果在向下滑且没有滑倒最下面，则隐藏tab
     if (showTab && yVelo > 0 && toTop > 200) {
@@ -45,6 +49,10 @@ const CustomScrollView: CustomScrollViewType = props => {
     }
     // 如果向上滑，立即显示tab
     if (!showTab && yVelo < 0) {
+      setShowTab(true)
+    }
+    // 如果触碰了底部，立即显示tab
+    if (toBottom < 50) {
       setShowTab(true)
     }
   }
