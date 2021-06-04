@@ -10,6 +10,7 @@
 	},
 	"scripts": {
 		"dev": "npm run build:weapp -- --watch",
+		"build": "taro build --type weapp",
 		"ios1": "npm run build:rn -- --watch",
 		"ios2": "curl -I http://localhost:8081/index.bundle?platform=ios&dev=true -o /dev/null",
 		"ios3": "cd taro-native-shell  &&  npm run ios",

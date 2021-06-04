@@ -16,11 +16,11 @@ type BackProps = {
 }
 
 const Back: React.FC<BackProps> = ({
-  onBack,
   left = 0,
   top = 0,
   style = {},
   className = '',
+  onBack,
 }) => {
 
   const handleClick = () => {

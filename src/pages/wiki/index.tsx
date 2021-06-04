@@ -15,15 +15,15 @@ import './index.less'
 
 const headerBtns: headerBtnsType[] = [
   {
-    value: '角色列表',
+    value: '角色',
     onClick: () => null,
   },
   {
-    value: '地点列表',
+    value: '地点',
     onClick: () => null,
   },
   {
-    value: '剧集列表',
+    value: '剧集',
     onClick: () => null,
   },
 ]

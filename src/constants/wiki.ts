@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { WikiCharacterType, WikiEpisodeType } from './type';
+import { WikiCharacterType, WikiEpisodeType } from './types';
 
 // 更新角色数据
 export const UPDATE_WIKI_CHARACTER = 'UPDATE_WIKI_CHARACTER';

@@ -5,42 +5,28 @@ import { View, Button, Text, Image } from '@tarojs/components'
 
 import { StatusBar, Loading } from "@components";
 import { getCharacter } from '@service'
-import { WikiCharacterType, RootState } from '@constants/types'
 import { updateGameSelectList, updateGameStatus } from '@actions'
+import { WikiCharacterType, RootState } from '@constants/types'
+import { SelectList, SelectResult, Countdown } from './type'
 
 import './index.less'
 
 
-// choice: Dead || Alive
-type selectData = {
-  character: WikiCharacterType,
-  correct: boolean,
-}
-
-// 用来显示当前页面的选择结果（UI上）
-type selectResult = {
-  selected: boolean,
-  correct: boolean,
-}
 const defaultSelectResult = {
   selected: false,
   correct: false,
 }
 
-// 倒计时
-type countdown = {
-  time: number,
-  counter: Function,
-}
+// 计时器本器
 let counterTimeout: any
 
 const Game: React.FC<any> = () => {
   const dispatch = useDispatch()
   const gameStatus: string = useSelector((state: RootState) => state.game.gameStatus)
   const [characters, setCharacters] = useState<WikiCharacterType[]>([])
-  const [selectList, setSelectList] = useState<selectData[]>([])
-  const [selectResult, setSelectResult] = useState<selectResult>(defaultSelectResult)
-  const [countdown, setCountdown] = useState<countdown>({
+  const [selectList, setSelectList] = useState<SelectList>([])
+  const [selectResult, setSelectResult] = useState<SelectResult>(defaultSelectResult)
+  const [countdown, setCountdown] = useState<Countdown>({
     time: 8,
     counter: () => setTimeout(() => setCountdown(preState => ({ ...preState, time: preState.time - 1 })), 1000),
   })
@@ -80,7 +66,7 @@ const Game: React.FC<any> = () => {
   }, [dispatch, gameStatus])
 
   // 点击Dead或Alive按钮后的逻辑
-  const handleClick = useCallback((character: WikiCharacterType, choice: string, selectList_: selectData[], characters_: WikiCharacterType[]) => {
+  const handleClick = useCallback((character: WikiCharacterType, choice: string, selectList_: SelectList, characters_: WikiCharacterType[]) => {
     const correct = character.status === choice
     setSelectResult({
       selected: true,
