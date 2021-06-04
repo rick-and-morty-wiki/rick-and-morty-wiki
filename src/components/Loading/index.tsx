@@ -22,7 +22,7 @@ const Loading = props => {
  
   return (
     <View>
-      <Image src={loadingGif} mode='widthFix' />
+      <Image src={loadingGif} mode='aspectFit' />
     </View>
   );
 };

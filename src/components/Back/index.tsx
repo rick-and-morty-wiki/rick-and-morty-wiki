@@ -2,8 +2,10 @@ import React, { memo } from 'react'
 import Taro from '@tarojs/taro'
 import { Button } from '@tarojs/components'
 import { StyleProp, ButtonStyle } from 'react-native'
+import { Iconfont } from '@components'
 
 import './index.less'
+
 
 type BackProps = {
   onBack?: () => void,
@@ -30,12 +32,19 @@ const Back: React.FC<BackProps> = ({
     }
   }
 
+  // console.log(IconArrowLift);
+  
+
   return (
     <Button
       className={`back-btn ${className}`}
       onClick={handleClick}
       style={{ left, top, ...style }}
-    ></Button>
+      hoverClass='back-btn_active'
+      hoverStyle={{ opicity: 0.5 }}
+    >
+      <Iconfont name='arrow-lift' size={60} />
+    </Button>
   )
 }
 

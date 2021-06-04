@@ -1,3 +1,5 @@
+import { useGlobalIconFont } from './components/Iconfont/helper';
+
 export default {
   pages: [
     
@@ -56,4 +58,5 @@ export default {
       }
     ]
   },
+  usingComponents: Object.assign(useGlobalIconFont()),
 };
