@@ -32,8 +32,6 @@ const Back: React.FC<BackProps> = ({
     }
   }
 
-  // console.log(IconArrowLift);
-  
 
   return (
     <Button

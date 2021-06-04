@@ -17,7 +17,7 @@
 
 - [ ] 基础角色/地点/剧集图鉴
 - [ ] 其他图鉴（音乐等）
-- [ ] Alive or Dead Game
+- [x] Alive or Dead Game
 - [ ] UGC社区
 - [ ] 真正的Wiki
 
