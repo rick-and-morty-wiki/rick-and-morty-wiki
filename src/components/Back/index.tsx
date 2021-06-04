@@ -15,7 +15,6 @@ type BackProps = {
   className?: string,
 }
 
-
 const Back: React.FC<BackProps> = ({
   onBack,
   left = 0,
@@ -32,7 +31,6 @@ const Back: React.FC<BackProps> = ({
     }
   }
 
-
   return (
     <Button
       className={`back-btn ${className}`}
@@ -41,7 +39,7 @@ const Back: React.FC<BackProps> = ({
       hoverClass='back-btn_active'
       hoverStyle={{ opacity: 0.5 }}
     >
-      <Iconfont name='arrow-lift' size={60} />
+      <Iconfont name='arrow-lift' size={64} />
     </Button>
   )
 }

@@ -10,12 +10,14 @@ import { updateGameSelectList, updateGameStatus } from '@actions'
 
 import './index.less'
 
+
 // choice: Dead || Alive
 type selectData = {
   character: WikiCharacterType,
   correct: boolean,
 }
 
+// 用来显示当前页面的选择结果（UI上）
 type selectResult = {
   selected: boolean,
   correct: boolean,
@@ -25,6 +27,7 @@ const defaultSelectResult = {
   correct: false,
 }
 
+// 倒计时
 type countdown = {
   time: number,
   counter: Function,
@@ -146,7 +149,7 @@ const Game: React.FC<any> = () => {
     )
   }
 
-  // 初始化游戏
+  // 初始化游戏中
   if (gameStatus === 'loading') {
     return (
       <View className='game'>
@@ -156,6 +159,7 @@ const Game: React.FC<any> = () => {
     )
   }
 
+  // 游戏进行中
   const character = characters[selectList.length]
 
   return (

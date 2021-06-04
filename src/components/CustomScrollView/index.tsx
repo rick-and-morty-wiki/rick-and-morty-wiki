@@ -5,6 +5,7 @@ import { View } from '@tarojs/components';
 import { CustomScrollViewType } from './type'
 import './index.less'
 
+
 let ScrollView: any;
 let RefreshControl: any;
 if (process.env.TARO_ENV === "rn") {
@@ -16,6 +17,7 @@ if (process.env.TARO_ENV === "rn") {
 } else {
   ScrollView = require("@tarojs/components").ScrollView;
 }
+
 
 const CustomScrollView: CustomScrollViewType = props => {
   const { className = '', style = {}, onRefresh } = props;
@@ -33,6 +35,7 @@ const CustomScrollView: CustomScrollViewType = props => {
     }
   }, [showTab])
 
+  // RN端专属：屏幕滚动触发tab隐藏或显示
   const handleScroll = (e) => {
     const {
       contentOffset: { y: toTop },  // 距离顶部距离

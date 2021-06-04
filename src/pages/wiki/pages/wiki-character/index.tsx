@@ -3,10 +3,10 @@ import Taro, { useDidShow } from '@tarojs/taro'
 import { useSelector, useDispatch } from 'react-redux'
 import { View, Text, Image, Button } from '@tarojs/components'
 
-import { StatusBar, Back } from "@components";
+import { StatusBar, Back, Loading } from "@components";
 import { WikiCharacterType, WikiEpisodeType, RootState } from '@constants/types'
 import { defaultCharacter, defaultEpisode } from '@constants/wiki'
-import { getCharacter, getEpisode } from '@service'
+import { getEpisode } from '@service'
 import { updateWikiCharacter } from '@actions'
 
 import './index.less'
@@ -29,10 +29,8 @@ const Wiki: React.FC<any> = () => {
 
   // 如果character.name为空，则请求角色数据
   useEffect(() => {
-    if (!character.name) {
+    if (!character.name && character.id !== 0) {
       dispatch(updateWikiCharacter(defaultCharacter))
-      getCharacter(character.id)
-        .then(data => dispatch(updateWikiCharacter(data)))
     }
   }, [character, dispatch])
 
@@ -56,14 +54,19 @@ const Wiki: React.FC<any> = () => {
         }
       }
     }
-    updateEpisodes()
+    if (character.name) {
+      updateEpisodes()
+    }
   }, [character, episodes])
 
-  const handleBack = () => Taro.navigateBack()
 
   // 请求未完成，渲染骨架屏
   if (!character.name) {
-    return <Text>2222</Text>
+    return (
+      <View className='wiki-c'>
+        <Loading />
+      </View>
+    )
   }
 
   return (
@@ -77,7 +80,7 @@ const Wiki: React.FC<any> = () => {
         <Back left='6%' top='3%' />
         <Image src={character.image} className='wiki-c-header-background' mode='widthFix' />
       </View>
-      
+
       <View className='wiki-c-content'>
         <View className='wiki-c-title'>
           <Text className='wiki-c-title-text'>{character.name}</Text>

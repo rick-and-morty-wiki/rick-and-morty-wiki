@@ -12,6 +12,7 @@ import { isArray } from '@utils'
 import { headerBtnsType } from './type'
 import './index.less'
 
+
 const headerBtns: headerBtnsType[] = [
   {
     value: '角色列表',
@@ -26,7 +27,6 @@ const headerBtns: headerBtnsType[] = [
     onClick: () => null,
   },
 ]
-
 
 // 随机获取角色信息列表
 const generateRandomCharacters = (number: number) => {

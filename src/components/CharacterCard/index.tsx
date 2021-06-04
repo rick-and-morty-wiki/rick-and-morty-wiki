@@ -9,10 +9,10 @@ import { defaultCharacterImage } from '@assets/image'
 
 import './index.less'
 
+
 type CharacterCard = {
   character: WikiCharacterType
 }
-
 
 const CharacterCard: React.FC<CharacterCard> = ({
   character
@@ -26,6 +26,7 @@ const CharacterCard: React.FC<CharacterCard> = ({
     })
   }
 
+  // 骨架屏
   if (!character.name) {
     return (
       <View key={character.id} className='character'>
