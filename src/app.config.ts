@@ -2,6 +2,7 @@ import { useGlobalIconFont } from './components/Iconfont/helper';
 
 export default {
   pages: [
+    "pages/wiki/pages/all-character/index",
     
     "pages/wiki/index",
     "pages/game/index",

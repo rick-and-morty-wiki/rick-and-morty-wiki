@@ -10,11 +10,11 @@ import { defaultCharacterImage } from '@assets/image'
 import './index.less'
 
 
-type CharacterCard = {
+interface CharacterCardProps {
   character: WikiCharacterType
 }
 
-const CharacterCard: React.FC<CharacterCard> = ({
+const CharacterCard: React.FC<CharacterCardProps> = ({
   character
 }) => {
   const dispatch = useDispatch()

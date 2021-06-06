@@ -1,0 +1,43 @@
+@import "@style/theme.less";
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 64px;
+
+  &-btn {
+    height: 100px;
+    width: 100px;
+    border-radius: 20px;
+    background-color: @theme-grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &-input {
+      color: #ffffff;
+      font-size: 32px;
+      background-color: @theme-grey;
+      height: 80px;
+      padding: 0 16px;
+      width: 100px;
+      border-radius: 20px;
+    }
+
+    &-count {
+      margin-left: 16px;
+      color: #ffffff;
+      font-size: 32px;
+      font-family: '';
+    }
+  }
+}

@@ -1,68 +1,21 @@
 /*
  * @Author: p697
  * @Date: 2021-05-21 09:58:50
- * @LastEditTime: 2021-06-06 17:20:45
+ * @LastEditTime: 2021-06-06 18:38:25
  * @Description: 这里书写所有平台的通用样式，且必须符合RN的要求
  */
 @import "@style/theme.less";
 
-.wiki {
+.all-character {
   height: 100%;
   min-height: 100%;
-  background-color: #ffffff;
+  background-color: @theme-background;
 
   &-header {
-    position: relative;
-    min-height: 420px;
-
-    &-top {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    &-background {
-      width: 100%;
-      z-index: -1;
-    }
+    
   }
 
   &-content {
-    padding: 64px;
-    padding-top: 56px;
-    background-color: @theme-background;
-    min-height: 100%;
-
-    &-top {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      width: 100%;
-      margin-bottom: 56px;
-    }
-
-    &-btn {
-      background-color: @theme-grey;
-      color: #ffffff;
-      flex: 1;
-      margin-right: 32px;
-      height: 100px;
-      border-radius: 20px;
-
-      &-value {
-        color: #ffffff;
-        font-size: 36px;
-        font-weight: bold;
-      }
-
-      &_last {
-        margin-right: 0;
-      }
-    }
+    
   }
 }

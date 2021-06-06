@@ -1,6 +1,6 @@
 import { WikiCharacterType } from './wiki'
 
-export type GameSelectList = {
+export type GameSelectList = Array<{
   character: WikiCharacterType,
   correct: boolean,
-}[]
+}>

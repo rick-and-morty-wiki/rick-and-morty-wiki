@@ -1,6 +1,6 @@
 Component({
   properties: {
-    // arrow-lift
+    // arrow-right | arrow-lift
     name: {
       type: String,
     },

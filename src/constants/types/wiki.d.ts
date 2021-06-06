@@ -1,6 +1,6 @@
 
 // 单个角色
-export type WikiCharacterType = {
+export interface WikiCharacterType {
   id: number,
   name: string,
   status: string,
@@ -22,7 +22,7 @@ export type WikiCharacterType = {
 }
 
 // 单个剧集
-export type WikiEpisodeType = {
+export interface WikiEpisodeType {
   id: number,
   name: string,
   air_date: string,
@@ -30,4 +30,12 @@ export type WikiEpisodeType = {
   characters: string[],
   url: string,
   created?: string,
+}
+
+// 翻页器的state
+export interface PaginationType {
+  count: number,
+  pages: number,
+  next: string,
+  prev: string,
 }
