@@ -29,7 +29,7 @@ $ git clone ...
 $ cd rick-and-morty-wiki
 $ npm install
 ```
-如果你想要进行React Native端的研发，请额外完成以下操作：
+为了进行React Native端的研发，请额外完成以下操作：
 
 1. 进入Taro RN编译预览模式
 ```
