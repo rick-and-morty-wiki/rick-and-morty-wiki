@@ -63,66 +63,66 @@ const Wiki: React.FC<any> = () => {
   // 请求未完成，渲染骨架屏
   if (!character.name) {
     return (
-      <View className='wiki-c'>
+      <View className='character'>
         <Loading />
       </View>
     )
   }
 
   return (
-    <View className='wiki-c'>
-      <Image src={character.image} className='wiki-c-background' mode='aspectFill' />
-      <View className='wiki-c-background wiki-c-background-mask'></View>
+    <View className='character'>
+      <Image src={character.image} className='character-background' mode='aspectFill' />
+      <View className='character-background character-background-mask'></View>
       <StatusBar barStyle='light-content' backgroundColor='rgba(0,0,0,0)' translucent />
 
       <View style={{ height: statusBarHeight + 4 }}></View>
-      <View className='wiki-c-header'>
+      <View className='character-header'>
         <Back left='6%' top='3%' />
-        <Image src={character.image} className='wiki-c-header-background' mode='widthFix' />
+        <Image src={character.image} className='character-header-background' mode='widthFix' />
       </View>
 
-      <View className='wiki-c-content'>
-        <View className='wiki-c-title'>
-          <Text className='wiki-c-title-text'>{character.name}</Text>
+      <View className='character-content'>
+        <View className='character-title'>
+          <Text className='character-title-text'>{character.name}</Text>
         </View>
 
-        <View className='wiki-c-content-box'>
-          <View className='wiki-c-content-row'>
-            <Text className='wiki-c-content-row-text'>状态：{character.status}</Text>
+        <View className='character-content-box'>
+          <View className='character-content-row'>
+            <Text className='character-content-row-text'>状态：{character.status}</Text>
           </View>
-          <View className='wiki-c-content-row'>
-            <Text className='wiki-c-content-row-text'>物种：{character.species}</Text>
+          <View className='character-content-row'>
+            <Text className='character-content-row-text'>物种：{character.species}</Text>
           </View>
-          <View className='wiki-c-content-row'>
-            <Text className='wiki-c-content-row-text'>性别：{character.gender}</Text>
+          <View className='character-content-row'>
+            <Text className='character-content-row-text'>性别：{character.gender}</Text>
           </View>
           {
             character.type &&
-            <View className='wiki-c-content-row'>
-              <Text className='wiki-c-content-row-text'>分类：{character.type}</Text>
+            <View className='character-content-row'>
+              <Text className='character-content-row-text'>分类：{character.type}</Text>
             </View>
           }
         </View>
 
-        <View className='wiki-c-content-row wiki-c-content-row_two' style={{ marginTop: 16 }}>
-          <Text className='wiki-c-content-row-text'>首次出现地点：</Text>
-          <Text className='wiki-c-content-row-text_a'>{character.origin.name}</Text>
+        <View className='character-content-row character-content-row_two' style={{ marginTop: 16 }}>
+          <Text className='character-content-row-text'>首次出现地点：</Text>
+          <Text className='character-content-row-text_a'>{character.origin.name}</Text>
         </View>
 
-        <View className='wiki-c-content-row wiki-c-content-row_two'>
-          <Text className='wiki-c-content-row-text'>最后出现地点：</Text>
-          <Text className='wiki-c-content-row-text_a'>{character.location.name}</Text>
+        <View className='character-content-row character-content-row_two'>
+          <Text className='character-content-row-text'>最后出现地点：</Text>
+          <Text className='character-content-row-text_a'>{character.location.name}</Text>
         </View>
 
-        <View className='wiki-c-content-row wiki-c-content-row_two' style={{ marginTop: 16 }}>
-          <Text className='wiki-c-content-row-text'>出现剧集：</Text>
+        <View className='character-content-row character-content-row_two' style={{ marginTop: 16 }}>
+          <Text className='character-content-row-text'>出现剧集：</Text>
         </View>
 
       </View>
-      <View className='wiki-c-footer'>
+      <View className='character-footer'>
         {
           episodes.map(episode => (
-            <Button className='wiki-c-footer-btn' key={episode.episode}>{episode.episode + ' '}</Button>
+            <Button className='character-footer-btn' key={episode.episode}>{episode.episode + ' '}</Button>
           ))
         }
       </View>

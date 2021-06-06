@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Taro, { useDidShow } from '@tarojs/taro'
-import { View, Image } from '@tarojs/components'
+import { View, Image, Button, Text } from '@tarojs/components'
 
 import { StatusBar, CustomScrollView, CharacterCard } from "@components";
 import { getCharacter } from '@service'
@@ -16,10 +16,6 @@ import './index.less'
 const headerBtns: headerBtnsType[] = [
   {
     value: '角色',
-    onClick: () => null,
-  },
-  {
-    value: '地点',
     onClick: () => null,
   },
   {
@@ -78,6 +74,21 @@ const Wiki: React.FC<any> = () => {
       </View>
 
       <View className='wiki-content'>
+        <View className='wiki-content-top'>
+          {
+            headerBtns.map((btn, index) => (
+              <Button
+                key={btn.value}
+                className={`wiki-content-btn wiki-content-btn_${index === headerBtns.length - 1 && 'last'}`}
+                hoverClass='wiki-content-btn_active'
+                hoverStyle={{ opacity: 0.5 }}
+                onClick={btn.onClick}
+              >
+                <Text className='wiki-content-btn-value'>{btn.value}</Text>
+              </Button>
+            ))
+          }
+        </View>
         {
           randomCharacters.map(character => (
             <CharacterCard key={character.id} character={character} />

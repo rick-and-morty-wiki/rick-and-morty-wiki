@@ -22,41 +22,41 @@ const CharacterCard: React.FC<CharacterCard> = ({
   const handleClickCard = () => {
     dispatch(updateWikiCharacter(character))
     Taro.navigateTo({
-      url: '/pages/wiki/pages/wiki-character/index',
+      url: '/pages/wiki/pages/character/index',
     })
   }
 
   // 骨架屏
   if (!character.name) {
     return (
-      <View key={character.id} className='character'>
-        <Image className='character-img character-loading-img' src={defaultCharacterImage} mode='widthFix' />
-        <View className='character-content'>
-          <View className='character-loading-name'></View>
-          <View className='character-loading-status'></View>
-          <View className='character-loading-title'></View>
-          <View className='character-loading-text'></View>
+      <View key={character.id} className='c-card'>
+        <Image className='c-card-img character-loading-img' src={defaultCharacterImage} mode='widthFix' />
+        <View className='c-card-content'>
+          <View className='c-card-loading-name'></View>
+          <View className='c-card-loading-status'></View>
+          <View className='c-card-loading-title'></View>
+          <View className='c-card-loading-text'></View>
         </View>
       </View>
     )
   }
 
   return (
-    <View key={character.id} className='character' onClick={handleClickCard}>
-      <Image className='character-img' src={character.image} mode='widthFix' lazyLoad />
-      <View className='character-content'>
-        <Text className='character-name'>{character.name}</Text>
-        <View className='character-status'>
+    <View key={character.id} className='c-card' onClick={handleClickCard}>
+      <Image className='c-card-img' src={character.image} mode='widthFix' lazyLoad />
+      <View className='c-card-content'>
+        <Text className='c-card-name'>{character.name}</Text>
+        <View className='c-card-status'>
           <View className={`character-status-point character-status_${character.status}`}></View>
-          <Text className='character-status-text'>{character.status}</Text>
-          <Text className='character-status-text'>&nbsp;-&nbsp;</Text>
-          <Text className='character-status-text'>{character.species}</Text>
+          <Text className='c-card-status-text'>{character.status}</Text>
+          <Text className='c-card-status-text'>&nbsp;-&nbsp;</Text>
+          <Text className='c-card-status-text'>{character.species}</Text>
         </View>
 
-        <View className='character-title'>
-          <Text className='character-title-text'>location:</Text>
+        <View className='c-card-title'>
+          <Text className='c-card-title-text'>location:</Text>
         </View>
-        <Text className='character-text'>{character.location.name}</Text>
+        <Text className='c-card-text'>{character.location.name}</Text>
       </View>
     </View>
   )

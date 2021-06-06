@@ -9,7 +9,7 @@ export default {
 
     "pages/game/pages/game-result/index",
 
-    "pages/wiki/pages/wiki-character/index",
+    "pages/wiki/pages/character/index",
   ],
   window: {
     backgroundTextStyle: "light",

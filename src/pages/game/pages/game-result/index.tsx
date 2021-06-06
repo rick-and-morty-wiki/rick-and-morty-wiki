@@ -58,7 +58,7 @@ const Game: React.FC<any> = () => {
   const handleClickCharacter = (character) => {
     dispatch(updateWikiCharacter(character))
     Taro.navigateTo({
-      url: '/pages/wiki/pages/wiki-character/index',
+      url: '/pages/wiki/pages/character/index',
     })
   }
 
