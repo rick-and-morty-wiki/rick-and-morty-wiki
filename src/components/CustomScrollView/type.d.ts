@@ -2,8 +2,10 @@ import { ViewProps } from '@tarojs/components/types/view';
 import { FunctionComponent } from 'react';
 
 export interface CustomScrollViewProps {
-  style?: object;
-  onRefresh?: Function;
+  className?: string,
+  style?: object,
+  onRefresh?: Function,
+  autoHideTab?: boolean,
 }
 
 export type CustomScrollViewType = FunctionComponent<ViewProps & CustomScrollViewProps>

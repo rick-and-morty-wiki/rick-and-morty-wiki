@@ -20,23 +20,31 @@ if (process.env.TARO_ENV === "rn") {
 
 
 const CustomScrollView: CustomScrollViewType = props => {
-  const { className = '', style = {}, onRefresh } = props;
+  const {
+    className = '',
+    style = {},
+    onRefresh,
+    autoHideTab = false,
+  } = props;
   const [showTab, setShowTab] = useState<boolean>(true)
   const [refreshing, setRefreshing] = useState<boolean>(false);
 
   useEffect(() => {
     // 只有RN端做tabbar自动隐藏
-    if (process.env.TARO_ENV !== 'rn') { return }
+    if (process.env.TARO_ENV !== 'rn' || !autoHideTab) { return }
 
     if (showTab) {
       Taro.showTabBar({ animation: true })
     } else {
       Taro.hideTabBar({ animation: true })
     }
-  }, [showTab])
+  }, [autoHideTab, showTab])
 
   // RN端专属：屏幕滚动触发tab隐藏或显示
   const handleScroll = (e) => {
+    if (!autoHideTab) {
+      return
+    }
     const {
       contentOffset: { y: toTop },  // 距离顶部距离
       velocity: { y: yVelo },  // y方向速度。+为向下滑
@@ -66,7 +74,9 @@ const CustomScrollView: CustomScrollViewType = props => {
     if (onRefresh) {
       await onRefresh()
     }
-    setRefreshing(false)
+    setTimeout(() => {
+      setRefreshing(false)
+    });
   }, [onRefresh]);
 
   // 只有RN端做tabbar自动隐藏

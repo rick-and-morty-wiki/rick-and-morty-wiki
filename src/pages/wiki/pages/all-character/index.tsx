@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import { View, ScrollView } from '@tarojs/components'
 import { useThrottleEffect } from 'ahooks';
 
-import { StatusBar, CharacterCard, Pagination, Back } from "@components";
+import { StatusBar, CharacterCard, Pagination, Back, CustomScrollView } from "@components";
 import { getCharacter } from '@service'
 import { CharacterType, PaginationType } from '@constants/types'
 import { defaultRandomCharacters } from '@constants/wiki'
@@ -44,10 +44,11 @@ const Wiki: React.FC<any> = () => {
 
   return (
     <View className='all-character' >
-      {/* <ScrollView className='all-character-scroll' enableBackToTop scrollTop={scrollTop} scrollY> */}
+      <Back className='all-character-back' left={42} top={42} />
+      <CustomScrollView className='all-character-scroll' scrollY>
         <StatusBar barStyle='light-content' backgroundColor='rgba(0,0,0,0)' translucent />
         <View className='all-character-header'>
-          <Back left={42} top={42} />
+
         </View>
 
         <View className='all-character-content'>
@@ -62,7 +63,7 @@ const Wiki: React.FC<any> = () => {
           pagination={pagination}
           setPagination={setPagination}
         />
-      {/* </ScrollView> */}
+      </CustomScrollView>
     </View>
   )
 }

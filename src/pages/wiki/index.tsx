@@ -69,7 +69,7 @@ const Wiki: React.FC<any> = () => {
   }
 
   return (
-    <CustomScrollView className='wiki' onRefresh={onRefresh} >
+    <CustomScrollView className='wiki' autoHideTab onRefresh={onRefresh} >
       <StatusBar barStyle='dark-content' backgroundColor='rgba(0,0,0,0)' translucent />
       <View className='wiki-header' style={{ marginTop: statusBarHeight }}>
         <Image src={wikiBackground} className='wiki-header-background' mode='widthFix' />
