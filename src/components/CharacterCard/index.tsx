@@ -11,11 +11,13 @@ import './index.less'
 
 
 interface CharacterCardProps {
-  character: CharacterType
+  character: CharacterType,
+  showImage?: boolean,
 }
 
 const CharacterCard: React.FC<CharacterCardProps> = ({
-  character
+  character,
+  showImage = true,
 }) => {
   const dispatch = useDispatch()
 
@@ -43,7 +45,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
 
   return (
     <View key={character.id} className='c-card' onClick={handleClickCard}>
-      <Image className='c-card-img' src={character.image} mode='widthFix' lazyLoad />
+      <Image className='c-card-img' src={showImage ? character.image : defaultCharacterImage} mode='widthFix' lazyLoad />
       <View className='c-card-content'>
         <Text className='c-card-name'>{character.name}</Text>
         <View className='c-card-status'>

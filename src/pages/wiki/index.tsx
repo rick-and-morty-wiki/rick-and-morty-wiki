@@ -16,7 +16,9 @@ import './index.less'
 const headerBtns: headerBtnsType[] = [
   {
     value: '角色',
-    onClick: () => null,
+    onClick: () => Taro.navigateTo({
+      url: '/pages/wiki/pages/all-character/index',
+    }),
   },
   {
     value: '剧集',

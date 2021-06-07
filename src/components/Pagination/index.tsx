@@ -12,19 +12,19 @@ const Pagination: React.FC<PaginationProps> = ({
   pagination,
   setPagination,
 }) => {
-  const [inputPages, setInputPages] = useState<string | number>(pagination.pages)
+  const [inputCur, setInputCur] = useState<string | number>(pagination.cur)
 
   useEffect(() => {
-    setInputPages(pagination.pages)
+    setInputCur(pagination.cur)
   }, [pagination])
 
   // 按下回车
   const handleConfirmInputPages = () => {
-    const newInputPages = parseInt(inputPages as string)
-    if (newInputPages > 0 && newInputPages <= pagination.count) {
-      setPagination(preState => ({ ...preState, pages: newInputPages }))
+    const newInputCur = parseInt(inputCur as string)
+    if (newInputCur > 0 && newInputCur <= pagination.pages) {
+      setPagination(preState => ({ ...preState, cur: newInputCur }))
     } else {
-      setInputPages(pagination.pages)
+      setInputCur(pagination.cur)
       Taro.showToast({
         title: '请输入有效的页数',
         icon: 'none',
@@ -34,15 +34,15 @@ const Pagination: React.FC<PaginationProps> = ({
   }
 
   const handleClickPrev = () => {
-    setPagination(preState => ({ ...preState, pages: pagination.pages - 1 }))
+    setPagination(preState => ({ ...preState, cur: pagination.cur - 1 }))
   }
 
   const handleClickNext = () => {
-    setPagination(preState => ({ ...preState, pages: pagination.pages + 1 }))
+    setPagination(preState => ({ ...preState, cur: pagination.cur + 1 }))
   }
 
   // count为0或undefinded
-  if (!pagination.count) {
+  if (!pagination.pages) {
     return <View className='pagination_empty'></View>
   }
 
@@ -54,19 +54,19 @@ const Pagination: React.FC<PaginationProps> = ({
         hoverClass='pagination-btn_active'
         hoverStyle={{ opacity: 0.5 }}
         onClick={handleClickPrev}
-        disabled={pagination.pages <= 1}
+        disabled={pagination.cur <= 1}
       >
-        {pagination.pages > 1 && <Iconfont name='arrow-lift' color='#ffffff' size={60} />}
+        {pagination.cur > 1 && <Iconfont name='arrow-lift' color='#ffffff' size={60} />}
       </Button>
 
       <View className='pagination-center'>
         <Input
           className='pagination-center-input'
-          value={String(inputPages)}
-          onInput={e => setInputPages(e.detail.value)}
+          value={String(inputCur)}
+          onInput={e => setInputCur(e.detail.value)}
           onConfirm={handleConfirmInputPages}
         />
-        <Text className='pagination-center-count'>/ {pagination.count}</Text>
+        <Text className='pagination-center-count'>/ {pagination.pages}</Text>
       </View>
 
       <Button
@@ -74,9 +74,9 @@ const Pagination: React.FC<PaginationProps> = ({
         hoverClass='pagination-btn_active'
         hoverStyle={{ opacity: 0.5 }}
         onClick={handleClickNext}
-        disabled={pagination.pages >= pagination.count}
+        disabled={pagination.cur >= pagination.pages}
       >
-        {pagination.pages < pagination.count && <Iconfont name='arrow-right' color='#ffffff' size={60} />}
+        {pagination.cur < pagination.pages && <Iconfont name='arrow-right' color='#ffffff' size={60} />}
       </Button>
 
     </View>

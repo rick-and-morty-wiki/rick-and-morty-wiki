@@ -65,7 +65,7 @@ const getEndpoint = async (endpoint: string, opt: void | number | number[] | obj
 
 // 获取角色数据
 export const getCharacter: GetCharacterType = {
-  all: () => getEndpoint('character'),
+  all: (page) => getEndpoint('character', page),
   one: (id) => getEndpoint('character', id),
   list: (ids) => getEndpoint('character', ids),
   filt: (filter) => getEndpoint('character', filter)

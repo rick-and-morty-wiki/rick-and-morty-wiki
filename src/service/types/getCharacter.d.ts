@@ -16,7 +16,7 @@ export interface AllCharacterServiceType {
 }
 
 export interface GetCharacterType {
-  all: () => Promise<AllCharacterServiceType>,
+  all: (page: { page: number } | void) => Promise<AllCharacterServiceType>,
   one: (id: number) => Promise<CharacterType>,
   list: (ids: number[]) => Promise<CharacterType[]>,
   filt: (filter: CharacterFilterType) => Promise<CharacterType[]>
