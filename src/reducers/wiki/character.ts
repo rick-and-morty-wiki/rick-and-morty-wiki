@@ -2,10 +2,10 @@ import {
   UPDATE_WIKI_CHARACTER,
   defaultCharacter,
 } from "@constants/wiki";
-import { WikiCharacterType } from "@constants/types";
+import { CharacterType } from "@constants/types";
 
 type StateType = {
-  character: WikiCharacterType;
+  character: CharacterType;
 };
 
 const INITIAL_STATE: StateType = {

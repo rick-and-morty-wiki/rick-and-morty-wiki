@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { WikiCharacterType, WikiEpisodeType } from './types';
+import { CharacterType, EpisodeType } from './types';
 
 // 更新角色数据
 export const UPDATE_WIKI_CHARACTER = 'UPDATE_WIKI_CHARACTER';
@@ -17,7 +17,7 @@ export const UPDATE_WIKI_EPISODE = 'UPDATE_WIKI_EPISODE';
 export const UPDATE_WIKI_EPISODE_LIST = 'UPDATE_WIKI_EPISODE_LIST';
 
 // 空白角色数据
-export const defaultCharacter: WikiCharacterType = {
+export const defaultCharacter: CharacterType = {
   id: 0,
   name: '',
   status: '',
@@ -38,16 +38,16 @@ export const defaultCharacter: WikiCharacterType = {
 };
 
 // 获取首页数据时的渲染数据，用来绘制空白组件库
-export const defaultRandomCharacters: WikiCharacterType[] = '123456'
+export const defaultRandomCharacters: CharacterType[] = '123456'
   .split('')
   .map(id => {
-    const newCharacter: WikiCharacterType = _.cloneDeep(defaultCharacter);
+    const newCharacter: CharacterType = _.cloneDeep(defaultCharacter);
     newCharacter.id = parseInt(id) * 10000;
     return newCharacter;
   });
 
 // 空白单个剧集数据
-export const defaultEpisode: WikiEpisodeType = {
+export const defaultEpisode: EpisodeType = {
   id: 0,
   name: '',
   air_date: '',

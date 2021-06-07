@@ -4,7 +4,7 @@ import { View, Image, Button, Text } from '@tarojs/components'
 
 import { StatusBar, CustomScrollView, CharacterCard } from "@components";
 import { getCharacter } from '@service'
-import { WikiCharacterType } from '@constants/types'
+import { CharacterType } from '@constants/types'
 import { wikiBackground } from '@assets/image'
 import { defaultRandomCharacters } from '@constants/wiki'
 import { isArray } from '@utils'
@@ -34,12 +34,12 @@ const generateRandomCharacters = (number: number) => {
     } while (rids.indexOf(rid) !== -1)
     rids.push(rid)
   }
-  return getCharacter(rids)
+  return getCharacter.list(rids)
 }
 
 
 const Wiki: React.FC<any> = () => {
-  const [randomCharacters, setRandomCharacters] = useState<WikiCharacterType[]>(defaultRandomCharacters)
+  const [randomCharacters, setRandomCharacters] = useState<CharacterType[]>(defaultRandomCharacters)
   const [statusBarHeight, setStatusBarHeight] = useState<number>(0)
 
   // 给微信小程序导航栏那里垫一下
@@ -54,12 +54,12 @@ const Wiki: React.FC<any> = () => {
   // 默认随机生成6个
   useEffect(() => {
     generateRandomCharacters(6)
-      .then((data: WikiCharacterType[]) => setRandomCharacters(data))
+      .then((data) => setRandomCharacters(data))
   }, [])
 
   const onRefresh = () => {
     return generateRandomCharacters(6)
-      .then((data: WikiCharacterType[]) => {
+      .then((data) => {
         if (isArray(data)) {
           setRandomCharacters(data)
         }

@@ -28,7 +28,7 @@ const config = {
     "@reducers": path.resolve(__dirname, "..", "src/reducers"),
     "@style": path.resolve(__dirname, "..", "src/style"),
     "@utils": path.resolve(__dirname, "..", "src/utils"),
-    "@service": path.resolve(__dirname, "..", "src/service.ts"),
+    "@service": path.resolve(__dirname, "..", "src/service"),
   },
   copy: {
     patterns: [],

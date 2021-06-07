@@ -6,7 +6,7 @@ import { View, Button, Text, Image } from '@tarojs/components'
 import { StatusBar, Loading } from "@components";
 import { getCharacter } from '@service'
 import { updateGameSelectList, updateGameStatus } from '@actions'
-import { WikiCharacterType, RootState } from '@constants/types'
+import { CharacterType, RootState } from '@constants/types'
 import { SelectList, SelectResult, Countdown } from './type'
 
 import './index.less'
@@ -20,10 +20,11 @@ const defaultSelectResult = {
 // 计时器本器
 let counterTimeout: any
 
+
 const Game: React.FC<any> = () => {
   const dispatch = useDispatch()
   const gameStatus: string = useSelector((state: RootState) => state.game.gameStatus)
-  const [characters, setCharacters] = useState<WikiCharacterType[]>([])
+  const [characters, setCharacters] = useState<CharacterType[]>([])
   const [selectList, setSelectList] = useState<SelectList>([])
   const [selectResult, setSelectResult] = useState<SelectResult>(defaultSelectResult)
   const [countdown, setCountdown] = useState<Countdown>({
@@ -45,8 +46,8 @@ const Game: React.FC<any> = () => {
       }
 
       // 第二步，请求这30个id，找到10个status都不是unknown的角色
-      const chasAll: WikiCharacterType[] = await getCharacter(rids)
-      const chas: WikiCharacterType[] = []
+      const chasAll = await getCharacter.list(rids)
+      const chas: CharacterType[] = []
       for (const cha of chasAll) {
         if (chas.length > 9) {
           break
@@ -66,7 +67,7 @@ const Game: React.FC<any> = () => {
   }, [dispatch, gameStatus])
 
   // 点击Dead或Alive按钮后的逻辑
-  const handleClick = useCallback((character: WikiCharacterType, choice: string, selectList_: SelectList, characters_: WikiCharacterType[]) => {
+  const handleClick = useCallback((character: CharacterType, choice: string, selectList_: SelectList, characters_: CharacterType[]) => {
     const correct = character.status === choice
     setSelectResult({
       selected: true,

@@ -3,7 +3,7 @@ import Taro from '@tarojs/taro'
 import { useDispatch } from 'react-redux'
 import { View, Image, Text } from '@tarojs/components'
 
-import { WikiCharacterType } from '@constants/types'
+import { CharacterType } from '@constants/types'
 import { updateWikiCharacter } from '@actions'
 import { defaultCharacterImage } from '@assets/image'
 
@@ -11,7 +11,7 @@ import './index.less'
 
 
 interface CharacterCardProps {
-  character: WikiCharacterType
+  character: CharacterType
 }
 
 const CharacterCard: React.FC<CharacterCardProps> = ({

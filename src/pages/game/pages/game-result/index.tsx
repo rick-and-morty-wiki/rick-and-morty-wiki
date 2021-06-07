@@ -9,17 +9,16 @@ import { GameSelectList, RootState } from '@constants/types'
 
 import './index.less'
 
-type SumData = {
-  correctSum: number,
-  wrongSum: number,
-  percent: number,
-}
 
 const Game: React.FC<any> = () => {
   const dispatch = useDispatch()
   const selectList: GameSelectList = useSelector((state: RootState) => state.game.selectList)
   const [statusBarHeight, setStatusBarHeight] = useState<number>(0)
-  const [sumData, setSumData] = useState<SumData>({
+  const [sumData, setSumData] = useState<{
+    correctSum: number,
+    wrongSum: number,
+    percent: number,
+  }>({
     correctSum: 0,
     wrongSum: 0,
     percent: 0,

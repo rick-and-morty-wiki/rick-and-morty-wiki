@@ -62,7 +62,7 @@
         "src/utils/*"
       ],
       "@service": [
-        "src/service.ts"
+        "src/service/"
       ],
     },
   },

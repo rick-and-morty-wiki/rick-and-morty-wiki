@@ -1,4 +1,10 @@
 import Taro from "@tarojs/taro";
+import {
+  GetCharacterType,
+  GetEpisodeType,
+  GetLocationType,
+} from './types'
+
 
 let baseUrl = "https://rickandmortyapi.com/api/";
 if (process.env.TARO_ENV === 'weapp') {
@@ -18,11 +24,15 @@ const request: any = (endpointUrl: string) => {
         reject(response)
       }
     })
-    .catch(err => reject(err))
+      .catch(err => reject(err))
   })
 }
 
-const validate = (qry: any) => {
+const validate = (qry) => {
+  if (!qry) {
+    return ''
+  }
+
   if (typeof qry === 'number' && Number.isInteger(qry) || Array.isArray(qry)) {
     return `/${qry}`
   }
@@ -36,7 +46,7 @@ const validate = (qry: any) => {
   throw new Error('As argument use an object, an array, an integer or leave it blank')
 }
 
-const getEndpoint = async (endpoint: string = '', opt: any = {}) => {
+const getEndpoint = async (endpoint: string, opt: void | number | number[] | object) => {
   const query = validate(opt)
 
   try {
@@ -52,7 +62,27 @@ const getEndpoint = async (endpoint: string = '', opt: any = {}) => {
   }
 }
 
-export const getEndpoints: any = () => getEndpoint()
-export const getCharacter: any = (opt = {}) => getEndpoint('character', opt)
-export const getLocation: any = (opt = {}) => getEndpoint('location', opt)
-export const getEpisode: any = (opt = {}) => getEndpoint('episode', opt)
+
+// 获取角色数据
+export const getCharacter: GetCharacterType = {
+  all: () => getEndpoint('character'),
+  one: (id) => getEndpoint('character', id),
+  list: (ids) => getEndpoint('character', ids),
+  filt: (filter) => getEndpoint('character', filter)
+}
+
+// 获取地点数据
+export const getLocation: GetLocationType = {
+  all: () => getEndpoint('location'),
+  one: (id) => getEndpoint('location', id),
+  list: (ids) => getEndpoint('location', ids),
+  filt: (filter) => getEndpoint('location', filter)
+}
+
+// 获取剧集数据
+export const getEpisode: GetEpisodeType = {
+  all: () => getEndpoint('episode'),
+  one: (id) => getEndpoint('episode', id),
+  list: (ids) => getEndpoint('episode', ids),
+  filt: (filter) => getEndpoint('episode', filter)
+}

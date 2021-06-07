@@ -2,15 +2,17 @@ import { useGlobalIconFont } from './components/Iconfont/helper';
 
 export default {
   pages: [
-    "pages/wiki/pages/all-character/index",
+    
     
     "pages/wiki/index",
     "pages/game/index",
     "pages/about/index",
 
+    "pages/wiki/pages/all-character/index",
+    "pages/wiki/pages/character/index",
+
     "pages/game/pages/game-result/index",
 
-    "pages/wiki/pages/character/index",
   ],
   window: {
     backgroundTextStyle: "light",

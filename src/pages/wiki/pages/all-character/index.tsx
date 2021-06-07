@@ -4,21 +4,31 @@ import { View, Button, Text } from '@tarojs/components'
 
 import { StatusBar, CharacterCard, Pagination } from "@components";
 import { getCharacter } from '@service'
-import { WikiCharacterType, PaginationType } from '@constants/types'
+import { CharacterType, PaginationType } from '@constants/types'
 import { defaultRandomCharacters } from '@constants/wiki'
 
 import './index.less'
 
 
 const Wiki: React.FC<any> = () => {
-  // const [characters, setCharacters] = useState<WikiCharacterType[]>(defaultRandomCharacters)
-  const [characters, setCharacters] = useState<WikiCharacterType[]>([])
+  // const [characters, setCharacters] = useState<CharacterType[]>(defaultRandomCharacters)
+  const [characters, setCharacters] = useState<CharacterType[]>([])
   const [pagination, setPagination] = useState<PaginationType>({
-    count: 4,
-    pages: 1,
-    next: '',
-    prev: '',
+    count: 0,
+    pages: 0,
+    cur: 0,
   })
+
+  useEffect(() => {
+    // 刚进入页面的时候
+    if (pagination.count === 0) {
+      getCharacter.all()
+      .then(data => {
+        console.log(data.info.count);
+        
+      })
+    }
+  }, [pagination])
 
 
   return (

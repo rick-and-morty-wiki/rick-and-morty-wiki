@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { View, Text, Image, Button } from '@tarojs/components'
 
 import { StatusBar, Back, Loading } from "@components";
-import { WikiCharacterType, WikiEpisodeType, RootState } from '@constants/types'
+import { CharacterType, EpisodeType, RootState } from '@constants/types'
 import { defaultCharacter, defaultEpisode } from '@constants/wiki'
 import { getEpisode } from '@service'
 import { updateWikiCharacter } from '@actions'
@@ -14,8 +14,8 @@ import './index.less'
 
 const Wiki: React.FC<any> = () => {
   const dispatch = useDispatch()
-  const character: WikiCharacterType = useSelector((state: RootState) => state.wikiCharacter.character)
-  const [episodes, setEpisodes] = useState<WikiEpisodeType[]>([defaultEpisode])
+  const character: CharacterType = useSelector((state: RootState) => state.wikiCharacter.character)
+  const [episodes, setEpisodes] = useState<EpisodeType[]>([defaultEpisode])
   const [statusBarHeight, setStatusBarHeight] = useState<number>(0)
 
   // 给微信小程序导航栏那里垫一下
@@ -42,7 +42,7 @@ const Wiki: React.FC<any> = () => {
           const episodeId = parseInt(character.episode[ei].split('episode/')[1])
           // 最多请求三个
           if (ei < 3) {
-            await getEpisode(episodeId)
+            await getEpisode.one(episodeId)
               .then(data => {
                 if (ei === 0) {
                   setEpisodes([data])

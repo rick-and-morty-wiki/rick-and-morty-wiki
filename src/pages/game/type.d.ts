@@ -1,8 +1,8 @@
-import { WikiCharacterType } from '@constants/types'
+import { CharacterType } from '@constants/types'
 
 // 用于selectList
 export interface SelectData {
-  character: WikiCharacterType,
+  character: CharacterType,
   correct: boolean,
 }
 

@@ -1,12 +1,12 @@
 
 // 单个角色
-export interface WikiCharacterType {
+export interface CharacterType {
   id: number,
   name: string,
-  status: string,
+  status: 'Alive' | 'Dead' | 'unknown',
   species: string,
   type: string,
-  gender: string,
+  gender: 'Female' | 'Male' | 'Genderless' | 'unknown',
   origin: {
     name: string,
     url: string,
@@ -22,7 +22,7 @@ export interface WikiCharacterType {
 }
 
 // 单个剧集
-export interface WikiEpisodeType {
+export interface EpisodeType {
   id: number,
   name: string,
   air_date: string,
@@ -32,10 +32,20 @@ export interface WikiEpisodeType {
   created?: string,
 }
 
+// 单个地点
+export interface LocationType {
+  id: number,
+  name: string,
+  type: string,
+  dimension: string,
+  residents: string[]
+  url: string,
+  created?: string,
+}
+
 // 翻页器的state
 export interface PaginationType {
   count: number,
   pages: number,
-  next: string,
-  prev: string,
+  cur: number,
 }
