@@ -61,3 +61,8 @@ $ npm run ios
 ```
 
 RN端开发详细内容请参考[Taro文档](https://taro-docs.jd.com/taro/docs/react-native#%E5%BC%80%E5%8F%91)
+
+
+## 开发注意
+
+如果要添加一个新的React Native依赖

@@ -1,4 +1,4 @@
-import { ViewProps } from '@tarojs/components/types/view';
+import { ScrollViewProps } from '@tarojs/components/types/ScrollView';
 import { FunctionComponent } from 'react';
 
 export interface CustomScrollViewProps {
@@ -8,4 +8,4 @@ export interface CustomScrollViewProps {
   autoHideTab?: boolean,
 }
 
-export type CustomScrollViewType = FunctionComponent<ViewProps & CustomScrollViewProps>
+export type CustomScrollViewType = FunctionComponent<ScrollViewProps & CustomScrollViewProps>

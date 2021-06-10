@@ -1810,7 +1810,7 @@
 
 "@react-navigation/native@^5.7.3":
   version "5.9.4"
-  resolved "https://registry.nlark.com/@react-navigation/native/download/@react-navigation/native-5.9.4.tgz?cache=0&sync_timestamp=1620646846352&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40react-navigation%2Fnative%2Fdownload%2F%40react-navigation%2Fnative-5.9.4.tgz#414c044423c58aa1cdde1b6494309e0b51da08b8"
+  resolved "https://registry.nlark.com/@react-navigation/native/download/@react-navigation/native-5.9.4.tgz#414c044423c58aa1cdde1b6494309e0b51da08b8"
   integrity sha1-QUwERCPFiqHN3htklDCeC1HaCLg=
   dependencies:
     "@react-navigation/core" "^5.15.3"
@@ -13880,7 +13880,7 @@ react-native-collapsible@^1.5.2:
   resolved "https://registry.nlark.com/react-native-collapsible/download/react-native-collapsible-1.6.0.tgz#ca261ffff16914f872059bb0972e3a78c4b37f9c"
   integrity sha1-yiYf//FpFPhyBZuwly46eMSzf5w=
 
-react-native-gesture-handler@^1.8.0:
+react-native-gesture-handler@^1.10.3, react-native-gesture-handler@^1.8.0:
   version "1.10.3"
   resolved "https://registry.npm.taobao.org/react-native-gesture-handler/download/react-native-gesture-handler-1.10.3.tgz#942bbf2963bbf49fa79593600ee9d7b5dab3cfc0"
   integrity sha1-lCu/KWO79J+nlZNgDunXtdqzz8A=

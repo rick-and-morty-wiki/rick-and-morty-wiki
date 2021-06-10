@@ -1,18 +1,28 @@
 /*
  * @Author: p697
  * @Date: 2021-05-21 09:58:50
- * @LastEditTime: 2021-06-07 16:15:36
+ * @LastEditTime: 2021-06-10 13:00:23
  * @Description: 这里书写所有平台的通用样式，且必须符合RN的要求
  */
 @import "@style/theme.less";
+@import "@components/Back/index.less";
 
 .all-character {
-  height: 100%;
-  width: 100%;
-  background-color: @theme-background;
 
-  &-back {
-    // position: absolute;
+  &-container {
+    height: 100%;
+  }
+
+  &-page {
+    background-color: @theme-background;
+    height: 100%;
+    padding-bottom: 64px;
+  }
+
+  &-drawer-enter {
+    .back-btn();
+    right: 0;
+    top: 30px;
   }
 
   &-scroll {
