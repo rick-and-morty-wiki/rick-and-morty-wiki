@@ -11,6 +11,7 @@ import './index.less'
 const Pagination: React.FC<PaginationProps> = ({
   pagination,
   setPagination,
+  scrollTop,
 }) => {
   const [inputCur, setInputCur] = useState<string | number>(pagination.cur)
 
@@ -22,6 +23,7 @@ const Pagination: React.FC<PaginationProps> = ({
   const handleConfirmInputPages = () => {
     const newInputCur = parseInt(inputCur as string)
     if (newInputCur > 0 && newInputCur <= pagination.pages) {
+      scrollTop()
       setPagination(preState => ({ ...preState, cur: newInputCur }))
     } else {
       setInputCur(pagination.cur)
@@ -34,10 +36,12 @@ const Pagination: React.FC<PaginationProps> = ({
   }
 
   const handleClickPrev = () => {
+    scrollTop()
     setPagination(preState => ({ ...preState, cur: pagination.cur - 1 }))
   }
 
   const handleClickNext = () => {
+    scrollTop()
     setPagination(preState => ({ ...preState, cur: pagination.cur + 1 }))
   }
 

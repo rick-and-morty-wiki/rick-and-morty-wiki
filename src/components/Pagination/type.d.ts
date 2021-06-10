@@ -4,4 +4,5 @@ import { Dispatch, SetStateAction } from 'react'
 export interface PaginationProps {
   pagination: PaginationType,
   setPagination: Dispatch<SetStateAction<PaginationType>>,
+  scrollTop: () => void,
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, forwardRef } from 'react';
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components';
 
@@ -19,7 +19,7 @@ if (process.env.TARO_ENV === "rn") {
 }
 
 
-const CustomScrollView: CustomScrollViewType = props => {
+const CustomScrollView: CustomScrollViewType = forwardRef((props, ref) => {
   const {
     className = '',
     style = {},
@@ -89,6 +89,7 @@ const CustomScrollView: CustomScrollViewType = props => {
         refresherEnabled
         refresherTriggered={refreshing}
         onRefresherRefresh={onPulldownRefresh}
+        ref={ref}
       >
         {props.children}
       </ScrollView>
@@ -96,20 +97,21 @@ const CustomScrollView: CustomScrollViewType = props => {
   }
 
   return (
-    <View className='custom-scroll-view'>
+    // <View className='custom-scroll-view'>
       <ScrollView
         className={`custom-scroll-view ${className}`}
         style={style}
         onScroll={handleScroll}
         scrollY
+        ref={ref}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onPulldownRefresh} />
         }
       >
         {props.children}
       </ScrollView>
-    </View>
+    // </View>
   );
-};
+})
 
 export default CustomScrollView;

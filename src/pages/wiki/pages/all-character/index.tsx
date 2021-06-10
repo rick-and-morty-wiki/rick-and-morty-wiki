@@ -4,6 +4,7 @@ import DrawerLayout, {
   DrawerType,
 } from 'react-native-gesture-handler/DrawerLayout';
 import { StatusBar } from "@components";
+import colors from '@style/theme'
 
 import { PageContent, DrawerContent } from './components'
 import './index.less'
@@ -21,7 +22,7 @@ const AllCharacter: React.FC<any> = () => {
   if (process.env.TARO_ENV === 'rn') {
     return (
       <View className='all-character-container'>
-        <StatusBar barStyle='light-content' backgroundColor='rgba(0,0,0,0)' translucent />
+        <StatusBar barStyle='light-content' backgroundColor={colors['theme-background']} translucent />
         <DrawerLayout
           ref={drawer}
           enableTrackpadTwoFingerGesture
@@ -32,11 +33,9 @@ const AllCharacter: React.FC<any> = () => {
           drawerType='slide'
           drawerBackgroundColor='#ddd'
           renderNavigationView={DrawerContent}
+          contentContainerStyle={{ elevation: 100 }}
         >
           <PageContent drawer={drawer} />
-          {/* <View>
-            <Text>哈哈哈</Text>
-          </View> */}
         </DrawerLayout>
       </View>
     )
