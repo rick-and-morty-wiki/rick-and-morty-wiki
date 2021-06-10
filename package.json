@@ -56,8 +56,6 @@
 		"ahooks": "^2.10.4",
 		"classnames": "^2.3.1",
 		"lodash": "^4.17.21",
-		"lottie-ios": "3.1.8",
-		"lottie-react-native": "^4.0.2",
 		"react": "^17.0.0",
 		"react-dom": "^16.10.0",
 		"react-native": "^0.64.0",
