@@ -1,6 +1,47 @@
 @import "@style/theme.less";
+@import "@style/theme.less";
 
 .drawer {
   height: 100%;
   width: 100%;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &-title {
+    font-size: 28px;
+    color: @color-white-grey;
+    margin-bottom: 16px;
+  }
+
+  &-item {
+    height: 88px;
+    background-color: @theme-grey;
+    border-radius: 24px;
+    padding-left: 24px;
+    font-size: 32px;
+    color: @color-white-grey;
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &-text {
+      font-size: 32px;
+      color: @color-white-grey;
+    }
+  }
+
+  &-btn {
+    height: 88px;
+    background-color: @color-white-grey;
+    border-radius: 50px;
+    margin-top: 32px;
+
+    &-text {
+      color: @color-semi;
+      font-size: 32px;
+    }
+  }
 }

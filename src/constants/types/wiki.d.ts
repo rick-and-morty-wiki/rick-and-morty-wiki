@@ -21,6 +21,16 @@ export interface CharacterType {
   created?: string,
 }
 
+// 角色的检索条件
+export interface CharacterFilterType {
+  name: string,
+  status: 'alive' | 'dead' | 'unknown' | '',
+  species: string,
+  type: string,
+  gender: 'female' | 'male' | 'genderless' | 'unknown' | '',
+}
+
+
 // 单个剧集
 export interface EpisodeType {
   id: number,

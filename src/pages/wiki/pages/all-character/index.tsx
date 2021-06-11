@@ -1,9 +1,10 @@
-import React, { useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import { View } from '@tarojs/components'
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 
 import { StatusBar } from "@components";
 import colors from '@style/theme'
+import { CharacterFilterType } from '@constants/types'
 
 import { PageContent, DrawerContent } from './components'
 import './index.less'
@@ -11,6 +12,15 @@ import './index.less'
 
 const AllCharacter: React.FC<any> = () => {
   const drawer = useRef() as React.MutableRefObject<DrawerLayout | null>
+  const [filter, setFilter] = useState<CharacterFilterType>({
+    name: '',
+    status: '',
+    species: '',
+    type: '',
+    gender: '',
+  })
+
+  // const DrawerContentCom = () => 
 
   if (process.env.TARO_ENV === 'rn') {
     return (
@@ -19,13 +29,16 @@ const AllCharacter: React.FC<any> = () => {
         <DrawerLayout
           ref={drawer}
           enableTrackpadTwoFingerGesture
-          drawerWidth={200}
+          drawerWidth={210}
           keyboardDismissMode='on-drag'
           drawerPosition='right'
           drawerType='back'
           drawerBackgroundColor={colors['theme-background']}
-          renderNavigationView={DrawerContent}
-          contentContainerStyle={{ elevation: 100 }}
+          renderNavigationView={() => <DrawerContent filter={filter} setFilterL={setFilter} />}
+          contentContainerStyle={{
+            elevation: 100,
+            backgroundColor: '#000',
+          }}
         >
           <PageContent drawer={drawer} />
         </DrawerLayout>

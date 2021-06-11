@@ -25,6 +25,7 @@ const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) 
   })
   const ScrollViewRef = useRef() as React.MutableRefObject<any>
 
+
   useThrottleEffect(() => {
     // setScrollTop(0)
     Taro.showLoading({
