@@ -1,4 +1,4 @@
-@import "@style/theme.less";
+@import "@style/index";
 
 .character {
   height: 100%;
@@ -39,7 +39,7 @@
     &-text {
       font-size: 56px;
       font-weight: bold;
-      color: @color-white-grey;
+      .title-white();
       font-family: '';
     }
   }
@@ -63,7 +63,7 @@
 
       &-text {
         font-size: 34px;
-        color: @color-white-light;
+        .title-white();
         font-family: '';
 
         &_a {

@@ -1,4 +1,4 @@
-@import "@style/theme.less";
+@import "@style/index";
 
 // 加载状态组件的呼吸周期
 @wTiming: 1s;
@@ -22,8 +22,8 @@
   &-name {
     font-size: 42px;
     font-weight: bold;
-    color: @color-white-grey;
     font-family: "";
+    .title-white()
   }
 
   &-status {
@@ -50,8 +50,8 @@
     }
 
     &-text {
+      .primary-white();
       font-size: 31px;
-      color: @color-white-light;
       font-family: "";
     }
   }
@@ -61,15 +61,15 @@
     margin-bottom: 4px;
 
     &-text {
+      .title-white();
       font-size: 31px;
-      color: @color-light;
       font-family: "";
     }
   }
 
   &-text {
+    .primary-white();
     font-size: 34px;
-    color: @color-white-grey;
     font-family: "";
   }
 

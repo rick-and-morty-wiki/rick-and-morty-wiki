@@ -1,4 +1,4 @@
-@import "@style/theme.less";
+@import "@style/index";
 
 .gameResult {
   width: 100%;
@@ -16,7 +16,7 @@
 
     &-title {
       font-size: 64px;
-      color: @color-white-grey;
+      .title-white();
       font-family: "";
     }
 
@@ -30,7 +30,7 @@
 
     &-text {
       font-size: 38px;
-      color: @color-white-light;
+      .title-white();
 
       &_correct {
         font-size: 40px;
@@ -63,7 +63,7 @@
       &-text {
         font-size: 36px;
         font-weight: bold;
-        color: @color-white-light;
+        .title-white();
       }
     }
   }

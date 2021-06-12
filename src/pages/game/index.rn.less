@@ -1,4 +1,4 @@
-@import "@style/theme.less";
+@import "@style/index";
 
 .game {
   width: 100%;
@@ -21,7 +21,7 @@
     border-radius: 80px;
 
     &-text {
-      color: @color-white-grey;
+      .title-white();
       font-size: 48px;
       font-family: '';
     }
@@ -76,7 +76,7 @@
     text-align: center;
 
     &-text {
-      color: @color-white-grey;
+      .title-white();
       font-size: 46px;
       font-family: '';
       text-align: center;
@@ -113,7 +113,7 @@
 
       &-text {
         font-size: 36px;
-        color: @color-white-light;
+        .title-white();
         font-family: '';
       }
 
@@ -137,7 +137,7 @@
 
     &-text {
       font-size: 32px;
-      color: @color-white-grey;
+      .title-white();
       font-family: '';
     }
   }
@@ -152,7 +152,7 @@
       &-text {
         font-size: 72px;
         font-weight: bold;
-        color: @color-white-grey;
+        .title-white();
         font-family: '';
 
         &_red {
@@ -180,7 +180,7 @@
       &-text {
         font-size: 36px;
         font-weight: bold;
-        color: @color-white-light;
+        .title-white();
       }
     }
   }

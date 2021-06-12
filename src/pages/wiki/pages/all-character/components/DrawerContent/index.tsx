@@ -26,17 +26,17 @@ const DrawerContent: React.FC<DrawerContentProps> = (props) => {
 
       <Text className='drawer-title'>状态</Text>
       <View className='drawer-item'>
-        <Text className='drawer-item-text'>{filter.status}</Text>
+        <Text className='drawer-item-text'>{filter.status ? filter.status : '全部'}</Text>
       </View>
 
       <Text className='drawer-title'>性别</Text>
       <View className='drawer-item'>
-        <Text className='drawer-item-text'>{filter.gender}</Text>
+        <Text className='drawer-item-text'>{filter.gender ? filter.gender : '全部'}</Text>
       </View>
 
       <Text className='drawer-title'>种族</Text>
       <View className='drawer-item'>
-        <Text className='drawer-item-text'>{filter.species}</Text>
+        <Text className='drawer-item-text'>{filter.species ? filter.species : '全部'}</Text>
       </View>
 
       <Button

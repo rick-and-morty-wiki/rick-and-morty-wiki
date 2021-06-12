@@ -1,5 +1,4 @@
-@import "@style/theme.less";
-@import "@style/theme.less";
+@import "@style/index";
 
 .drawer {
   height: 100%;
@@ -11,7 +10,7 @@
 
   &-title {
     font-size: 28px;
-    color: @color-white-grey;
+    .title-white();
     margin-bottom: 16px;
   }
 
@@ -21,7 +20,7 @@
     border-radius: 24px;
     padding-left: 24px;
     font-size: 32px;
-    color: @color-white-grey;
+    .title-white();
     margin-bottom: 32px;
     display: flex;
     flex-direction: row;
@@ -29,19 +28,21 @@
 
     &-text {
       font-size: 32px;
-      color: @color-white-grey;
+      color: #fff;
+      opacity: 0.65;
+      font-family: '';
     }
   }
 
   &-btn {
     height: 88px;
-    background-color: @color-white-grey;
     border-radius: 50px;
     margin-top: 32px;
 
     &-text {
-      color: @color-semi;
+      .title-black();
       font-size: 32px;
+      font-family: '';
     }
   }
 }
