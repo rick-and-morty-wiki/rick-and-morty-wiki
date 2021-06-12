@@ -20,10 +20,9 @@
   }
 
   &-name {
+    .font-white-title();
     font-size: 42px;
     font-weight: bold;
-    font-family: "";
-    .title-white()
   }
 
   &-status {
@@ -50,9 +49,8 @@
     }
 
     &-text {
-      .primary-white();
+      .font-white-primary();
       font-size: 31px;
-      font-family: "";
     }
   }
 
@@ -61,16 +59,14 @@
     margin-bottom: 4px;
 
     &-text {
-      .title-white();
+      .font-white-title();
       font-size: 31px;
-      font-family: "";
     }
   }
 
   &-text {
-    .primary-white();
+    .font-white-primary();
     font-size: 34px;
-    font-family: "";
   }
 
   &-loading {
@@ -102,7 +98,6 @@
       width: 280px;
       margin-top: 12px;
       background-color: @color-grey;
-      font-family: "";
     }
   }
 }

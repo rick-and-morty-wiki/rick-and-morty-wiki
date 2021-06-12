@@ -37,10 +37,9 @@
     margin-bottom: 16px;
 
     &-text {
+      .font-white-title();
       font-size: 56px;
       font-weight: bold;
-      .title-white();
-      font-family: '';
     }
   }
 
@@ -62,14 +61,12 @@
       width: 50%;
 
       &-text {
+        .font-white-title();
         font-size: 34px;
-        .title-white();
-        font-family: '';
 
         &_a {
-          font-size: 34px;
+          font-size: 32px;
           color: @color-blue;
-          font-family: '';
         }
       }
 
@@ -90,8 +87,15 @@
 
     &-btn {
       margin: 0 16px;
-      font-family: '';
       border-radius: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &-text {
+        .font-black-title();
+        font-size: 34px;
+      }
     }
   }
 

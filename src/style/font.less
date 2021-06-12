@@ -1,45 +1,57 @@
 
 @basic-white: #fff;
 @basic-black: #000;
+@basic-font-family: '';
+
 
 // 白色
-.title-white {
+.font-white {
+  font-family: @basic-font-family;
   color: @basic-white;
+}
+
+.font-white-title {
+  .font-white();
   opacity: 0.85;
 }
 
-.primary-white {
-  color: @basic-white;
+.font-white-primary {
+  .font-white();
   opacity: 0.65;
 }
 
-.secondary-white {
-  color: @basic-white;
+.font-white-secondary {
+  .font-white();
   opacity: 0.45;
 }
 
-.disable-white {
-  color: @basic-white;
+.font-white-disable {
+  .font-white();
   opacity: 0.30;
 }
 
 // 黑色
-.title-black {
+.font-black {
+  font-family: @basic-font-family;
   color: @basic-black;
+}
+
+.font-black-title {
+  .font-black();
   opacity: 0.85;
 }
 
-.primary-black {
-  color: @basic-black;
+.font-black-primary {
+  .font-black();
   opacity: 0.65;
 }
 
-.secondary-black {
-  color: @basic-black;
+.font-black-secondary {
+  .font-black();
   opacity: 0.45;
 }
 
-.disable-black {
-  color: @basic-black;
+.font-black-disable {
+  .font-black();
   opacity: 0.30;
 }

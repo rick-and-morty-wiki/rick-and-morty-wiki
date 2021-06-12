@@ -122,7 +122,9 @@ const Wiki: React.FC<any> = () => {
       <View className='character-footer'>
         {
           episodes.map(episode => (
-            <Button className='character-footer-btn' key={episode.episode}>{episode.episode + ' '}</Button>
+            <Button className='character-footer-btn' key={episode.episode}>
+              <Text className='character-footer-btn-text'>{episode.episode + ' '}</Text>
+            </Button>
           ))
         }
       </View>
