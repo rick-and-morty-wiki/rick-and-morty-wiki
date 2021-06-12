@@ -1,18 +1,21 @@
 
-export const characterStatusRange: string[] = [
+const statusRange: string[] = [
+  'all',
   'alive',
   'dead',
   'unknow',
 ]
 
-export const characterGenderRange: string[] = [
+const genderRange: string[] = [
+  'all',
   'female',
   'male',
   'genderless',
   'unknow',
 ]
 
-export const characterSpeciesRange: string[] = [
+const speciesRange: string[] = [
+  'all',
   'Human',
   'Humanoid',
   'Alien',
@@ -25,3 +28,9 @@ export const characterSpeciesRange: string[] = [
   'Planet',
   'unknown',
 ]
+
+export default {
+  statusRange,
+  genderRange,
+  speciesRange,
+}

@@ -14,10 +14,10 @@ const AllCharacter: React.FC<any> = () => {
   const drawer = useRef() as React.MutableRefObject<DrawerLayout | null>
   const [filter, setFilter] = useState<CharacterFilterType>({
     name: '',
-    status: '',
-    species: '',
-    type: '',
-    gender: '',
+    status: 'all',
+    species: 'all',
+    type: 'all',
+    gender: 'all',
   })
 
 
@@ -34,13 +34,13 @@ const AllCharacter: React.FC<any> = () => {
           drawerType='back'
           overlayColor='#00000000'
           drawerBackgroundColor={colors['theme-background']}
-          renderNavigationView={() => <DrawerContent filter={filter} setFilterL={setFilter} />}
+          renderNavigationView={() => <DrawerContent filter={filter} setFilter={setFilter} />}
           contentContainerStyle={{
             elevation: 100,
             backgroundColor: '#000',
           }}
         >
-          <PageContent drawer={drawer} />
+          <PageContent drawer={drawer} filter={filter} />
         </DrawerLayout>
       </View>
     )

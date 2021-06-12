@@ -5,14 +5,15 @@ import { useThrottleEffect } from 'ahooks';
 
 import { Iconfont, CharacterCard, Pagination, Back, CustomScrollView } from "@components";
 import { getCharacter } from '@service'
-import { CharacterType, PaginationType } from '@constants/types'
+import { CharacterType, PaginationType, CharacterFilterType } from '@constants/types'
 import { defaultRandomCharacters } from '@constants/wiki'
 
 import '../../index.less'
 
 
 interface AllCharacterPageContentProps {
-  drawer: any
+  drawer: any,
+  filter: CharacterFilterType,
 }
 
 const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) => {

@@ -1,19 +1,30 @@
 import React, { memo } from 'react'
-import Taro from '@tarojs/taro'
 import { Button, View, Text, Input, Picker } from '@tarojs/components'
 
 import { CharacterFilterType } from '@constants/types'
 
+import filterRange from './constant'
 import './index.less'
 
 type DrawerContentProps = {
   filter: CharacterFilterType,
-  setFilterL: Function,
+  setFilter: Function,
 }
 
 const DrawerContent: React.FC<DrawerContentProps> = (props) => {
-  const { filter, setFilterL } = props
+  const { filter, setFilter } = props
 
+  const onStatusChange = (e) => {
+    setFilter({ ...filter, status: filterRange.statusRange[e.detail.value] })
+  }
+
+  const onGenderChange = (e) => {
+    setFilter({ ...filter, gender: filterRange.genderRange[e.detail.value] })
+  }
+
+  const onSpeciesChange = (e) => {
+    setFilter({ ...filter, species: filterRange.speciesRange[e.detail.value] })
+  }
 
   return (
     <View className='drawer'>
@@ -21,24 +32,30 @@ const DrawerContent: React.FC<DrawerContentProps> = (props) => {
       <Text className='drawer-title'>名称</Text>
       <Input
         value={filter.name}
-        onInput={e => setFilterL({ ...filter, name: e.detail.value })}
+        onInput={e => setFilter({ ...filter, name: e.detail.value })}
         className='drawer-item drawer-item-text'
       />
 
       <Text className='drawer-title'>状态</Text>
-      <View className='drawer-item'>
-        <Text className='drawer-item-text'>{filter.status ? filter.status : '全部'}</Text>
-      </View>
+      <Picker range={filterRange.statusRange} onChange={onStatusChange} value={filterRange.statusRange.indexOf(filter.status)}>
+        <View className='drawer-item'>
+          <Text className='drawer-item-text'>{filter.status === 'all' ? '全部' : filter.status}</Text>
+        </View>
+      </Picker>
 
       <Text className='drawer-title'>性别</Text>
-      <View className='drawer-item'>
-        <Text className='drawer-item-text'>{filter.gender ? filter.gender : '全部'}</Text>
-      </View>
+      <Picker range={filterRange.genderRange} onChange={onGenderChange} value={filterRange.genderRange.indexOf(filter.gender)}>
+        <View className='drawer-item'>
+          <Text className='drawer-item-text'>{filter.gender === 'all' ? '全部' : filter.gender}</Text>
+        </View>
+      </Picker>
 
       <Text className='drawer-title'>种族</Text>
-      <View className='drawer-item'>
-        <Text className='drawer-item-text'>{filter.species ? filter.species : '全部'}</Text>
-      </View>
+      <Picker range={filterRange.speciesRange} onChange={onSpeciesChange} value={filterRange.speciesRange.indexOf(filter.species)}>
+        <View className='drawer-item'>
+          <Text className='drawer-item-text'>{filter.species === 'all' ? '全部' : filter.species}</Text>
+        </View>
+      </Picker>
 
       <Button
         className='drawer-btn'
