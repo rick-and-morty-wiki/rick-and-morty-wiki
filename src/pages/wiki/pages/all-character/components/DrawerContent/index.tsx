@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import Taro from '@tarojs/taro'
-import { Button, View, Text, Input } from '@tarojs/components'
+import { Button, View, Text, Input, Picker } from '@tarojs/components'
 
 import { CharacterFilterType } from '@constants/types'
 
@@ -13,6 +13,7 @@ type DrawerContentProps = {
 
 const DrawerContent: React.FC<DrawerContentProps> = (props) => {
   const { filter, setFilterL } = props
+
 
   return (
     <View className='drawer'>
@@ -50,4 +51,4 @@ const DrawerContent: React.FC<DrawerContentProps> = (props) => {
   )
 }
 
-export default DrawerContent
+export default memo(DrawerContent)

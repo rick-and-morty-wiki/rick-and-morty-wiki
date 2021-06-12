@@ -6,7 +6,7 @@ import { View, Button, Text, Image } from '@tarojs/components'
 import { StatusBar, Loading } from "@components";
 import { getCharacter } from '@service'
 import { updateGameSelectList, updateGameStatus } from '@actions'
-import { CharacterType, RootState } from '@constants/types'
+import { CharacterType, RootState, GameStatus } from '@constants/types'
 import { SelectList, SelectResult, Countdown } from './type'
 
 import './index.less'
@@ -57,10 +57,10 @@ const Game: React.FC<any> = () => {
         }
       }
       setCharacters(chas)
-      dispatch(updateGameStatus('gaming'))
+      dispatch(updateGameStatus(GameStatus.Gaming))
     }
 
-    if (gameStatus === 'loading') {
+    if (gameStatus === GameStatus.Loading) {
       getTenRandomCharacters()
     }
 
@@ -93,7 +93,7 @@ const Game: React.FC<any> = () => {
         Taro.navigateTo({
           url: '/pages/game/pages/game-result/index',
         })
-        dispatch(updateGameStatus('blank'))
+        dispatch(updateGameStatus(GameStatus.Blank))
         setCharacters([])
         setSelectList([])
         setSelectResult(defaultSelectResult)
@@ -103,7 +103,7 @@ const Game: React.FC<any> = () => {
 
   // 倒计时实现
   useEffect(() => {
-    if (gameStatus === 'gaming') {
+    if (gameStatus === GameStatus.Gaming) {
       if (countdown.time > 0) {
         counterTimeout = countdown.counter()
       }
@@ -120,7 +120,7 @@ const Game: React.FC<any> = () => {
 
 
   // 未开始游戏
-  if (gameStatus === 'blank') {
+  if (gameStatus === GameStatus.Blank) {
     return (
       <View className='game'>
         <StatusBar barStyle='light-content' backgroundColor='rgba(0,0,0,0)' translucent />
@@ -129,7 +129,7 @@ const Game: React.FC<any> = () => {
           <Text className='game-pre-title-text'>or</Text>
           <Text className='game-pre-title-text game-pre-title-text_green'>Alive</Text>
         </View>
-        <Button className='game-pre-btn' onClick={() => dispatch(updateGameStatus('loading'))}>
+        <Button className='game-pre-btn' onClick={() => dispatch(updateGameStatus(GameStatus.Loading))}>
           <Text className='game-pre-btn-text'>开始</Text>
         </Button>
       </View>
@@ -137,7 +137,7 @@ const Game: React.FC<any> = () => {
   }
 
   // 初始化游戏中
-  if (gameStatus === 'loading') {
+  if (gameStatus === GameStatus.Loading) {
     return (
       <View className='game'>
         <StatusBar barStyle='light-content' backgroundColor='rgba(0,0,0,0)' translucent />

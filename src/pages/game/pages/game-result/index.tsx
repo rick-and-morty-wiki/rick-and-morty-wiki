@@ -5,7 +5,7 @@ import { View, Button, Text, Image } from '@tarojs/components'
 
 import { StatusBar, Back } from "@components";
 import { updateWikiCharacter, updateGameStatus } from '@actions'
-import { GameSelectList, RootState } from '@constants/types'
+import { GameSelectList, RootState, GameStatus } from '@constants/types'
 
 import './index.less'
 
@@ -62,7 +62,7 @@ const Game: React.FC<any> = () => {
   }
 
   const handleClickBack = () => {
-    dispatch(updateGameStatus('loading'))
+    dispatch(updateGameStatus(GameStatus.Loading))
     Taro.navigateBack()
   }
 

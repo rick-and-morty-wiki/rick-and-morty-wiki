@@ -44,8 +44,17 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
   }
 
   return (
-    <View key={character.id} className='c-card' onClick={handleClickCard}>
-      <Image className='c-card-img' src={showImage ? character.image : defaultCharacterImage} mode='widthFix' lazyLoad />
+    <View
+      key={character.id}
+      className='c-card'
+      onClick={handleClickCard}
+      hoverClass='c-card_active'
+      hoverStyle={{ opacity: 0.75 }}
+    >
+      {
+        showImage &&
+        <Image className='c-card-img' src={character.image} mode='widthFix' lazyLoad />
+      }
       <View className='c-card-content'>
         <Text className='c-card-name'>{character.name}</Text>
         <View className='c-card-status'>

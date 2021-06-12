@@ -20,7 +20,6 @@ const AllCharacter: React.FC<any> = () => {
     gender: '',
   })
 
-  // const DrawerContentCom = () => 
 
   if (process.env.TARO_ENV === 'rn') {
     return (
@@ -33,6 +32,7 @@ const AllCharacter: React.FC<any> = () => {
           keyboardDismissMode='on-drag'
           drawerPosition='right'
           drawerType='back'
+          overlayColor='#00000000'
           drawerBackgroundColor={colors['theme-background']}
           renderNavigationView={() => <DrawerContent filter={filter} setFilterL={setFilter} />}
           contentContainerStyle={{
