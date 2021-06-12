@@ -37,7 +37,7 @@ const Back: React.FC<BackProps> = ({
       onClick={handleClick}
       style={{ left, top, ...style }}
       hoverClass='back-btn_active'
-      hoverStyle={{ opacity: 0.5 }}
+      hoverStyle={{ opacity: 0.6 }}
     >
       <Iconfont name='arrow-lift' size={64} />
     </Button>

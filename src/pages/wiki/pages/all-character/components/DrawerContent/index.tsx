@@ -43,7 +43,7 @@ const DrawerContent: React.FC<DrawerContentProps> = (props) => {
       <Button
         className='drawer-btn'
         hoverClass='drawer-btn_avtive'
-        hoverStyle={{ opacity: 0.5 }}
+        hoverStyle={{ opacity: 0.6 }}
       >
         <Text className='drawer-btn-text'>检索</Text>
       </Button>

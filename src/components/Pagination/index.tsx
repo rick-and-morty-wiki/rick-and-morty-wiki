@@ -56,7 +56,7 @@ const Pagination: React.FC<PaginationProps> = ({
       <Button
         className='pagination-btn'
         hoverClass='pagination-btn_active'
-        hoverStyle={{ opacity: 0.5 }}
+        hoverStyle={{ opacity: 0.6 }}
         onClick={handleClickPrev}
         disabled={pagination.cur <= 1}
       >
@@ -76,7 +76,7 @@ const Pagination: React.FC<PaginationProps> = ({
       <Button
         className='pagination-btn'
         hoverClass='pagination-btn_active'
-        hoverStyle={{ opacity: 0.5 }}
+        hoverStyle={{ opacity: 0.6 }}
         onClick={handleClickNext}
         disabled={pagination.cur >= pagination.pages}
       >

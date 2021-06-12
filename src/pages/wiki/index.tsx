@@ -83,7 +83,7 @@ const Wiki: React.FC<any> = () => {
                 key={btn.value}
                 className={`wiki-content-btn wiki-content-btn_${index === headerBtns.length - 1 && 'last'}`}
                 hoverClass='wiki-content-btn_active'
-                hoverStyle={{ opacity: 0.5 }}
+                hoverStyle={{ opacity: 0.6 }}
                 onClick={btn.onClick}
               >
                 <Text className='wiki-content-btn-value'>{btn.value}</Text>
