@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
+
 import { SafeAreaView } from '@components'
 
 import configStore from './store'
-
 import './app.less'
 
 const store = configStore()

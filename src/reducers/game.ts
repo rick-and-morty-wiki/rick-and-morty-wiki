@@ -1,8 +1,9 @@
 import {
   UPDATE_GAME_SELECTLIST,
   UPDATE_GAME_STATUS,
+  GameStatus,
 } from "@constants/game";
-import { GameSelectList, GameStatus } from "@constants/types";
+import { GameSelectList } from "@constants/types";
 
 
 type StateType = {

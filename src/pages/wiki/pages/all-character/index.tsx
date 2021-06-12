@@ -1,17 +1,20 @@
-import React, { useState, useRef } from 'react'
-import { View } from '@tarojs/components'
-import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
+import React, { useState } from 'react'
 
-import { StatusBar } from "@components";
-import colors from '@style/theme'
 import { CharacterFilterType } from '@constants/types'
 
-import { PageContent, DrawerContent } from './components'
+// import AllCharacterRN from './rn'
+// import AllCharacterWE from './weapp'
 import './index.less'
+
+let AllCharacterP: any
+if (process.env.TARO_ENV === 'rn') {
+  AllCharacterP = require('./rn').default
+} else {
+  AllCharacterP = require('./weapp').default
+}
 
 
 const AllCharacter: React.FC<any> = () => {
-  const drawer = useRef() as React.MutableRefObject<DrawerLayout | null>
   const [filter, setFilter] = useState<CharacterFilterType>({
     name: '',
     status: 'all',
@@ -20,38 +23,11 @@ const AllCharacter: React.FC<any> = () => {
     gender: 'all',
   })
 
-
   if (process.env.TARO_ENV === 'rn') {
-    return (
-      <View className='all-character-container'>
-        <StatusBar barStyle='dark-content' backgroundColor='rgba(0,0,0,0)' translucent />
-        <DrawerLayout
-          ref={drawer}
-          enableTrackpadTwoFingerGesture
-          drawerWidth={210}
-          keyboardDismissMode='on-drag'
-          drawerPosition='right'
-          drawerType='back'
-          overlayColor='#00000000'
-          drawerBackgroundColor={colors['theme-background']}
-          renderNavigationView={() => <DrawerContent filter={filter} setFilter={setFilter} />}
-          contentContainerStyle={{
-            elevation: 100,
-            backgroundColor: '#000',
-          }}
-        >
-          <PageContent drawer={drawer} filter={filter} />
-        </DrawerLayout>
-      </View>
-    )
+    return <AllCharacterP filter={filter} setFilter={setFilter} />
   }
 
-
-  return (
-    <View className='all-character' >
-
-    </View>
-  )
+  return <AllCharacterP filter={filter} setFilter={setFilter} />
 }
 
 export default AllCharacter

@@ -5,7 +5,8 @@ import { View, Button, Text, Image } from '@tarojs/components'
 
 import { StatusBar, Back } from "@components";
 import { updateWikiCharacter, updateGameStatus } from '@actions'
-import { GameSelectList, RootState, GameStatus } from '@constants/types'
+import { GameSelectList, RootState } from '@constants/types'
+import { GameStatus } from '@constants/game'
 
 import './index.less'
 

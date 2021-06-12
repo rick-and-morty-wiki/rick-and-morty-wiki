@@ -32,7 +32,10 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
   if (!character.name) {
     return (
       <View key={character.id} className='c-card'>
-        <Image className='c-card-img character-loading-img' src={defaultCharacterImage} mode='widthFix' />
+        {
+          showImage &&
+          <Image className='c-card-img character-loading-img' src={defaultCharacterImage} mode='widthFix' />
+        }
         <View className='c-card-content'>
           <View className='c-card-loading-name'></View>
           <View className='c-card-loading-status'></View>

@@ -1,7 +1,16 @@
 @import "./index.rn.less";
 
 .drawer {
+  background-color: @theme-background;
+  box-sizing: border-box;
+
+  &-item {
+    box-sizing: border-box;
+  }
+
   &-btn {
+    width: 100%;
+
     &_active {
       opacity: 0.6;
     }

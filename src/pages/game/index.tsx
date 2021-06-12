@@ -6,7 +6,8 @@ import { View, Button, Text, Image } from '@tarojs/components'
 import { StatusBar, Loading } from "@components";
 import { getCharacter } from '@service'
 import { updateGameSelectList, updateGameStatus } from '@actions'
-import { CharacterType, RootState, GameStatus } from '@constants/types'
+import { CharacterType, RootState } from '@constants/types'
+import { GameStatus } from '@constants/game'
 import { SelectList, SelectResult, Countdown } from './type'
 
 import './index.less'

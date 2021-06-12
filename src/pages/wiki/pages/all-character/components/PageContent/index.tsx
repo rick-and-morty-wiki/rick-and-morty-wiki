@@ -3,7 +3,7 @@ import Taro from '@tarojs/taro'
 import { View, Button } from '@tarojs/components'
 import { useThrottleEffect } from 'ahooks';
 
-import { Iconfont, CharacterCard, Pagination, Back, CustomScrollView } from "@components";
+import { Iconfont, CharacterCard, Pagination, Back, CustomScrollView, StatusBar } from "@components";
 import { getCharacter } from '@service'
 import { CharacterType, PaginationType, CharacterFilterType } from '@constants/types'
 import { defaultRandomCharacters } from '@constants/wiki'
@@ -12,12 +12,13 @@ import '../../index.less'
 
 
 interface AllCharacterPageContentProps {
-  drawer: any,
+  drawerRN?: any,
+  setDrawerWE?: Function,
   filter: CharacterFilterType,
 }
 
 const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) => {
-  const { drawer } = props
+  const { drawerRN, setDrawerWE } = props
   const [characters, setCharacters] = useState<CharacterType[]>(defaultRandomCharacters)
   const [pagination, setPagination] = useState<PaginationType>({
     count: 0,
@@ -50,26 +51,37 @@ const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) 
 
   // 点击打开Drawer
   const handleClickDrawerEnter = () => {
-    drawer.current.openDrawer({ speed: 14 })
+    if (process.env.TARO_ENV === 'rn') {
+      drawerRN.current.openDrawer({ speed: 14 })
+    } else {
+      (setDrawerWE as Function)(true)
+    }
   }
 
   const scrollTop = () => {
     if (process.env.TARO_ENV === 'rn') {
       ScrollViewRef.current.scrollTo({ y: 0 })
     } else {
-      Taro.pageScrollTo({ scrollTop: 0, selector: '.all-character' })
+      Taro.pageScrollTo({ scrollTop: 0, selector: '.all-c' })
     }
   }
 
 
   return (
-    <View className='all-character-page' >
-      <Back className='all-character-back' left={42} top={42} />
-      <Button className='all-character-drawer-enter' style={{ right: 42, top: 42 }} onClick={handleClickDrawerEnter}>
+    <View className='all-c-page' >
+      <StatusBar barStyle='dark-content' backgroundColor='rgba(0,0,0,0)' translucent />
+      <Back className='all-c-back' left={42} top={42} />
+      <Button
+        className='all-c-drawer-enter'
+        style={{ left: 120, top: 42 }}
+        onClick={handleClickDrawerEnter}
+        hoverClass='all-c-drawer-enter_active'
+        hoverStyle={{ opacity: 0.6 }}
+      >
         <Iconfont name='sousuo' size={56} />
       </Button>
-      <CustomScrollView className='all-character-scroll' ref={ScrollViewRef} >
-        <View className='all-character-content'>
+      <CustomScrollView className='all-c-scroll' ref={ScrollViewRef} >
+        <View className='all-c-content'>
           {
             characters.map(character => (
               <CharacterCard key={character.id} character={character} showImage={false} />
