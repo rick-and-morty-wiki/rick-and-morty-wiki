@@ -90,6 +90,7 @@ const CustomScrollView: CustomScrollViewType = forwardRef((props, ref) => {
         refresherTriggered={refreshing}
         onRefresherRefresh={onPulldownRefresh}
         ref={ref}
+        scrollWithAnimation
       >
         {props.children}
       </ScrollView>
