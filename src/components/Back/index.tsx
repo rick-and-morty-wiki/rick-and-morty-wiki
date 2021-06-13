@@ -33,10 +33,10 @@ const Back: React.FC<BackProps> = ({
 
   return (
     <Button
-      className={`back-btn ${className}`}
+      className={`btn-circle-ab ${className}`}
       onClick={handleClick}
       style={{ left, top, ...style }}
-      hoverClass='back-btn_active'
+      hoverClass='btn-circle-ab_active'
       hoverStyle={{ opacity: 0.6 }}
     >
       <Iconfont name='arrow-lift' size={64} />

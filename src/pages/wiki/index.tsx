@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Taro, { useDidShow } from '@tarojs/taro'
 import { View, Image, Button, Text } from '@tarojs/components'
 
-import { StatusBar, CustomScrollView, CharacterCard } from "@components";
+import { StatusBar, CustomScrollView, CharacterCard, Iconfont } from "@components";
 import { getCharacter } from '@service'
 import { CharacterType } from '@constants/types'
 import { wikiBackground } from '@assets/image'
@@ -43,6 +43,7 @@ const generateRandomCharacters = (number: number) => {
 const Wiki: React.FC<any> = () => {
   const [randomCharacters, setRandomCharacters] = useState<CharacterType[]>(defaultRandomCharacters)
   const [statusBarHeight, setStatusBarHeight] = useState<number>(0)
+  const ScrollViewRef = useRef() as React.MutableRefObject<any>
 
   // 给微信小程序导航栏那里垫一下
   useDidShow(() => {
@@ -60,8 +61,28 @@ const Wiki: React.FC<any> = () => {
   }, [])
 
   const onRefresh = () => {
+    Taro.showLoading({
+      title: '加载中',
+      mask: true,
+    })
+    // 滚到顶部
+    if (process.env.TARO_ENV === 'rn') {
+      ScrollViewRef.current.scrollTo({ y: 0 })
+    } else {
+      // Taro.pageScrollTo({ scrollTop: 0, selector: '.custom-scroll-view' })
+      
+      Taro.pageScrollTo({
+        scrollTop: 0,
+        duration: 300,
+        success: function(res) {
+          console.log(res);
+          
+        }
+      })
+    }
     return generateRandomCharacters(6)
       .then((data) => {
+        Taro.hideLoading()
         if (isArray(data)) {
           setRandomCharacters(data)
         }
@@ -69,7 +90,7 @@ const Wiki: React.FC<any> = () => {
   }
 
   return (
-    <CustomScrollView className='wiki' autoHideTab onRefresh={onRefresh} >
+    <CustomScrollView className='wiki' autoHideTab onRefresh={onRefresh} ref={ScrollViewRef} >
       <StatusBar barStyle='dark-content' backgroundColor='rgba(0,0,0,0)' translucent />
       <View className='wiki-header' style={{ marginTop: statusBarHeight }}>
         <Image src={wikiBackground} className='wiki-header-background' mode='widthFix' />
@@ -97,6 +118,19 @@ const Wiki: React.FC<any> = () => {
           ))
         }
       </View>
+
+      <View className='wiki-footer'>
+        <Button
+          className='wiki-footer-btn'
+          style={{ bottom: 0 }}
+          onClick={onRefresh}
+          hoverClass='wiki-footer-btn_active'
+          hoverStyle={{ opacity: 0.6 }}
+        >
+          <Iconfont name='swap' size={56} />
+        </Button>
+      </View>
+
     </CustomScrollView>
   )
 }

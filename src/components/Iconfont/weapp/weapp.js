@@ -1,6 +1,6 @@
 Component({
   properties: {
-    // sousuo | arrow-right | arrow-lift
+    // swap | sousuo | arrow-right | arrow-lift
     name: {
       type: String,
     },

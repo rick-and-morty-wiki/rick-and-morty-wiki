@@ -2,7 +2,7 @@
 import React, { FunctionComponent } from 'react';
 
 interface Props {
-  name: 'sousuo' | 'arrow-right' | 'arrow-lift';
+  name: 'swap' | 'sousuo' | 'arrow-right' | 'arrow-lift';
   size?: number;
   color?: string | string[];
   style?: React.CSSProperties;

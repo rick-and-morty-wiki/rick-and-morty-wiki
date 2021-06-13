@@ -62,13 +62,17 @@ const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) 
     if (process.env.TARO_ENV === 'rn') {
       ScrollViewRef.current.scrollTo({ y: 0 })
     } else {
-      Taro.pageScrollTo({ scrollTop: 0, selector: '.all-c' })
+      // Taro.pageScrollTo({ scrollTop: 0, selector: '#all-c-page' })
+      Taro.pageScrollTo({
+        scrollTop: 0,
+        duration: 300
+      })
     }
   }
 
 
   return (
-    <View className='all-c-page' >
+    <View className='all-c-page' id='all-c-page' >
       <StatusBar barStyle='dark-content' backgroundColor='rgba(0,0,0,0)' translucent />
       <Back className='all-c-back' left={42} top={42} />
       <Button
