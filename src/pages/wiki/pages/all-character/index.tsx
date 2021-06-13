@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 
 import { CharacterFilterType } from '@constants/types'
 
-// import AllCharacterRN from './rn'
-// import AllCharacterWE from './weapp'
 import './index.less'
 
 let AllCharacterP: any

@@ -97,7 +97,7 @@ const CustomScrollView: CustomScrollViewType = forwardRef((props, ref) => {
   }
 
   return (
-    // <View className='custom-scroll-view'>
+    <View className='custom-scroll-view'>
       <ScrollView
         className={`custom-scroll-view ${className}`}
         style={style}
@@ -110,7 +110,7 @@ const CustomScrollView: CustomScrollViewType = forwardRef((props, ref) => {
       >
         {props.children}
       </ScrollView>
-    // </View>
+     </View>
   );
 })
 
