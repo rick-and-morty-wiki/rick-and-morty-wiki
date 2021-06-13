@@ -58,15 +58,13 @@ const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) 
     }
   }
 
+  // 滚到顶部
   const scrollTop = () => {
     if (process.env.TARO_ENV === 'rn') {
       ScrollViewRef.current.scrollTo({ y: 0 })
     } else {
-      // Taro.pageScrollTo({ scrollTop: 0, selector: '#all-c-page' })
-      Taro.pageScrollTo({
-        scrollTop: 0,
-        duration: 300
-      })
+      // 直接操控TaroElement，实现滚动到顶部。ref.current返回的就是一个TaroElement
+      ScrollViewRef.current.setAttribute('scrollTop', 0)
     }
   }
 

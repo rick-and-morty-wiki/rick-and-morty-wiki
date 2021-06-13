@@ -67,8 +67,6 @@ const Wiki: React.FC<any> = () => {
     })
     // 滚到顶部
     if (process.env.TARO_ENV === 'rn') {
-      console.log();
-      
       ScrollViewRef.current.scrollTo({ y: 0 })
     } else {
       // 直接操控TaroElement，实现滚动到顶部。ref.current返回的就是一个TaroElement
