@@ -1,8 +1,11 @@
+import React from 'react'
 import { PaginationType } from '@constants/types'
-import { Dispatch, SetStateAction } from 'react'
+
+import { ReqTriggerType } from '../../pages/wiki/pages/all-character/type'
 
 export interface PaginationProps {
   pagination: PaginationType,
-  setPagination: Dispatch<SetStateAction<PaginationType>>,
-  scrollTop: () => void,
+  setPagination: React.Dispatch<React.SetStateAction<PaginationType>>,
+  scrollTop?: () => void,
+  setReqTrigger?: React.Dispatch<React.SetStateAction<ReqTriggerType>>,
 }

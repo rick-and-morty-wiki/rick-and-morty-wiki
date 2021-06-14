@@ -1,45 +1,56 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useCallback, useEffect } from 'react'
 import Taro from '@tarojs/taro'
 import { View, Button } from '@tarojs/components'
-import { useThrottleEffect } from 'ahooks';
 
 import { Iconfont, CharacterCard, Pagination, Back, CustomScrollView, StatusBar } from "@components";
 import { getCharacter } from '@service'
 import { CharacterType, PaginationType, CharacterFilterType } from '@constants/types'
 import { defaultRandomCharacters } from '@constants/wiki'
 
+import { AllCharacterPageContentProps, DrawerRNType } from '../../type'
 import '../../index.less'
 
 
-interface AllCharacterPageContentProps {
-  drawerRN?: any,
-  setDrawerWE?: Function,
-  filter: CharacterFilterType,
+const defaultPagination: PaginationType = {
+  count: -1,
+  pages: 1,
+  cur: 1,
 }
 
 const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) => {
-  const { drawerRN, setDrawerWE } = props
+  const { drawerRN, setDrawerWE, filter, reqTrigger, setReqTrigger } = props
   const [characters, setCharacters] = useState<CharacterType[]>(defaultRandomCharacters)
-  const [pagination, setPagination] = useState<PaginationType>({
-    count: 0,
-    pages: 0,
-    cur: 1,
-  })
+  const [pagination, setPagination] = useState<PaginationType>(defaultPagination)
   const ScrollViewRef = useRef() as React.MutableRefObject<any>
 
+  // 滚到顶部
+  const scrollTop = useCallback(() => {
+    if (process.env.TARO_ENV === 'rn') {
+      ScrollViewRef.current.scrollTo({ y: 0 })
+    } else {
+      // 直接操控TaroElement，实现滚动到顶部。ref.current返回的就是一个TaroElement
+      ScrollViewRef.current.setAttribute('scrollTop', 0)
+    }
+  }, [ScrollViewRef])
 
-  useThrottleEffect(() => {
-    // setScrollTop(0)
+  // 触发请求
+  const sendRequest = useCallback((
+    pagination_: PaginationType,
+    filter_: CharacterFilterType,
+  ) => {
+
     Taro.showLoading({
       title: '加载中',
       mask: true,
     })
-    getCharacter.all({ page: pagination.cur })
+    console.log(filter_);
+    scrollTop()  // 触发滚到顶部
+    return getCharacter.all({ page: pagination_.cur })
       .then(data => {
         const { info: { count, pages }, results } = data
         setCharacters(results)
         Taro.hideLoading()
-        if (pagination.pages === 0) {
+        if (pagination_.count === -1) {
           setPagination({
             count,
             pages,
@@ -47,27 +58,33 @@ const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) 
           })
         }
       })
-  }, [pagination], { wait: 2500, trailing: false })
+  }, [scrollTop])
+
+  // 控制什么时候发起请求
+  // reqTrigger.trigger === true: 立即触发请求
+  // reqTrigger.firstFilter === true: 点击“检索”，需重置pagination
+  useEffect(() => {
+    if (reqTrigger.trigger) {
+      if (reqTrigger.firstFilter) {
+        sendRequest(defaultPagination, filter)
+      } else {
+        sendRequest(pagination, filter)
+      }
+      setReqTrigger({
+        trigger: false,
+        firstFilter: false
+      })
+    }
+  }, [reqTrigger, setReqTrigger, pagination, filter, sendRequest])
 
   // 点击打开Drawer
   const handleClickDrawerEnter = () => {
     if (process.env.TARO_ENV === 'rn') {
-      drawerRN.current.openDrawer({ speed: 14 })
+      (drawerRN as DrawerRNType).current.openDrawer({ speed: 14 })
     } else {
       (setDrawerWE as Function)(true)
     }
   }
-
-  // 滚到顶部
-  const scrollTop = () => {
-    if (process.env.TARO_ENV === 'rn') {
-      ScrollViewRef.current.scrollTo({ y: 0 })
-    } else {
-      // 直接操控TaroElement，实现滚动到顶部。ref.current返回的就是一个TaroElement
-      ScrollViewRef.current.setAttribute('scrollTop', 0)
-    }
-  }
-
 
   return (
     <View className='all-c-page' id='all-c-page' >
@@ -93,7 +110,7 @@ const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) 
         <Pagination
           pagination={pagination}
           setPagination={setPagination}
-          scrollTop={scrollTop}
+          setReqTrigger={setReqTrigger}
         />
       </CustomScrollView>
     </View>

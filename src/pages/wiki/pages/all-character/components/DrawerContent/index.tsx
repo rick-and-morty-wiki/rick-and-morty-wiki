@@ -1,18 +1,14 @@
 import React, { memo } from 'react'
 import { Button, View, Text, Input, Picker } from '@tarojs/components'
 
-import { CharacterFilterType } from '@constants/types'
-
 import filterRange from './constant'
+import { DrawerContentProps } from '../../type'
 import './index.less'
 
-type DrawerContentProps = {
-  filter: CharacterFilterType,
-  setFilter: Function,
-}
+
 
 const DrawerContent: React.FC<DrawerContentProps> = (props) => {
-  const { filter, setFilter } = props
+  const { filter, setFilter, setReqTrigger } = props
 
   const onStatusChange = (e) => {
     setFilter({ ...filter, status: filterRange.statusRange[e.detail.value] })
@@ -26,43 +22,51 @@ const DrawerContent: React.FC<DrawerContentProps> = (props) => {
     setFilter({ ...filter, species: filterRange.speciesRange[e.detail.value] })
   }
 
-  return (
-    <View className='drawer'>
+  const handleFilter = () => {
+    setReqTrigger({
+      trigger: true,
+      firstFilter: true,
+    })
+  }
 
-      <Text className='drawer-title'>名称</Text>
+  return (
+    <View className='ac-drawer'>
+
+      <Text className='ac-drawer-title'>名称</Text>
       <Input
         value={filter.name}
         onInput={e => setFilter({ ...filter, name: e.detail.value })}
-        className='drawer-item drawer-item-text'
+        className='ac-drawer-item drawer-item-text'
       />
 
-      <Text className='drawer-title'>状态</Text>
+      <Text className='ac-drawer-title'>状态</Text>
       <Picker range={filterRange.statusRange} onChange={onStatusChange} value={filterRange.statusRange.indexOf(filter.status)}>
-        <View className='drawer-item'>
-          <Text className='drawer-item-text'>{filter.status === 'all' ? '全部' : filter.status}</Text>
+        <View className='ac-drawer-item'>
+          <Text className='ac-drawer-item-text'>{filter.status === 'all' ? '全部' : filter.status}</Text>
         </View>
       </Picker>
 
-      <Text className='drawer-title'>性别</Text>
+      <Text className='ac-drawer-title'>性别</Text>
       <Picker range={filterRange.genderRange} onChange={onGenderChange} value={filterRange.genderRange.indexOf(filter.gender)}>
-        <View className='drawer-item'>
-          <Text className='drawer-item-text'>{filter.gender === 'all' ? '全部' : filter.gender}</Text>
+        <View className='ac-drawer-item'>
+          <Text className='ac-drawer-item-text'>{filter.gender === 'all' ? '全部' : filter.gender}</Text>
         </View>
       </Picker>
 
-      <Text className='drawer-title'>种族</Text>
+      <Text className='ac-drawer-title'>种族</Text>
       <Picker range={filterRange.speciesRange} onChange={onSpeciesChange} value={filterRange.speciesRange.indexOf(filter.species)}>
-        <View className='drawer-item'>
-          <Text className='drawer-item-text'>{filter.species === 'all' ? '全部' : filter.species}</Text>
+        <View className='ac-drawer-item'>
+          <Text className='ac-drawer-item-text'>{filter.species === 'all' ? '全部' : filter.species}</Text>
         </View>
       </Picker>
 
       <Button
-        className='drawer-btn'
-        hoverClass='drawer-btn_avtive'
+        className='ac-drawer-btn'
+        hoverClass='ac-drawer-btn_active'
         hoverStyle={{ opacity: 0.6 }}
+        onClick={handleFilter}
       >
-        <Text className='drawer-btn-text'>检索</Text>
+        <Text className='ac-drawer-btn-text'>检索</Text>
       </Button>
     </View>
   )

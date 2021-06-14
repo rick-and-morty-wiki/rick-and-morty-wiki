@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { CharacterType, EpisodeType } from './types';
+import { CharacterType, EpisodeType, CharacterFilterType } from './types';
 
 // 更新角色数据
 export const UPDATE_WIKI_CHARACTER = 'UPDATE_WIKI_CHARACTER';
@@ -35,6 +35,15 @@ export const defaultCharacter: CharacterType = {
   image: '',
   episode: [''],
   url: ''
+};
+
+// 空白角色filter数据
+export const defaultCharacterFilter: CharacterFilterType = {
+  name: '',
+  status: 'all',
+  species: 'all',
+  type: 'all',
+  gender: 'all',
 };
 
 // 获取首页数据时的渲染数据，用来绘制空白组件库

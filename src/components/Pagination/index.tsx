@@ -12,6 +12,7 @@ const Pagination: React.FC<PaginationProps> = ({
   pagination,
   setPagination,
   scrollTop,
+  setReqTrigger,
 }) => {
   const [inputCur, setInputCur] = useState<string | number>(pagination.cur)
 
@@ -19,12 +20,30 @@ const Pagination: React.FC<PaginationProps> = ({
     setInputCur(pagination.cur)
   }, [pagination])
 
+  // 滚到顶部
+  const scrollTop_ = () => {
+    if (scrollTop) {
+      scrollTop()
+    }
+  }
+
+  // 触发查询
+  const request = () => {
+    if (setReqTrigger) {
+      setReqTrigger({
+        trigger: true,
+        firstFilter: false
+      })
+    }
+  }
+
   // 按下回车
   const handleConfirmInputPages = () => {
     const newInputCur = parseInt(inputCur as string)
     if (newInputCur > 0 && newInputCur <= pagination.pages) {
-      scrollTop()
+      scrollTop_()
       setPagination(preState => ({ ...preState, cur: newInputCur }))
+      request()
     } else {
       setInputCur(pagination.cur)
       Taro.showToast({
@@ -36,13 +55,15 @@ const Pagination: React.FC<PaginationProps> = ({
   }
 
   const handleClickPrev = () => {
-    scrollTop()
+    scrollTop_()
     setPagination(preState => ({ ...preState, cur: pagination.cur - 1 }))
+    request()
   }
 
   const handleClickNext = () => {
-    scrollTop()
+    scrollTop_()
     setPagination(preState => ({ ...preState, cur: pagination.cur + 1 }))
+    request()
   }
 
   // count为0或undefinded

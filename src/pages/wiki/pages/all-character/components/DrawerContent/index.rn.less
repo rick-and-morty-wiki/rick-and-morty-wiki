@@ -1,6 +1,6 @@
 @import "@style/index";
 
-.drawer {
+.ac-drawer {
   height: 100%;
   width: 100%;
   padding: 32px;
@@ -34,6 +34,13 @@
     height: 88px;
     border-radius: 50px;
     margin-top: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &_active {
+      opacity: 0.6;
+    }
 
     &-text {
       .font-black-title();
