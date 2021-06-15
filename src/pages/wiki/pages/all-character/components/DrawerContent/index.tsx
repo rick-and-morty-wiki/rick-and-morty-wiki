@@ -1,6 +1,9 @@
 import React, { memo } from 'react'
 import { Button, View, Text, Input, Picker } from '@tarojs/components'
 
+import { Iconfont } from '@components'
+import { defaultCharacterFilter } from '@constants/wiki'
+
 import filterRange from './constant'
 import { DrawerContentProps } from '../../type'
 import './index.less'
@@ -20,6 +23,10 @@ const DrawerContent: React.FC<DrawerContentProps> = (props) => {
 
   const onSpeciesChange = (e) => {
     setFilter({ ...filter, species: filterRange.speciesRange[e.detail.value] })
+  }
+
+  const handleRefreshFilter = () => {
+    setFilter(defaultCharacterFilter)
   }
 
   const handleFilter = () => {
@@ -60,14 +67,25 @@ const DrawerContent: React.FC<DrawerContentProps> = (props) => {
         </View>
       </Picker>
 
-      <Button
-        className='ac-drawer-btn'
-        hoverClass='ac-drawer-btn_active'
-        hoverStyle={{ opacity: 0.6 }}
-        onClick={handleFilter}
-      >
-        <Text className='ac-drawer-btn-text'>检索</Text>
-      </Button>
+      <View className='ac-drawer-bottom'>
+        <Button
+          className='ac-drawer-refresh'
+          hoverClass='btn_active'
+          hoverStyle={{ opacity: 0.6 }}
+          onClick={handleRefreshFilter}
+        >
+          <Iconfont name='swap' size={48} />
+        </Button>
+        <Button
+          className='ac-drawer-search'
+          hoverClass='btn_active'
+          hoverStyle={{ opacity: 0.6 }}
+          onClick={handleFilter}
+        >
+          <Text className='ac-drawer-search-text'>检索</Text>
+        </Button>
+      </View>
+
     </View>
   )
 }

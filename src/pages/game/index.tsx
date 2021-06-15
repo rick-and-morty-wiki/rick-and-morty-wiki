@@ -176,7 +176,7 @@ const Game: React.FC<any> = () => {
           className='game-btns-btn game-btns-btn_dead'
           disabled={selectResult.selected}
           onClick={() => handleClick(character, 'Dead', selectList, characters)}
-          hoverClass='game-btns-btn_active'
+          hoverClass='btn_active'
           hoverStyle={{ opacity: 0.6 }}
         >
           <Text className='game-btns-btn-text'>Dead</Text>
@@ -185,7 +185,7 @@ const Game: React.FC<any> = () => {
           className='game-btns-btn game-btns-btn_alive'
           disabled={selectResult.selected}
           onClick={() => handleClick(character, 'Alive', selectList, characters)}
-          hoverClass='game-btns-btn_active'
+          hoverClass='btn_active'
           hoverStyle={{ opacity: 0.6 }}
         >
           <Text className='game-btns-btn-text'>Alive</Text>

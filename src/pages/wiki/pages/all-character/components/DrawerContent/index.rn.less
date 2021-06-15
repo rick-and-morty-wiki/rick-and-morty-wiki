@@ -30,17 +30,31 @@
     }
   }
 
-  &-btn {
-    height: 88px;
-    border-radius: 50px;
+  &-bottom {
     margin-top: 42px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-refresh {
+    margin-right: 16px;
+    height: 88px;
+    width: 88px;
+    border-radius: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
 
-    &_active {
-      opacity: 0.6;
-    }
+  &-search {
+    flex: 1;
+    height: 88px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &-text {
       .font-black-title();

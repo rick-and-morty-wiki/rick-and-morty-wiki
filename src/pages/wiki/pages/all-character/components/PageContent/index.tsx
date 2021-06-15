@@ -46,7 +46,7 @@ const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) 
     })
     scrollTop()  // 触发滚到顶部
     return getCharacter.filt({ 
-      ...formatFilter(filter_),
+      ...formatFilter<CharacterFilterType>(filter_),
       page: pagination_.cur
      })
       .then(data => {

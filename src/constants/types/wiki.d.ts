@@ -23,11 +23,11 @@ export interface CharacterType {
 
 // 角色的检索条件
 export interface CharacterFilterType {
-  name?: string,
-  status?: 'alive' | 'dead' | 'unknown' | 'all' | string,
-  species?: string,
-  type?: string,
-  gender?: 'female' | 'male' | 'genderless' | 'unknown' | 'all' | string,
+  name: string,
+  status: 'alive' | 'dead' | 'unknown' | 'all' | string,
+  species: string,
+  type: string,
+  gender: 'female' | 'male' | 'genderless' | 'unknown' | 'all' | string,
 }
 
 

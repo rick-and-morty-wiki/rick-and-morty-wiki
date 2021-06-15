@@ -95,7 +95,7 @@ const Wiki: React.FC<any> = () => {
               <Button
                 key={btn.value}
                 className={`wiki-content-btn wiki-content-btn_${index === headerBtns.length - 1 && 'last'}`}
-                hoverClass='wiki-content-btn_active'
+                hoverClass='btn_active'
                 hoverStyle={{ opacity: 0.6 }}
                 onClick={btn.onClick}
               >
@@ -116,7 +116,7 @@ const Wiki: React.FC<any> = () => {
           className='wiki-footer-btn'
           style={{ bottom: 0 }}
           onClick={onRefresh}
-          hoverClass='wiki-footer-btn_active'
+          hoverClass='btn_active'
           hoverStyle={{ opacity: 0.6 }}
         >
           <Iconfont name='swap' size={56} />
