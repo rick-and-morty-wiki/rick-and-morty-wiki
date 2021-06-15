@@ -52,12 +52,12 @@ export default {
         iconPath: "assets/tab/game.png",
         selectedIconPath: "assets/tab/game_active.png"
       },
-      {
-        pagePath: "pages/about/index",
-        text: "关于",
-        iconPath: "assets/tab/about.png",
-        selectedIconPath: "assets/tab/about_active.png"
-      }
+      // {
+      //   pagePath: "pages/about/index",
+      //   text: "关于",
+      //   iconPath: "assets/tab/about.png",
+      //   selectedIconPath: "assets/tab/about_active.png"
+      // }
     ]
   },
   usingComponents: Object.assign(useGlobalIconFont()),

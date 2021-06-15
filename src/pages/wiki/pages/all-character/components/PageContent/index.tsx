@@ -104,8 +104,13 @@ const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) 
       <CustomScrollView className='all-c-scroll' ref={ScrollViewRef} >
         <View className='all-c-content'>
           {
-            characters.map(character => (
-              <CharacterCard key={character.id} character={character} showImage={false} />
+            characters.map((character, index) => (
+              <CharacterCard
+                key={character.id}
+                character={character}
+                showImage={false}
+                number={(pagination.cur - 1) * 20 + index + 1}
+              />
             ))
           }
         </View>

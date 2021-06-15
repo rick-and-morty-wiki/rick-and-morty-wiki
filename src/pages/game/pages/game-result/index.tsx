@@ -72,7 +72,7 @@ const Game: React.FC<any> = () => {
       <StatusBar barStyle='light-content' backgroundColor='rgba(0,0,0,0)' translucent />
 
       <View className='gameResult-header'>
-        <Back left={statusBarHeight / 2 + 2} top={statusBarHeight + 4} />
+        <Back left={statusBarHeight / 2 + 4} top={statusBarHeight + 12} />
         <Text className='gameResult-header-title'>Game Over</Text>
         <View className='gameResult-header-score'>
           <Text className='gameResult-header-text'>正确：</Text>
