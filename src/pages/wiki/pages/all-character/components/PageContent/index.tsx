@@ -1,6 +1,6 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react'
 import Taro from '@tarojs/taro'
-import { View, Button } from '@tarojs/components'
+import { View, Button, Text } from '@tarojs/components'
 
 import { Iconfont, CharacterCard, Pagination, Back, CustomScrollView, StatusBar } from "@components";
 import { getCharacter } from '@service'
@@ -45,10 +45,10 @@ const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) 
       mask: true,
     })
     scrollTop()  // 触发滚到顶部
-    return getCharacter.filt({ 
+    return getCharacter.filt({
       ...formatFilter<CharacterFilterType>(filter_),
       page: pagination_.cur
-     })
+    })
       .then(data => {
         const { info: { count, pages }, results } = data
         setCharacters(results as Array<CharacterType>)
@@ -92,16 +92,22 @@ const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) 
   return (
     <View className='all-c-page' id='all-c-page' >
       <StatusBar barStyle='dark-content' backgroundColor='rgba(0,0,0,0)' translucent />
-      <Back className='all-c-back' left={42} top={42} />
-      <Button
-        className='all-c-drawer-enter'
-        style={{ left: 120, top: 42 }}
-        onClick={handleClickDrawerEnter}
-        hoverClass='all-c-drawer-enter_active'
-        hoverStyle={{ opacity: 0.6 }}
-      >
-        <Iconfont name='sousuo' size={56} />
-      </Button>
+
+      <View className='all-c-header'>
+        <Back className='all-c-back' />
+        <View className='all-c-header-btn'>
+          <Text className='all-c-header-btn-text'>{pagination.count}</Text>
+        </View>
+        <Button
+          className='all-c-header-btn'
+          onClick={handleClickDrawerEnter}
+          hoverClass='all-c-header-btn_active'
+          hoverStyle={{ opacity: 0.6 }}
+        >
+          <Iconfont name='sousuo' size={56} />
+        </Button>
+      </View>
+
       <CustomScrollView className='all-c-scroll' ref={ScrollViewRef} >
         <View className='all-c-content'>
           {

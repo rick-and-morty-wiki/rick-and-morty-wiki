@@ -43,7 +43,7 @@ const DrawerContent: React.FC<DrawerContentProps> = (props) => {
       <Input
         value={filter.name}
         onInput={e => setFilter({ ...filter, name: e.detail.value })}
-        className='ac-drawer-item drawer-item-text'
+        className='ac-drawer-item ac-drawer-item-text'
       />
 
       <Text className='ac-drawer-title'>状态</Text>
