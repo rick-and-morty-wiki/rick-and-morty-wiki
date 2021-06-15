@@ -7,14 +7,14 @@ interface EpisodeFilterType {
   episode: number,
 }
 
-export interface AllEpisodeServiceType {
+export interface EpisodeServiceReqType {
   info: ServicePaginationType,
   results: Array<EpisodeType>
 }
 
 export interface GetEpisodeType {
-  all: () => Promise<AllEpisodeServiceType>,
+  all: () => Promise<EpisodeServiceReqType>,
   one: (id: number) => Promise<EpisodeType>,
   list: (ids: number[]) => Promise<EpisodeType[]>,
-  filt: (filter: EpisodeFilterType) => Promise<EpisodeType[]>
+  filt: (filter: EpisodeFilterType) => Promise<EpisodeServiceReqType>
 }

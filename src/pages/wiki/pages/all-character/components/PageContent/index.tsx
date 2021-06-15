@@ -6,6 +6,7 @@ import { Iconfont, CharacterCard, Pagination, Back, CustomScrollView, StatusBar 
 import { getCharacter } from '@service'
 import { CharacterType, PaginationType, CharacterFilterType } from '@constants/types'
 import { defaultRandomCharacters } from '@constants/wiki'
+import { formatFilter } from '@utils'
 
 import { AllCharacterPageContentProps, DrawerRNType } from '../../type'
 import '../../index.less'
@@ -43,12 +44,14 @@ const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) 
       title: '加载中',
       mask: true,
     })
-    console.log(filter_);
     scrollTop()  // 触发滚到顶部
-    return getCharacter.all({ page: pagination_.cur })
+    return getCharacter.filt({ 
+      ...formatFilter(filter_),
+      page: pagination_.cur
+     })
       .then(data => {
         const { info: { count, pages }, results } = data
-        setCharacters(results)
+        setCharacters(results as Array<CharacterType>)
         Taro.hideLoading()
         if (pagination_.count === -1) {
           setPagination({

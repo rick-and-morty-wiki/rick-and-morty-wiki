@@ -8,14 +8,14 @@ interface LocationFilterType {
   dimension: string,
 }
 
-export interface AllLocationServiceType {
+export interface LocationServiceResType {
   info: ServicePaginationType,
-  results: Array<LocationType>
+  results: Array<LocationType> | LocationType
 }
 
 export interface GetLocationType {
-  all: () => Promise<AllLocationServiceType>,
+  all: () => Promise<LocationServiceResType>,
   one: (id: number) => Promise<LocationType>,
   list: (ids: number[]) => Promise<LocationType[]>,
-  filt: (filter: LocationFilterType) => Promise<LocationType[]>
+  filt: (filter: LocationFilterType) => Promise<LocationServiceResType>
 }
