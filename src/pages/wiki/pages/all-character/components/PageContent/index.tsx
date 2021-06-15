@@ -89,7 +89,7 @@ const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) 
       <View className='all-c-header'>
         <Back className='all-c-back' />
         <View className='all-c-header-btn'>
-          <Text className='all-c-header-btn-text'>{pagination.count}</Text>
+          <Text className='all-c-header-btn-text'>{pagination.count < 0 ? '' : pagination.count}</Text>
         </View>
         <Button
           className='all-c-header-btn'
