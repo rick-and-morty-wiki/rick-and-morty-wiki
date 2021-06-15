@@ -15,17 +15,13 @@ const Game: React.FC<any> = () => {
   const dispatch = useDispatch()
   const selectList: GameSelectList = useSelector((state: RootState) => state.game.selectList)
   const [statusBarHeight, setStatusBarHeight] = useState<number>(0)
-  const [sumData, setSumData] = useState<{
-    correctSum: number,
-    wrongSum: number,
-    percent: number,
-  }>({
+  const [sumData, setSumData] = useState({
     correctSum: 0,
     wrongSum: 0,
     percent: 0,
   })
 
-  // 给微信小程序导航栏那里垫一下
+  // 获取导航栏高度
   useDidShow(() => {
     Taro.getSystemInfo({
       success: function (res) {

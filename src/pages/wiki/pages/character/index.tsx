@@ -40,8 +40,8 @@ const Wiki: React.FC<any> = () => {
       if (!episodes[0].name && character.episode.length > 0) {
         for (let ei = 0; ei < character.episode.length; ei++) {
           const episodeId = parseInt(character.episode[ei].split('episode/')[1])
-          // 最多请求三个
-          if (ei < 3) {
+          // 最多请求4个
+          if (ei < 4) {
             await getEpisode.one(episodeId)
               .then(data => {
                 if (ei === 0) {
@@ -119,14 +119,22 @@ const Wiki: React.FC<any> = () => {
         </View>
 
       </View>
-      <View className='character-footer'>
+      <View className='character-episodes'>
         {
           episodes.map(episode => (
-            <Button className='character-footer-btn' key={episode.episode}>
-              <Text className='character-footer-btn-text'>{episode.episode + ' '}</Text>
+            <Button
+              className='character-episodes-btn'
+              key={episode.episode}
+              hoverClass='btn_active'
+              hoverStyle={{ opacity: 0.6 }}
+            >
+              <Text className='character-episodes-btn-text'>{episode.episode + ' '}</Text>
             </Button>
           ))
         }
+      </View>
+      <View className='character-episodes-tip'>
+        {episodes.length > 3 && <Text className='character-episodes-tip-text'>数量过多，仅显示4条</Text>}
       </View>
     </View>
   )

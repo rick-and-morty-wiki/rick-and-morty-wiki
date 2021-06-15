@@ -21,15 +21,6 @@ export interface CharacterType {
   created?: string,
 }
 
-// 角色的检索条件
-export interface CharacterFilterType {
-  name: string,
-  status: 'alive' | 'dead' | 'unknown' | 'all' | string,
-  species: string,
-  type: string,
-  gender: 'female' | 'male' | 'genderless' | 'unknown' | 'all' | string,
-}
-
 
 // 单个剧集
 export interface EpisodeType {
@@ -42,6 +33,7 @@ export interface EpisodeType {
   created?: string,
 }
 
+
 // 单个地点
 export interface LocationType {
   id: number,
@@ -52,6 +44,17 @@ export interface LocationType {
   url: string,
   created?: string,
 }
+
+
+// 角色的检索条件
+export interface CharacterFilterType {
+  name: string,
+  status: 'alive' | 'dead' | 'unknown' | 'all' | string,
+  species: string,
+  type: string,
+  gender: 'female' | 'male' | 'genderless' | 'unknown' | 'all' | string,
+}
+
 
 // 翻页器的state
 export interface PaginationType {

@@ -21,7 +21,6 @@ const defaultSelectResult = {
 // 计时器本器
 let counterTimeout: any
 
-
 const Game: React.FC<any> = () => {
   const dispatch = useDispatch()
   const gameStatus: string = useSelector((state: RootState) => state.game.gameStatus)
