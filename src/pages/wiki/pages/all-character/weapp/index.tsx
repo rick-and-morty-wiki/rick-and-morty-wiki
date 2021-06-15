@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import { View } from '@tarojs/components'
 
 import { Drawer } from '@components'
@@ -12,6 +12,9 @@ const AllCharacterRN: React.FC<PlatformEnterProps> = (props) => {
   const { filter, setFilter, reqTrigger, setReqTrigger } = props
   const [drawerWE, setDrawerWE] = useState<boolean>(false)
 
+  const openDrawer = useCallback(() => setDrawerWE(true), [])
+  const closeDrawer = useCallback(() => setDrawerWE(false), [])
+
   return (
     <View className='all-c-container'>
       <Drawer show={drawerWE} onClose={() => setDrawerWE(false)} right width='400rpx'>
@@ -22,8 +25,9 @@ const AllCharacterRN: React.FC<PlatformEnterProps> = (props) => {
         />
       </Drawer>
       <PageContent
+        openDrawer={openDrawer}
+        closeDrawer={closeDrawer}
         filter={filter}
-        setDrawerWE={setDrawerWE}
         reqTrigger={reqTrigger}
         setReqTrigger={setReqTrigger}
       />

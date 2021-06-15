@@ -1,5 +1,4 @@
 import { CharacterFilterType } from '@constants/types'
-import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 
 // 控制请求的开关
 export interface ReqTriggerType {
@@ -13,7 +12,6 @@ export type SetFilterType = React.Dispatch<React.SetStateAction<CharacterFilterT
 
 export type SetDrawerWEType = React.Dispatch<React.SetStateAction<boolean>>
 
-export type DrawerRNType = React.MutableRefObject<DrawerLayout>
 
 // 文件夹rn、weapp内组件的props
 export interface PlatformEnterProps {
@@ -25,8 +23,8 @@ export interface PlatformEnterProps {
 
 // PageContent的props
 export interface AllCharacterPageContentProps {
-  drawerRN?: DrawerRNType,
-  setDrawerWE?: SetDrawerWEType,
+  openDrawer: () => void,
+  closeDrawer: () => void,
   filter: CharacterFilterType,
   reqTrigger: ReqTriggerType,
   setReqTrigger: SetReqTriggerType,

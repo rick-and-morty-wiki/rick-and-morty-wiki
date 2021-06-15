@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useCallback } from 'react'
 import { View } from '@tarojs/components'
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 
@@ -12,6 +12,9 @@ import '../index.less'
 const AllCharacterRN: React.FC<PlatformEnterProps> = (props) => {
   const { filter, setFilter, reqTrigger, setReqTrigger } = props
   const drawerRN = useRef() as React.MutableRefObject<DrawerLayout>
+
+  const openDrawer = useCallback(() => drawerRN.current.openDrawer({ speed: 14 }), [drawerRN])
+  const closeDrawer = useCallback(() => drawerRN.current.closeDrawer({ speed: 14 }), [drawerRN])
 
   return (
     <View className='all-c-container'>
@@ -37,7 +40,8 @@ const AllCharacterRN: React.FC<PlatformEnterProps> = (props) => {
         }}
       >
         <PageContent
-          drawerRN={drawerRN}
+          openDrawer={openDrawer}
+          closeDrawer={closeDrawer}
           filter={filter}
           reqTrigger={reqTrigger}
           setReqTrigger={setReqTrigger}

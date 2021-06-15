@@ -8,7 +8,7 @@ import { CharacterType, PaginationType, CharacterFilterType } from '@constants/t
 import { defaultRandomCharacters } from '@constants/wiki'
 import { formatFilter } from '@utils'
 
-import { AllCharacterPageContentProps, DrawerRNType } from '../../type'
+import { AllCharacterPageContentProps } from '../../type'
 import '../../index.less'
 
 
@@ -19,7 +19,7 @@ const defaultPagination: PaginationType = {
 }
 
 const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) => {
-  const { drawerRN, setDrawerWE, filter, reqTrigger, setReqTrigger } = props
+  const { openDrawer, closeDrawer, filter, reqTrigger, setReqTrigger } = props
   const [characters, setCharacters] = useState<CharacterType[]>(defaultRandomCharacters)
   const [pagination, setPagination] = useState<PaginationType>(defaultPagination)
   const ScrollViewRef = useRef() as React.MutableRefObject<any>
@@ -45,6 +45,7 @@ const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) 
       mask: true,
     })
     scrollTop()  // 触发滚到顶部
+    closeDrawer()  // 触发关闭drawer
     return getCharacter.filt({
       ...formatFilter<CharacterFilterType>(filter_),
       page: pagination_.cur
@@ -61,7 +62,7 @@ const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) 
           })
         }
       })
-  }, [scrollTop])
+  }, [closeDrawer, scrollTop])
 
   // 控制什么时候发起请求
   // reqTrigger.trigger === true: 立即触发请求
@@ -80,14 +81,6 @@ const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) 
     }
   }, [reqTrigger, setReqTrigger, pagination, filter, sendRequest])
 
-  // 点击打开Drawer
-  const handleClickDrawerEnter = () => {
-    if (process.env.TARO_ENV === 'rn') {
-      (drawerRN as DrawerRNType).current.openDrawer({ speed: 14 })
-    } else {
-      (setDrawerWE as Function)(true)
-    }
-  }
 
   return (
     <View className='all-c-page' id='all-c-page' >
@@ -100,7 +93,7 @@ const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) 
         </View>
         <Button
           className='all-c-header-btn'
-          onClick={handleClickDrawerEnter}
+          onClick={openDrawer}
           hoverClass='all-c-header-btn_active'
           hoverStyle={{ opacity: 0.6 }}
         >

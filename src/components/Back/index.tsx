@@ -39,7 +39,7 @@ const Back: React.FC<BackProps> = ({
       hoverClass='btn-circle-ab_active'
       hoverStyle={{ opacity: 0.6 }}
     >
-      <Iconfont name='arrow-lift' size={64} />
+      <Iconfont name='arrow-lift' size={68} />
     </Button>
   )
 }
