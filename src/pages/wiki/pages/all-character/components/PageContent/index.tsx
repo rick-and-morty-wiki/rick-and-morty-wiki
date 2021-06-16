@@ -86,22 +86,21 @@ const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) 
     <View className='all-c' >
       <StatusBar barStyle='dark-content' backgroundColor='rgba(0,0,0,0)' translucent />
 
-      <View className='all-c-header'>
-        <Back className='all-c-back' />
-        <View className='all-c-header-btn'>
-          <Text className='all-c-header-btn-text'>{pagination.count < 0 ? '' : pagination.count}</Text>
-        </View>
-        <Button
-          className='all-c-header-btn'
-          onClick={openDrawer}
-          hoverClass='all-c-header-btn_active'
-          hoverStyle={{ opacity: 0.6 }}
-        >
-          <Iconfont name='sousuo' size={56} />
-        </Button>
-      </View>
+      <Back className='all-c-back' />
+      <Button
+        className='all-c-search'
+        onClick={openDrawer}
+        hoverClass='all-c-search_active'
+        hoverStyle={{ opacity: 0.6 }}
+      >
+        <Iconfont name='sousuo' size={56} />
+      </Button>
 
       <CustomScrollView className='all-c-scroll' ref={ScrollViewRef} >
+        <View className='all-c-header'>
+          <Text className='all-c-header-title'>数量：{pagination.count >= 0 ? pagination.count : ''}</Text>
+        </View>
+
         <View className='all-c-content'>
           {
             characters.map((character, index) => (

@@ -68,15 +68,13 @@ const AllEpisode: React.FC<any> = () => {
   return (
     <View className='all-c' >
       <StatusBar barStyle='light-content' backgroundColor='rgba(0,0,0,0)' translucent />
-
-      <View className='all-c-header'>
-        <Back className='all-c-back' />
-        <View className='all-c-header-btn'>
-          <Text className='all-c-header-btn-text'>{pagination.count < 0 ? '' : pagination.count}</Text>
-        </View>
-      </View>
+      <Back className='all-c-back' />
 
       <CustomScrollView className='all-c-scroll' ref={ScrollViewRef} >
+        <View className='all-c-header'>
+          <Text className='all-c-header-title'>集数：{pagination.count < 0 ? '' : pagination.count}</Text>
+        </View>
+
         <View className='all-c-content'>
           {
             episodes.map(episode => (

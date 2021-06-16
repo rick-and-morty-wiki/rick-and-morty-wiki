@@ -1,7 +1,7 @@
 /*
  * @Author: p697
  * @Date: 2021-05-21 09:58:50
- * @LastEditTime: 2021-06-16 10:23:58
+ * @LastEditTime: 2021-06-16 11:41:16
  * @Description: 这里书写所有平台的通用样式，且必须符合RN的要求
  */
 @import "@style/index";
@@ -11,31 +11,32 @@
   background-color: @theme-background;
   height: 100%;
 
+  &-back {
+    right: 40px;
+    bottom: 208px;
+  }
+
   &-header {
-    position: absolute;
     display: flex;
     flex-direction: row;
+    align-items: center;
     margin-top: 88px;
     margin-left: 64px;
 
-    &-btn {
-      .btn-circle-ab();
-      position: relative;
-      margin-left: 32px;
-
-      &-text {
-        .font-black-title();
-        font-size: 36px;
-      }
-
-      &_active {
-        opacity: 0.6;
-      }
+    &-title {
+      .font-white-title();
+      font-size: 38px;
     }
   }
 
-  &-back {
-    position: relative;
+  &-search {
+    .btn-circle-ab();
+    right: 40px;
+    bottom: 348px;
+
+    &_active {
+      opacity: 0.6;
+    }
   }
 
   &-container {
@@ -49,7 +50,7 @@
 
   &-content {
     padding: 64px;
+    padding-top: 40px;
     padding-bottom: 0;
-    padding-top: 236px;
   }
 }

@@ -40,6 +40,7 @@ const CharacterList: React.FC<any> = () => {
           <Text className='c-list-header-primary'>{header.primary}</Text>
           <Text className='c-list-header-secondary'>{header.secondary}</Text>
         </View>
+
         <View className='c-list-content'>
           {
             characters.map((character, index) => (
