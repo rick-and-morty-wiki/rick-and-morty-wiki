@@ -1,6 +1,5 @@
 import {
   UPDATE_WIKI_CHARACTER_LIST,
-  defaultSixCharacters,
 } from "@constants/wiki";
 import { CharacterListStateType } from "@constants/types";
 

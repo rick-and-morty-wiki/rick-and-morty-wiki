@@ -1,45 +1,48 @@
 /*
  * @Author: p697
  * @Date: 2021-05-21 09:58:50
- * @LastEditTime: 2021-06-16 10:23:16
+ * @LastEditTime: 2021-06-16 10:56:32
  * @Description: 这里书写所有平台的通用样式，且必须符合RN的要求
  */
 @import "@style/index";
 @import "@components/Back/index.less";
 
-.all-c {
+.c-list {
   background-color: @theme-background;
   height: 100%;
 
+  &-back {
+    right: 36px;
+    bottom: 72px;
+  }
+
   &-header {
-    position: absolute;
     display: flex;
     flex-direction: row;
+    align-items: center;
     margin-top: 88px;
     margin-left: 64px;
 
-    &-btn {
-      .btn-circle-ab();
-      position: relative;
-      margin-left: 32px;
-
-      &-text {
-        .font-black-title();
-        font-size: 36px;
-      }
-
-      &_active {
-        opacity: 0.6;
-      }
+    &-title {
+      .font-white-title();
+      font-size: 66px;
     }
-  }
 
-  &-back {
-    position: relative;
-  }
+    &-sub {
+      margin-top: 8px;
+      padding: 0 64px
+    }
 
-  &-container {
-    height: 100%;
+    &-primary {
+      .font-white-primary();
+      font-size: 42px;
+    }
+
+    &-secondary {
+      .font-white-secondary();
+      font-size: 36px;
+      margin-top: 8px;
+    }
   }
 
   &-scroll {
@@ -50,6 +53,5 @@
   &-content {
     padding: 64px;
     padding-bottom: 0;
-    padding-top: 236px;
   }
 }

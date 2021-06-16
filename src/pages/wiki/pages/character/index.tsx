@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { View, Text, Image, Button } from '@tarojs/components'
 
 import { StatusBar, Back, Loading } from "@components";
-import { CharacterType, EpisodeType, RootState } from '@constants/types'
+import { EpisodeType, RootState } from '@constants/types'
 import { defaultCharacter, defaultEpisode } from '@constants/wiki'
 import { getEpisode } from '@service'
 import { updateWikiCharacter } from '@actions'
@@ -14,7 +14,7 @@ import './index.less'
 
 const Wiki: React.FC<any> = () => {
   const dispatch = useDispatch()
-  const character: CharacterType = useSelector((state: RootState) => state.wikiCharacter.character)
+  const character = useSelector((state: RootState) => state.wikiCharacter.character)
   const [episodes, setEpisodes] = useState<EpisodeType[]>([defaultEpisode])
   const [statusBarHeight, setStatusBarHeight] = useState<number>(0)
 
@@ -77,7 +77,7 @@ const Wiki: React.FC<any> = () => {
 
       <View style={{ height: statusBarHeight + 4 }}></View>
       <View className='character-header'>
-        <Back left='6%' top='3%' />
+        <Back className='character-back' />
         <Image src={character.image} className='character-header-background' mode='widthFix' />
       </View>
 

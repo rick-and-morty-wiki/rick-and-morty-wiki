@@ -83,7 +83,7 @@ const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) 
 
 
   return (
-    <View className='all-c-page' id='all-c-page' >
+    <View className='all-c' >
       <StatusBar barStyle='dark-content' backgroundColor='rgba(0,0,0,0)' translucent />
 
       <View className='all-c-header'>

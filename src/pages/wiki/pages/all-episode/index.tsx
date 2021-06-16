@@ -15,7 +15,7 @@ const defaultPagination: PaginationType = {
   cur: 1,
 }
 
-const AllCharacterPageContent: React.FC<any> = () => {
+const AllEpisode: React.FC<any> = () => {
   const [episodes, setEpisodes] = useState<EpisodeType[]>([])
   const [pagination, setPagination] = useState<PaginationType>(defaultPagination)
   const [reqTrigger, setReqTrigger] = useState<boolean>(true)
@@ -66,8 +66,8 @@ const AllCharacterPageContent: React.FC<any> = () => {
 
 
   return (
-    <View className='all-c-page' id='all-c-page' >
-      <StatusBar barStyle='dark-content' backgroundColor='rgba(0,0,0,0)' translucent />
+    <View className='all-c' >
+      <StatusBar barStyle='light-content' backgroundColor='rgba(0,0,0,0)' translucent />
 
       <View className='all-c-header'>
         <Back className='all-c-back' />
@@ -94,4 +94,4 @@ const AllCharacterPageContent: React.FC<any> = () => {
   )
 }
 
-export default AllCharacterPageContent
+export default AllEpisode

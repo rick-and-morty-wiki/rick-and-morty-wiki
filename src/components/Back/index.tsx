@@ -16,8 +16,6 @@ type BackProps = {
 }
 
 const Back: React.FC<BackProps> = ({
-  left = 0,
-  top = 0,
   style = {},
   className = '',
   onBack,
@@ -31,11 +29,13 @@ const Back: React.FC<BackProps> = ({
     }
   }
 
+
+
   return (
     <Button
       className={`btn-circle-ab ${className}`}
       onClick={handleClick}
-      style={{ left, top, ...style }}
+      style={style}
       hoverClass='btn-circle-ab_active'
       hoverStyle={{ opacity: 0.6 }}
     >
