@@ -98,7 +98,7 @@ const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) 
 
       <CustomScrollView className='all-c-scroll' ref={ScrollViewRef} >
         <View className='all-c-header'>
-          <Text className='all-c-header-title'>数量：{pagination.count >= 0 ? pagination.count : ''}</Text>
+          <Text className='all-c-header-title'>数量：{pagination.count >= 0 ? pagination.count : 0}</Text>
         </View>
 
         <View className='all-c-content'>

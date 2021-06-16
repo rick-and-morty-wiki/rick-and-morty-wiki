@@ -9,6 +9,7 @@ import {
 let baseUrl = "https://rickandmortyapi.com/api/";
 if (process.env.TARO_ENV === 'weapp') {
   baseUrl = 'https://rickandmortyapi.cavano.vip/'
+  // baseUrl = 'http://127.0.0.1:3000/'
 }
 
 const request: any = (endpointUrl: string) => {
@@ -53,12 +54,15 @@ const getEndpoint = async (endpoint: string, opt: void | number | number[] | obj
     const { data } = await request(endpoint + query)
     return data
   } catch (e) {
-    Taro.showToast({
-      title: '网络出错',
-      icon: 'none',
-      duration: 2000,
-    })
-    return null
+    // 返回空数据
+    if (typeof opt === 'number') {
+      return {}
+    } else {
+      return {
+        info: {},
+        results: [],
+      }
+    }
   }
 }
 
