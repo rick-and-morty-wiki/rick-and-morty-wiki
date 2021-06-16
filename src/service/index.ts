@@ -81,7 +81,7 @@ export const getLocation: GetLocationType = {
 
 // 获取剧集数据
 export const getEpisode: GetEpisodeType = {
-  all: () => getEndpoint('episode'),
+  all: (page) => getEndpoint('episode', page),
   one: (id) => getEndpoint('episode', id),
   list: (ids) => getEndpoint('episode', ids),
   filt: (filter) => getEndpoint('episode', filter)

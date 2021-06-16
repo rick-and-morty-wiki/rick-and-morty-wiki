@@ -7,4 +7,5 @@
  export { default as Iconfont } from "./Iconfont";
  export { default as Pagination } from "./Pagination";
  export { default as Drawer } from "./Drawer";
+ export { default as EpisodeCard } from "./EpisodeCard";
  

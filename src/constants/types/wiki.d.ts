@@ -62,3 +62,12 @@ export interface PaginationType {
   pages: number,
   cur: number,
 }
+
+export interface CharacterListStateType {
+  charactersUrl: string[];
+  header: {
+    title: string,
+    primary: string,
+    secondary: string,
+  }
+}

@@ -6,7 +6,7 @@ import { StatusBar, CustomScrollView, CharacterCard, Iconfont } from "@component
 import { getCharacter } from '@service'
 import { CharacterType } from '@constants/types'
 import { wikiBackground } from '@assets/image'
-import { defaultRandomCharacters } from '@constants/wiki'
+import { defaultSixCharacters } from '@constants/wiki'
 import { isArray } from '@utils'
 
 import { headerBtnsType } from './type'
@@ -22,7 +22,9 @@ const headerBtns: headerBtnsType[] = [
   },
   {
     value: '剧集',
-    onClick: () => null,
+    onClick: () => Taro.navigateTo({
+      url: '/pages/wiki/pages/all-episode/index',
+    }),
   },
 ]
 
@@ -41,7 +43,7 @@ const generateRandomCharacters = (number: number) => {
 
 
 const Wiki: React.FC<any> = () => {
-  const [randomCharacters, setRandomCharacters] = useState<CharacterType[]>(defaultRandomCharacters)
+  const [randomCharacters, setRandomCharacters] = useState<CharacterType[]>(defaultSixCharacters)
   const [statusBarHeight, setStatusBarHeight] = useState<number>(0)
   const ScrollViewRef = useRef() as React.MutableRefObject<any>
 

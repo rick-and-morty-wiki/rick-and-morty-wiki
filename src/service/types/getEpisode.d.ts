@@ -13,7 +13,7 @@ export interface EpisodeServiceReqType {
 }
 
 export interface GetEpisodeType {
-  all: () => Promise<EpisodeServiceReqType>,
+  all: (page: { page: number } | void) => Promise<EpisodeServiceReqType>,
   one: (id: number) => Promise<EpisodeType>,
   list: (ids: number[]) => Promise<EpisodeType[]>,
   filt: (filter: EpisodeFilterType) => Promise<EpisodeServiceReqType>

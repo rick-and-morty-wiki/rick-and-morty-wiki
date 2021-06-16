@@ -13,13 +13,11 @@ import './index.less'
 interface CharacterCardProps {
   character: CharacterType,
   showImage?: boolean,
-  number?: number,
 }
 
 const CharacterCard: React.FC<CharacterCardProps> = ({
   character,
   showImage = true,
-  number = 0,
 }) => {
   const dispatch = useDispatch()
 
@@ -62,9 +60,6 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
       }
       <View className='c-card-content'>
         <Text className='c-card-name'>{character.name}</Text>
-        {
-          number && <Text className='c-card-number'>{number}</Text>
-        }
         <View className='c-card-status'>
           <View className={`c-card-status-point c-card-status_${character.status}`}></View>
           <Text className='c-card-status-text'>{character.status}</Text>

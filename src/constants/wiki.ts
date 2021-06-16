@@ -47,7 +47,7 @@ export const defaultCharacterFilter: CharacterFilterType = {
 };
 
 // 获取首页数据时的渲染数据，用来绘制空白组件库
-export const defaultRandomCharacters: CharacterType[] = '123456'
+export const defaultSixCharacters: CharacterType[] = '123456'
   .split('')
   .map(id => {
     const newCharacter: CharacterType = _.cloneDeep(defaultCharacter);

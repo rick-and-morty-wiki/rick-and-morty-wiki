@@ -1,0 +1,65 @@
+@import "@style/index";
+
+.e-card {
+  background-color: @theme-grey;
+  border-radius: 20px;
+  margin-bottom: 56px;
+  // overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  padding: 24px;
+
+  &_active {
+    opacity: 0.75;
+  }
+
+  &-left {
+    background-color: @theme-background;
+    border-radius: 20px;
+    margin-right: 24px;
+    width: 96px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &-episode {
+      .font-white-title();
+      font-weight: bold;
+      font-size: 32px;
+    }
+  }
+
+  &-right {
+    flex: 1;
+    padding: 4px 0;
+  }
+
+  &-name {
+    margin-bottom: 8px;
+
+    &-text {
+      .font-white-title();
+      font-size: 36px;
+      font-weight: bold;
+    }
+  }
+
+  &-date {
+    &-text {
+      .font-white-primary();
+      font-size: 32px;
+    }
+  }
+
+  &-loading {
+    // rn不支持animation，需要剔除
+
+    &-name {
+      height: 50px;
+      width: 200px;
+      background-color: @color-grey;
+      margin-top: 12px;
+    }
+  }
+}
