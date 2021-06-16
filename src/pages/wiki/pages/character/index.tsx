@@ -7,7 +7,7 @@ import { StatusBar, Back, Loading } from "@components";
 import { EpisodeType, RootState } from '@constants/types'
 import { defaultCharacter, defaultEpisode } from '@constants/wiki'
 import { getEpisode } from '@service'
-import { updateWikiCharacter } from '@actions'
+import { updateWikiCharacter, updateWikiCharacterList } from '@actions'
 
 import './index.less'
 
@@ -58,6 +58,17 @@ const Wiki: React.FC<any> = () => {
       updateEpisodes()
     }
   }, [character, episodes])
+
+  const handleClickEpisode = (episode: EpisodeType) => {
+    Taro.navigateTo({
+      url: '/pages/wiki/pages/character-list/index',
+    })
+    dispatch(updateWikiCharacterList(episode.characters, {
+      title: episode.episode,
+      primary: episode.name,
+      secondary: episode.air_date,
+    }))
+  }
 
 
   // 请求未完成，渲染骨架屏
@@ -124,11 +135,12 @@ const Wiki: React.FC<any> = () => {
           episodes.map(episode => (
             <Button
               className='character-episodes-btn'
+              onClick={() => handleClickEpisode(episode)}
               key={episode.episode}
               hoverClass='btn_active'
               hoverStyle={{ opacity: 0.6 }}
             >
-              <Text className='character-episodes-btn-text'>{episode.episode + ' '}</Text>
+              <Text className='character-episodes-btn-text'>{episode.episode}</Text>
             </Button>
           ))
         }

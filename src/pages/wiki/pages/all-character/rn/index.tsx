@@ -20,13 +20,16 @@ const AllCharacterRN: React.FC<PlatformEnterProps> = (props) => {
     <View className='all-c-container'>
       <DrawerLayout
         ref={drawerRN}
-        enableTrackpadTwoFingerGesture
+        // enableTrackpadTwoFingerGesture
         drawerWidth={210}
-        keyboardDismissMode='on-drag'
+        // keyboardDismissMode='on-drag'
         drawerPosition='right'
-        drawerType='back'
-        overlayColor='#00000000'
-        drawerBackgroundColor={colors['theme-background']}
+        drawerType='front'
+        // drawerBackgroundColor={colors['theme-background']}
+        contentContainerStyle={{
+          // elevation: 100,
+          backgroundColor: '#000',
+        }}
         renderNavigationView={() => (
           <DrawerContent
             filter={filter}
@@ -34,10 +37,6 @@ const AllCharacterRN: React.FC<PlatformEnterProps> = (props) => {
             setReqTrigger={setReqTrigger}
           />
         )}
-        contentContainerStyle={{
-          elevation: 100,
-          backgroundColor: '#000',
-        }}
       >
         <PageContent
           openDrawer={openDrawer}
