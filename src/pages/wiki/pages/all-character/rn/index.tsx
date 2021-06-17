@@ -2,8 +2,6 @@ import React, { useRef, useCallback } from 'react'
 import { View } from '@tarojs/components'
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 
-import colors from '@style/theme'
-
 import { PageContent, DrawerContent } from '../components'
 import { PlatformEnterProps } from '../type'
 import '../index.less'
@@ -20,12 +18,9 @@ const AllCharacterRN: React.FC<PlatformEnterProps> = (props) => {
     <View className='all-c-container'>
       <DrawerLayout
         ref={drawerRN}
-        // enableTrackpadTwoFingerGesture
-        drawerWidth={210}
-        // keyboardDismissMode='on-drag'
+        drawerWidth={170}
         drawerPosition='right'
         drawerType='front'
-        // drawerBackgroundColor={colors['theme-background']}
         contentContainerStyle={{
           // elevation: 100,
           backgroundColor: '#000',

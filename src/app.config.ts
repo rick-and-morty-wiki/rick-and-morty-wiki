@@ -19,7 +19,7 @@ export default {
     backgroundTextStyle: "light",
     navigationBarBackgroundColor: "#ffffff",
     navigationStyle: 'custom',
-    // navigationBarTextStyle: "black"
+    navigationBarTextStyle: "white"
   },
   rn: {
     screenOptions: {

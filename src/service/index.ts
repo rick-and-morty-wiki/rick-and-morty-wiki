@@ -9,7 +9,7 @@ import {
 let baseUrl = "https://rickandmortyapi.com/api/";
 if (process.env.TARO_ENV === 'weapp') {
   baseUrl = 'https://rickandmortyapi.cavano.vip/'
-  // baseUrl = 'http://127.0.0.1:3000/'
+  // baseUrl = 'http://127.0.0.1:9000/'
 }
 
 const request: any = (endpointUrl: string) => {

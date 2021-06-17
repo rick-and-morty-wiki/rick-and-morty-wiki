@@ -67,7 +67,7 @@ const Pagination: React.FC<PaginationProps> = ({
   }
 
   // count为0或undefinded
-  if (!pagination.pages) {
+  if (pagination.pages <= 1 || pagination.count <= 0) {
     return <View className='pagination_empty'></View>
   }
 

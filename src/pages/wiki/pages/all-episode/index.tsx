@@ -72,7 +72,7 @@ const AllEpisode: React.FC<any> = () => {
 
       <CustomScrollView className='all-c-scroll' ref={ScrollViewRef} >
         <View className='all-c-header'>
-          <Text className='all-c-header-title'>集数：{pagination.count < 0 ? '' : pagination.count}</Text>
+          <Text className='all-c-header-title'>集数：{pagination.count < 0 ? 0 : pagination.count}</Text>
         </View>
 
         <View className='all-c-content'>

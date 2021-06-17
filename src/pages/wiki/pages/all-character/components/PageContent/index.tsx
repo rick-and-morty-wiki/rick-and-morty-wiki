@@ -84,7 +84,7 @@ const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) 
 
   return (
     <View className='all-c' >
-      <StatusBar barStyle='dark-content' backgroundColor='rgba(0,0,0,0)' translucent />
+      <StatusBar barStyle='light-content' backgroundColor='rgba(0,0,0,0)' translucent />
 
       <Back className='all-c-back' />
       <Button

@@ -3,7 +3,7 @@ import Taro, { useDidShow } from '@tarojs/taro'
 import { useDispatch, useSelector } from 'react-redux'
 import { View, Button, Text, Image } from '@tarojs/components'
 
-import { StatusBar, Back } from "@components";
+import { StatusBar, Back, CustomScrollView } from "@components";
 import { updateWikiCharacter, updateGameStatus } from '@actions'
 import { GameSelectList, RootState } from '@constants/types'
 import { GameStatus } from '@constants/game'
@@ -66,9 +66,10 @@ const Game: React.FC<any> = () => {
   return (
     <View className='gameResult'>
       <StatusBar barStyle='light-content' backgroundColor='rgba(0,0,0,0)' translucent />
+      <Back className='gameResult-back' />
 
+      <CustomScrollView>
       <View className='gameResult-header'>
-        <Back left={statusBarHeight / 2 + 4} top={statusBarHeight + 12} />
         <Text className='gameResult-header-title'>Game Over</Text>
         <View className='gameResult-header-score'>
           <Text className='gameResult-header-text'>正确：</Text>
@@ -94,6 +95,7 @@ const Game: React.FC<any> = () => {
           ))
         }
       </View>
+      </CustomScrollView>
     </View>
   )
 }
