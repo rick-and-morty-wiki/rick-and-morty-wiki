@@ -33,7 +33,6 @@ const AllCharacterRN: React.FC<PlatformEnterProps> = (props) => {
       />
     </View>
   )
-
 }
 
 export default AllCharacterRN

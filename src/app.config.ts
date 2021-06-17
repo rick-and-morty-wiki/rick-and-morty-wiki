@@ -12,8 +12,6 @@ export default {
     "pages/wiki/pages/all-character/index",
     "pages/wiki/pages/all-episode/index",
     "pages/wiki/pages/character-list/index",
-
-    "pages/game/pages/game-result/index",
   ],
   window: {
     backgroundTextStyle: "light",

@@ -1,0 +1,45 @@
+@import "../../index.less";
+
+.game {
+  &-pre {
+    &-title {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      &-text {
+        .font-white-title();
+        font-size: 72px;
+        font-weight: bold;
+
+        &_red {
+          color: @color-error;
+          margin-right: 16px;
+        }
+        &_green {
+          color: @color-success;
+          margin-left: 16px;
+        }
+      }
+    }
+
+    &-btn {
+      width: 148px;
+      height: 148px;
+      border-radius: 160px;
+      margin-top: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000000;
+      border: 5px #222222 solid;
+
+      &-text {
+        .font-white-title();
+        font-size: 36px;
+        font-weight: bold;
+      }
+    }
+  }
+}

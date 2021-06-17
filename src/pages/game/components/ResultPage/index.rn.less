@@ -1,17 +1,13 @@
-@import "@style/index";
+@import "../../index.less";
 
-.gameResult {
+.game-result {
   width: 100%;
   min-height: 100%;
   background-color: @theme-background;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  &-back {
-    right: 40px;
-    bottom: 208px;
-  }
+  padding-bottom: 102px;
 
   &-header {
     display: flex;
@@ -62,7 +58,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      
+
       &-text {
         .font-white-title();
         font-size: 36px;

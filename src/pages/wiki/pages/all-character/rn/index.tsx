@@ -43,7 +43,6 @@ const AllCharacterRN: React.FC<PlatformEnterProps> = (props) => {
       </DrawerLayout>
     </View>
   )
-
 }
 
 export default AllCharacterRN

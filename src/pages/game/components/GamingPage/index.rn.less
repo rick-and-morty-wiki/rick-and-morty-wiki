@@ -1,0 +1,126 @@
+@import "../../index.less";
+
+.game {
+  &-countdown {
+    margin-bottom: 36px;
+    background-color: @theme-grey;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 80px;
+
+    &-text {
+      .font-white-title();
+      font-size: 48px;
+    }
+  }
+
+  &-img {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    &-value {
+      border-radius: 72px;
+      width: 560px;
+
+      &_grey {
+        opacity: 0.2;
+      }
+    }
+
+    &-mask {
+      position: absolute;
+      z-index: 2;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      &-text {
+        .font-white-title();
+        font-size: 68px;
+        font-weight: bold;
+        padding: 20px;
+
+        &_correct {
+          color: @color-success;
+        }
+
+        &_wrong {
+          color: @color-error;
+        }
+      }
+    }
+  }
+
+  &-name {
+    margin-top: 48px;
+    padding: 0 48px;
+    text-align: center;
+
+    &-text {
+      .font-white-title();
+      font-size: 46px;
+      text-align: center;
+    }
+  }
+
+  &-location {
+    margin-top: 12px;
+    padding: 0 48px;
+    text-align: center;
+
+    &-text {
+      .font-white-secondary();
+      font-size: 32px;
+      text-align: center;
+    }
+  }
+
+  &-btns {
+    margin-top: 64px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 68%;
+
+    &-btn {
+      border-radius: 54px;
+      height: 108px;
+      width: 40%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &-text {
+        .font-white-title();
+        font-size: 36px;
+      }
+
+      &_dead {
+        background-color: @color-error;
+      }
+
+      &_alive {
+        background-color: @color-success;
+      }
+    }
+  }
+
+  &-count {
+    margin-top: 48px;
+    margin-bottom: 80px;
+
+    &-text {
+      .font-white-title();
+      font-size: 32px;
+    }
+  }
+}

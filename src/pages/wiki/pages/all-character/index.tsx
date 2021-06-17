@@ -6,7 +6,6 @@ import { defaultCharacterFilter } from '@constants/wiki'
 import { ReqTriggerType } from './type'
 import './index.less'
 
-
 let AllCharacterP: any
 if (process.env.TARO_ENV === 'rn') {
   AllCharacterP = require('./rn').default

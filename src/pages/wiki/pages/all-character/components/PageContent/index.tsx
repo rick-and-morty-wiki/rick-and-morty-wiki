@@ -81,7 +81,6 @@ const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) 
     }
   }, [reqTrigger, setReqTrigger, pagination, filter, sendRequest])
 
-
   return (
     <View className='all-c' >
       <StatusBar barStyle='light-content' backgroundColor='rgba(0,0,0,0)' translucent />
