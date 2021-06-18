@@ -1,4 +1,5 @@
 @import "../../index.less";
+@import "@components/Back/index.less";
 
 .game-result {
   width: 100%;
@@ -6,8 +7,13 @@
   background-color: @theme-background;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding-bottom: 102px;
+
+  &-btn {
+    .btn-circle-ab();
+    z-index: 2;
+    right: 40px;
+    bottom: 348px;
+  }
 
   &-header {
     display: flex;
@@ -47,24 +53,6 @@
       .font-white-secondary();
       font-size: 32px;
     }
-
-    &-btn {
-      margin: 52px 0;
-      height: 120px;
-      padding: 0 48px;
-      border-radius: 60px;
-      background-color: #000000;
-      border: 4px #222222 solid;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      &-text {
-        .font-white-title();
-        font-size: 36px;
-        font-weight: bold;
-      }
-    }
   }
 
   &-content {
@@ -73,6 +61,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 12px;
+    padding-bottom: 136px;
 
     &-box {
       position: relative;
@@ -108,16 +97,5 @@
         color: @color-error;
       }
     }
-  }
-
-  &-btn {
-    width: 132px;
-    height: 132px;
-    border-radius: 160px;
-    margin-top: 120px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: @color-grey;
   }
 }

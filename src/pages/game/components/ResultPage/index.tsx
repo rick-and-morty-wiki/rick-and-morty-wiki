@@ -3,6 +3,7 @@ import Taro from '@tarojs/taro'
 import { useDispatch } from 'react-redux'
 import { View, Button, Text, Image } from '@tarojs/components'
 
+import { CustomScrollView, Iconfont } from '@components'
 import { updateWikiCharacter } from '@actions'
 import { GameStatus } from '@constants/game'
 
@@ -61,33 +62,33 @@ const GameResultPage: React.FC<GameResultPageProps> = (props) => {
 
   return (
     <View className='game-result'>
+      <Button className='game-result-btn' onClick={handleClickAgain}>
+        <Iconfont name='swap' size={56} />
+      </Button>
 
-      <View className='game-result-header'>
-        <Text className='game-result-header-title'>Game Over</Text>
-        <View className='game-result-header-score'>
-          <Text className='game-result-header-text'>正确：</Text>
-          <Text className='game-result-header-text game-result-header-text_correct'>{sumData.correctSum}&nbsp;&nbsp;&nbsp;</Text>
-          <Text className='game-result-header-text'>错误：</Text>
-          <Text className='game-result-header-text game-result-header-text_wrong'>{sumData.wrongSum}</Text>
+      <CustomScrollView>
+        <View className='game-result-header'>
+          <View className='game-result-header-score'>
+            <Text className='game-result-header-text'>正确：</Text>
+            <Text className='game-result-header-text game-result-header-text_correct'>{sumData.correctSum}&nbsp;&nbsp;&nbsp;</Text>
+            <Text className='game-result-header-text'>错误：</Text>
+            <Text className='game-result-header-text game-result-header-text_wrong'>{sumData.wrongSum}</Text>
+          </View>
         </View>
-        <Text className='game-result-header-comment'>超越了全球{sumData.percent.toFixed(2)}%的人</Text>
-        <Button className='game-result-header-btn' onClick={handleClickAgain}>
-          <Text className='game-result-header-btn-text'>再来一局</Text>
-        </Button>
-      </View>
 
-      <View className='game-result-content'>
-        {
-          selectList.map(({ character, correct }) => (
-            <View key={character.id} className='game-result-content-box'>
-              <Image src={character.image} className='game-result-content-img' mode='widthFix' />
-              <View className='game-result-content-mask' onClick={() => handleClickCharacter(character)}>
-                <Text className={`game-result-content-text game-result-content-text_${correct ? 'correct' : 'wrong'}`}>{correct ? 'Correct' : 'Wrong'}</Text>
+        <View className='game-result-content'>
+          {
+            selectList.map(({ character, correct }) => (
+              <View key={character.id} className='game-result-content-box'>
+                <Image src={character.image} className='game-result-content-img' mode='widthFix' />
+                <View className='game-result-content-mask' onClick={() => handleClickCharacter(character)}>
+                  <Text className={`game-result-content-text game-result-content-text_${correct ? 'correct' : 'wrong'}`}>{correct ? 'Correct' : 'Wrong'}</Text>
+                </View>
               </View>
-            </View>
-          ))
-        }
-      </View>
+            ))
+          }
+        </View>
+      </CustomScrollView>
 
     </View>
   )
