@@ -17,41 +17,23 @@
 
   &-header {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    padding-top: 128px;
-
-    &-title {
-      .font-white-title();
-      font-size: 64px;
-    }
-
-    &-score {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      margin: 12px;
-    }
+    justify-content: center;
+    padding-top: 112px;
+    padding-bottom: 56px;
 
     &-text {
       .font-white-title();
-      font-size: 38px;
+      font-size: 48px;
 
       &_correct {
-        font-size: 40px;
         color: @color-success;
       }
 
       &_wrong {
-        font-size: 40px;
         color: @color-error;
       }
-    }
-
-    &-comment {
-      .font-white-secondary();
-      font-size: 32px;
     }
   }
 

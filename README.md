@@ -34,7 +34,7 @@ $ cd rick-and-morty-wiki
 $ npm install
 ```
 
-#### 编译到微信小程序
+### 编译到微信小程序
 
 直接运行：
 ```
@@ -44,16 +44,16 @@ $ npm run dev
 更多信息请参考[Taro文档](https://taro-docs.jd.com/taro/docs/GETTING-STARTED#%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C)。
 
 
-#### 编译到React Native
+### 编译到React Native
 在进行以下操作之前，请确保自己的电脑上安装了正确的RN环境。参考：[react-native中文网](https://www.react-native.cn/docs/environment-setup)。如果在编译的过程中遇到了问题，请参考[Taro文档](https://taro-docs.jd.com/taro/docs/react-native#%E5%BC%80%E5%8F%91)。
 
-##### 1. 克隆native-shell到项目内
+#### 1. 克隆native-shell到项目内
 将[rick-and-morty-wiki/RMwiki-native-shell](https://github.com/rick-and-morty-wiki/RMwiki-native-shell)克隆到项目根目录内。
 ```
 $ git clone https://github.com/rick-and-morty-wiki/RMwiki-native-shell.git
 ```
 
-##### 2. 为native-shell安装依赖
+#### 2. 为native-shell安装依赖
 按顺序执行下面的命令：
 ```
 $ cd taro-native-shell
@@ -61,7 +61,7 @@ $ npm install
 $ cd ios & pod install
 ```
 
-##### 3. 编译到指定平台（快捷指令）
+#### 3. 编译到指定平台（快捷指令）
 
 cd到项目根目录下，拆分一个终端（或新建一个终端）。以**编译到Android端**为例，首先在第一个终端内运行：
 ```

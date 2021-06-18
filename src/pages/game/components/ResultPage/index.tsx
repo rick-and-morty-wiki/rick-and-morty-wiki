@@ -68,12 +68,10 @@ const GameResultPage: React.FC<GameResultPageProps> = (props) => {
 
       <CustomScrollView>
         <View className='game-result-header'>
-          <View className='game-result-header-score'>
-            <Text className='game-result-header-text'>正确：</Text>
-            <Text className='game-result-header-text game-result-header-text_correct'>{sumData.correctSum}&nbsp;&nbsp;&nbsp;</Text>
-            <Text className='game-result-header-text'>错误：</Text>
-            <Text className='game-result-header-text game-result-header-text_wrong'>{sumData.wrongSum}</Text>
-          </View>
+          <Text className='game-result-header-text'>正确：</Text>
+          <Text className='game-result-header-text game-result-header-text_correct'>{sumData.correctSum}&nbsp;&nbsp;&nbsp;</Text>
+          <Text className='game-result-header-text'>错误：</Text>
+          <Text className='game-result-header-text game-result-header-text_wrong'>{sumData.wrongSum}</Text>
         </View>
 
         <View className='game-result-content'>
