@@ -1,4 +1,5 @@
 import Taro from "@tarojs/taro";
+import { isArray } from '@utils/is-type'
 import {
   GetCharacterType,
   GetEpisodeType,
@@ -52,6 +53,10 @@ const getEndpoint = async (endpoint: string, opt: void | number | number[] | obj
 
   try {
     const { data } = await request(endpoint + query)
+    // 当请求的list的id数量为1时，api返回的不是列表而是单个对象数据，这里进行统一化
+    if (isArray(opt) && (opt as number[]).length === 1) {
+      return [data]
+    }
     return data
   } catch (e) {
     // 返回空数据

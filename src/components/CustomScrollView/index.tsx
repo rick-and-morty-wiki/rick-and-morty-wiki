@@ -1,6 +1,5 @@
 import React, { useState, useEffect, forwardRef } from 'react';
 import Taro from '@tarojs/taro'
-import { View } from '@tarojs/components';
 
 import { CustomScrollViewType } from './type'
 import './index.less'
@@ -98,20 +97,18 @@ const CustomScrollView: CustomScrollViewType = forwardRef((props, ref) => {
   }
 
   return (
-    <View className='custom-scroll-view'>
-      <ScrollView
-        className={`custom-scroll-view ${className}`}
-        style={style}
-        onScroll={handleScroll}
-        scrollY
-        ref={ref}
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onPulldownRefresh} />
-        }
-      >
-        {props.children}
-      </ScrollView>
-     </View>
+    <ScrollView
+      className={`custom-scroll-view ${className}`}
+      style={style}
+      onScroll={handleScroll}
+      scrollY
+      ref={ref}
+      refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={onPulldownRefresh} />
+      }
+    >
+      {props.children}
+    </ScrollView>
   );
 })
 

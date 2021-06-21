@@ -31,7 +31,7 @@ const CharacterList: React.FC<any> = () => {
       <StatusBar barStyle='light-content' backgroundColor='rgba(0,0,0,0)' translucent />
       <Back className='c-list-back' />
 
-      <CustomScrollView className='c-list-scroll' >
+      <CustomScrollView>
         <View className='c-list-header'>
           <Text className='c-list-header-title'>{header.title}</Text>
         </View>

@@ -84,48 +84,51 @@ const Wiki: React.FC<any> = () => {
   }
 
   return (
-    <CustomScrollView className='wiki' autoHideTab onRefresh={onRefresh} ref={ScrollViewRef} >
-      <StatusBar barStyle='dark-content' backgroundColor='rgba(0,0,0,0)' translucent />
-      <View className='wiki-header' style={{ marginTop: statusBarHeight }}>
-        <Image src={wikiBackground} className='wiki-header-background' mode='widthFix' />
-      </View>
+    <View className='wiki'>
+      <StatusBar barStyle='light-content' backgroundColor='rgba(0,0,0,0)' translucent />
 
-      <View className='wiki-content'>
-        <View className='wiki-content-top'>
+      <CustomScrollView autoHideTab onRefresh={onRefresh} ref={ScrollViewRef} >
+        <View className='wiki-header' style={{ marginTop: statusBarHeight }}>
+          <Image src={wikiBackground} className='wiki-header-background' mode='widthFix' />
+        </View>
+
+        <View className='wiki-content'>
+          <View className='wiki-content-top'>
+            {
+              headerBtns.map((btn, index) => (
+                <Button
+                  key={btn.value}
+                  className={`wiki-content-btn wiki-content-btn_${index === headerBtns.length - 1 && 'last'}`}
+                  hoverClass='btn_active'
+                  hoverStyle={{ opacity: 0.6 }}
+                  onClick={btn.onClick}
+                >
+                  <Text className='wiki-content-btn-value'>{btn.value}</Text>
+                </Button>
+              ))
+            }
+          </View>
           {
-            headerBtns.map((btn, index) => (
-              <Button
-                key={btn.value}
-                className={`wiki-content-btn wiki-content-btn_${index === headerBtns.length - 1 && 'last'}`}
-                hoverClass='btn_active'
-                hoverStyle={{ opacity: 0.6 }}
-                onClick={btn.onClick}
-              >
-                <Text className='wiki-content-btn-value'>{btn.value}</Text>
-              </Button>
+            randomCharacters.map(character => (
+              <CharacterCard key={character.id} character={character} />
             ))
           }
         </View>
-        {
-          randomCharacters.map(character => (
-            <CharacterCard key={character.id} character={character} />
-          ))
-        }
-      </View>
 
-      <View className='wiki-footer'>
-        <Button
-          className='wiki-footer-btn'
-          style={{ bottom: 0 }}
-          onClick={onRefresh}
-          hoverClass='btn_active'
-          hoverStyle={{ opacity: 0.6 }}
-        >
-          <Iconfont name='swap' size={56} />
-        </Button>
-      </View>
+        <View className='wiki-footer'>
+          <Button
+            className='wiki-footer-btn'
+            style={{ bottom: 0 }}
+            onClick={onRefresh}
+            hoverClass='btn_active'
+            hoverStyle={{ opacity: 0.6 }}
+          >
+            <Iconfont name='swap' size={56} />
+          </Button>
+        </View>
 
-    </CustomScrollView>
+      </CustomScrollView>
+    </View>
   )
 }
 

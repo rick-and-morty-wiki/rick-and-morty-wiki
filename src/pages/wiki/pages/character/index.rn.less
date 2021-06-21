@@ -1,9 +1,8 @@
 @import "@style/index";
 
 .character {
-  min-height: 100%;
   width: 100%;
-  position: relative;
+  min-height: 100%;
   background-color: @theme-background;
 
   &-background {
@@ -13,15 +12,15 @@
     top: 0;
     left: 0;
 
+    &-img {
+      height: 100%;
+      width: 100%;
+    }
+
     &-mask {
-      opacity: 0.88;
+      opacity: 0.84;
       background-color: @theme-background;
     }
-  }
-
-  &-back {
-    left: 6%;
-    top: 3%;
   }
 
   &-header {
@@ -77,7 +76,6 @@
       &_two {
         width: 100%;
       }
-
     }
   }
 
@@ -85,35 +83,31 @@
     width: 100%;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
     padding: 0 32px;
-    padding-bottom: 16px;
+    padding-bottom: 100px;
 
     &-btn {
       height: 88px;
-      width: 148px;
-      margin-left: 16px;
-      margin-right: 5px;
-      border-radius: 20px;
+      width: 154px;
+      margin: 8px;
+      border-radius: 24px;
       padding: 0;
       display: flex;
       justify-content: center;
       align-items: center;
+      background-color: @theme-grey;
 
       &-text {
-        .font-black-title();
+        .font-white-title();
         font-size: 30px;
+        font-weight: bold;
       }
-    }
 
-    &-tip {
-      padding-left: 48px;
-      padding-bottom: 24px;
-
-      &-text {
-        .font-white-secondary();
-        font-size: 30px;
+      &_none {
+        opacity: 0;
       }
     }
   }
-
 }

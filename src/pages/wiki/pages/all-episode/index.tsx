@@ -66,16 +66,16 @@ const AllEpisode: React.FC<any> = () => {
 
 
   return (
-    <View className='all-c' >
+    <View className='all-e' >
       <StatusBar barStyle='light-content' backgroundColor='rgba(0,0,0,0)' translucent />
-      <Back className='all-c-back' />
+      <Back className='all-e-back' />
 
-      <CustomScrollView className='all-c-scroll' ref={ScrollViewRef} >
-        <View className='all-c-header'>
-          <Text className='all-c-header-title'>集数：{pagination.count < 0 ? 0 : pagination.count}</Text>
+      <CustomScrollView ref={ScrollViewRef} >
+        <View className='all-e-header'>
+          <Text className='all-e-header-title'>集数：{pagination.count < 0 ? 0 : pagination.count}</Text>
         </View>
 
-        <View className='all-c-content'>
+        <View className='all-e-content'>
           {
             episodes.map(episode => (
               <EpisodeCard key={episode.episode} episode={episode} />

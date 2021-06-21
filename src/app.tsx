@@ -13,9 +13,9 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <SafeAreaView>
+        {/* <SafeAreaView> */}
           {this.props.children}
-        </SafeAreaView>
+        {/* </SafeAreaView> */}
       </Provider>
     )
   }

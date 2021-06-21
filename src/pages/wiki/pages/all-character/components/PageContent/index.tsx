@@ -95,7 +95,7 @@ const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) 
         <Iconfont name='sousuo' size={56} />
       </Button>
 
-      <CustomScrollView className='all-c-scroll' ref={ScrollViewRef} >
+      <CustomScrollView ref={ScrollViewRef} >
         <View className='all-c-header'>
           <Text className='all-c-header-title'>数量：{pagination.count >= 0 ? pagination.count : 0}</Text>
         </View>
