@@ -16,7 +16,14 @@ const CharacterList: React.FC<any> = () => {
 
   // 根据charactersUrl请求角色具体信息
   useEffect(() => {
-    if (!charactersUrl || charactersUrl.length === 0) {
+    // 数据正在请求中，显示骨架屏
+    if (!charactersUrl || charactersUrl.length === 0 && !header.primary) {
+      setCharacters(defaultSixCharacters)
+      return
+    }
+    // 该location内没有角色，跳过下方逻辑
+    if (!charactersUrl || charactersUrl.length === 0 && header.primary) {
+      setCharacters([])
       return
     }
     const ids: number[] = []
@@ -27,7 +34,7 @@ const CharacterList: React.FC<any> = () => {
     }
     getCharacter.list(ids)
       .then(res => setCharacters(res))
-  }, [charactersUrl])
+  }, [charactersUrl, header.primary])
 
   return (
     <View className='c-list' >

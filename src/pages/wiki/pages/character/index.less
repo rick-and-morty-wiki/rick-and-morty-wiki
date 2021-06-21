@@ -1,8 +1,7 @@
 @import "./index.rn.less";
 
 .character {
-  position: relative;
-  display: flex;
+  .scroll-page-container-weapp();
 
   &-content {
     padding-top: 16px;
@@ -14,5 +13,11 @@
 
   &-episodes {
     box-sizing: border-box;
+
+    &-btn {
+      &-text {
+        font-size: 32px;
+      }
+    }
   }
 }
