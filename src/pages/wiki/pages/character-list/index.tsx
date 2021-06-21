@@ -16,6 +16,9 @@ const CharacterList: React.FC<any> = () => {
 
   // 根据charactersUrl请求角色具体信息
   useEffect(() => {
+    if (!charactersUrl || charactersUrl.length === 0) {
+      return
+    }
     const ids: number[] = []
     for (const characterUrl of charactersUrl) {
       if (characterUrl) {

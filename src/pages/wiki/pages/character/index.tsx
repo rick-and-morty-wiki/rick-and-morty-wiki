@@ -4,10 +4,14 @@ import { useSelector, useDispatch } from 'react-redux'
 import { View, Text, Image, Button } from '@tarojs/components'
 
 import { StatusBar, Back, Loading, CustomScrollView } from "@components";
-import { EpisodeType, RootState } from '@constants/types'
+import { CharacterType, EpisodeType, RootState } from '@constants/types'
 import { defaultCharacter, defaultEpisode } from '@constants/wiki'
 import { getEpisode } from '@service'
-import { updateWikiCharacter, updateWikiCharacterList } from '@actions'
+import {
+  updateWikiCharacter,
+  updateCharacterList_byEpisode,
+  updateCharacterList_byLocation,
+} from '@actions'
 
 import './index.less'
 
@@ -69,11 +73,21 @@ const Wiki: React.FC<any> = () => {
     Taro.navigateTo({
       url: '/pages/wiki/pages/character-list/index',
     })
-    dispatch(updateWikiCharacterList(episode.characters, {
+    dispatch(updateCharacterList_byEpisode(episode.characters, {
       title: episode.episode,
       primary: episode.name,
       secondary: episode.air_date,
     }))
+  }
+
+  const handleClickLocation = (location: CharacterType['location']) => {
+    if (!location.url) {
+      return
+    }
+    dispatch(updateCharacterList_byLocation(location.name, location.url))
+    Taro.navigateTo({
+      url: '/pages/wiki/pages/character-list/index',
+    })
   }
 
   // 请求未完成，渲染骨架屏
@@ -124,12 +138,23 @@ const Wiki: React.FC<any> = () => {
             }
           </View>
 
-          <View className='character-content-row character-content-row_two' style={{ marginTop: 16 }}>
+          <View
+            className='character-content-row character-content-row_two'
+            style={{ marginTop: 16 }}
+            onClick={() => handleClickLocation(character.origin)}
+            hoverClass='btn_active'
+            hoverStyle={{ opacity: 0.6 }}
+          >
             <Text className='character-content-row-text'>首次出现地点：</Text>
             <Text className='character-content-row-text_a'>{character.origin.name}</Text>
           </View>
 
-          <View className='character-content-row character-content-row_two'>
+          <View
+            className='character-content-row character-content-row_two'
+            onClick={() => handleClickLocation(character.location)}
+            hoverClass='btn_active'
+            hoverStyle={{ opacity: 0.6 }}
+          >
             <Text className='character-content-row-text'>最后出现地点：</Text>
             <Text className='character-content-row-text_a'>{character.location.name}</Text>
           </View>

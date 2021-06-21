@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { View, Text } from '@tarojs/components'
 
 import { EpisodeType } from '@constants/types'
-import { updateWikiCharacterList } from '@actions'
+import { updateCharacterList_byEpisode } from '@actions'
 
 import './index.less'
 
@@ -21,7 +21,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({
   const dispatch = useDispatch()
 
   const handleClickCard = () => {
-    dispatch(updateWikiCharacterList(episode.characters, {
+    dispatch(updateCharacterList_byEpisode(episode.characters, {
       title: episode.episode,
       primary: episode.name,
       secondary: episode.air_date,
