@@ -1,0 +1,66 @@
+@import "@style/index";
+
+.about {
+  background-color: @theme-background;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  padding: 32px;
+  padding-bottom: 120px;
+
+  &-title {
+    .font-white-title();
+    font-size: 56px;
+    color: @color-blue;
+    margin-top: 96px;
+    margin-bottom: 32px
+  }
+
+  &-com {
+    .font-white-primary();
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+
+  &-box {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  &-subTitle {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 16px;
+  }
+  
+  &-tech {
+    background-color: @theme-grey;
+    // width: ;
+    padding: 16px 24px;
+    border-radius: 24px;
+    margin: 12px;
+
+    &-text {
+      .font-white-title();
+      font-size: 36px;
+    }
+  }
+
+  &-src {
+    display: flex;
+    flex-direction: row;
+    margin-top: 24px;
+
+    &-text {
+      .font-white-primary();
+      font-size: 30px;
+
+      &_a {
+        color: @color-blue;
+      }
+    }
+  }
+}

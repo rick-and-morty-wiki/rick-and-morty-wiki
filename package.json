@@ -53,7 +53,6 @@
 		"@tarojs/runtime": "3.2.8",
 		"@tarojs/taro": "3.2.8",
 		"@tarojs/taro-rn": "^3.2.8",
-		"ahooks": "^2.10.4",
 		"classnames": "^2.3.1",
 		"lodash": "^4.17.21",
 		"react": "^17.0.0",
