@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useCallback } from 'react'
 import Taro, { useDidShow } from '@tarojs/taro'
 import { View, Image, Button, Text } from '@tarojs/components'
 
@@ -41,7 +41,6 @@ const generateRandomCharacters = (number: number) => {
   return getCharacter.list(rids)
 }
 
-
 const Wiki: React.FC<any> = () => {
   const [randomCharacters, setRandomCharacters] = useState<CharacterType[]>(defaultSixCharacters)
   const [statusBarHeight, setStatusBarHeight] = useState<number>(0)
@@ -62,26 +61,28 @@ const Wiki: React.FC<any> = () => {
       .then((data) => setRandomCharacters(data))
   }, [])
 
-  const onRefresh = () => {
-    Taro.showLoading({
-      title: '加载中',
-      mask: true,
-    })
-    // 滚到顶部
-    if (process.env.TARO_ENV === 'rn') {
-      ScrollViewRef.current.scrollTo({ y: 0 })
-    } else {
-      // 直接操控TaroElement，实现滚动到顶部。ref.current返回的就是一个TaroElement
-      ScrollViewRef.current.setAttribute('scrollTop', 0)
-    }
-    return generateRandomCharacters(6)
-      .then((data) => {
-        Taro.hideLoading()
-        if (isArray(data)) {
-          setRandomCharacters(data)
-        }
+  const onRefresh = useCallback(() => {
+    {
+      Taro.showLoading({
+        title: '加载中',
+        mask: true,
       })
-  }
+      // 滚到顶部
+      if (process.env.TARO_ENV === 'rn') {
+        ScrollViewRef.current.scrollTo({ y: 0 })
+      } else {
+        // 直接操控TaroElement，实现滚动到顶部。ref.current返回的就是一个TaroElement
+        ScrollViewRef.current.setAttribute('scrollTop', 0)
+      }
+      return generateRandomCharacters(6)
+        .then((data) => {
+          Taro.hideLoading()
+          if (isArray(data)) {
+            setRandomCharacters(data)
+          }
+        })
+    }
+  }, [ScrollViewRef])
 
   return (
     <View className='wiki'>

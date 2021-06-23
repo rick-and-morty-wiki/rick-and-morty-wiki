@@ -2,7 +2,7 @@
   RN不支持css动画
   使用Animated库实现骨架屏幕
  */
-import React, { useRef, useEffect } from 'react'
+import React, { memo, useRef, useEffect } from 'react'
 import { View, Image } from '@tarojs/components'
 import { Animated } from 'react-native'
 
@@ -69,4 +69,4 @@ const RNSkeleton: React.FC<RNSkeletonProps> = ({
   )
 }
 
-export default RNSkeleton
+export default memo(RNSkeleton)

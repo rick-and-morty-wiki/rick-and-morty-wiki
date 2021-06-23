@@ -6,7 +6,6 @@ import { Iconfont } from '@components'
 
 import './index.less'
 
-
 type BackProps = {
   onBack?: () => void,
   left?: string | number,
@@ -28,8 +27,6 @@ const Back: React.FC<BackProps> = ({
       Taro.navigateBack()
     }
   }
-
-
 
   return (
     <Button
