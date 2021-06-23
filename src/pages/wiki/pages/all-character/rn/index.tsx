@@ -18,7 +18,7 @@ const AllCharacterRN: React.FC<PlatformEnterProps> = (props) => {
     <View className='all-c-container'>
       <DrawerLayout
         ref={drawerRN}
-        drawerWidth={170}
+        drawerWidth={198}
         drawerPosition='right'
         drawerType='front'
         contentContainerStyle={{

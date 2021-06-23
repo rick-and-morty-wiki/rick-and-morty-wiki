@@ -10,7 +10,7 @@ import './index.less'
 
 let RNSkeleton: any
 if (process.env.TARO_ENV === 'rn') {
-  RNSkeleton = require('./RNZSkeleton').default
+  RNSkeleton = require('./RNSkeleton').default
 }
 
 interface EpisodeCardProps {
@@ -39,9 +39,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({
   if (!episode.name) {
     // RN上的骨架屏
     if (process.env.TARO_ENV === 'rn') {
-      return (
-        <RNSkeleton episode={episode} />
-      )
+      return <RNSkeleton episode={episode} />
     }
     // 小程序上的骨架屏
     return (

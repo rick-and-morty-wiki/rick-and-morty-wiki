@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Taro, { useDidShow } from '@tarojs/taro'
 import { useSelector, useDispatch } from 'react-redux'
-import { View, Text, Image, Button } from '@tarojs/components'
+import { View, Text, Image } from '@tarojs/components'
 
 import { StatusBar, Back, Loading, CustomScrollView } from "@components";
 import { CharacterType, EpisodeType, RootState } from '@constants/types'
@@ -13,6 +13,7 @@ import {
   updateCharacterList_byLocation,
 } from '@actions'
 
+import EpisodeBtn from './components/EpisodeBtn'
 import './index.less'
 
 
@@ -51,7 +52,7 @@ const Wiki: React.FC<any> = () => {
             // 这里计算一下数量，如果length取余4不等于0或者1，则添加空btn
             const mod = data.length % 4
             if (mod !== 0 && mod !== 1) {
-              for (let m = 0; m < mod; m++) {
+              for (let m = 0; m < 4 - mod; m++) {
                 defaultEpisode.id = m + 999
                 data.push(defaultEpisode)
               }
@@ -66,19 +67,7 @@ const Wiki: React.FC<any> = () => {
     }
   }, [character])
 
-  const handleClickEpisode = (episode: EpisodeType) => {
-    if (!episode.episode) {
-      return
-    }
-    Taro.navigateTo({
-      url: '/pages/wiki/pages/character-list/index',
-    })
-    dispatch(updateCharacterList_byEpisode(episode.characters, {
-      title: episode.episode,
-      primary: episode.name,
-      secondary: episode.air_date,
-    }))
-  }
+
 
   const handleClickLocation = (location: CharacterType['location']) => {
     if (!location.url) {
@@ -166,16 +155,14 @@ const Wiki: React.FC<any> = () => {
         </View>
         <View className='character-episodes'>
           {
-            episodes.map((episode, index) => (
-              <Button
-                className={`character-episodes-btn character-episodes-btn_${!episode.name && 'none'}`}
-                onClick={() => handleClickEpisode(episode)}
-                key={index}
-                hoverClass='btn_active'
-                hoverStyle={{ opacity: 0.6 }}
-              >
-                <Text className='character-episodes-btn-text'>{episode.episode}</Text>
-              </Button>
+            episodes.map(episode => (
+              <EpisodeBtn
+                key={episode.episode}
+                episode={episode}
+                updateCharacterList_byEpisode={
+                  (charactersUrl, header) => dispatch(updateCharacterList_byEpisode(charactersUrl, header))
+                }
+              />
             ))
           }
         </View>

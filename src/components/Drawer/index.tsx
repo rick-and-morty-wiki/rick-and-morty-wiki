@@ -1,9 +1,9 @@
-
-// 为了省事，直接把taro-ui的源代码那过来了
-// 为什么不直接用taro-ui？因为taro-ui使用的是scss
-// 并且这样做容易更改样式
-// 并且这样做代码包更小（我也没搞明白为什么会这样）
-
+/* 
+  为了省事，直接把taro-ui的源码拿过来了
+  为什么不直接用taro-ui？因为taro-ui使用的是scss
+  并且这样做容易更改样式
+  并且这样做代码包更小（我也没搞明白为什么会这样）
+ */
 import classNames from 'classnames'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'

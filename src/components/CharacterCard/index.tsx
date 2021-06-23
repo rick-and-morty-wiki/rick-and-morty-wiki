@@ -11,7 +11,7 @@ import './index.less'
 
 let RNSkeleton: any
 if (process.env.TARO_ENV === 'rn') {
-  RNSkeleton = require('./RNZSkeleton').default
+  RNSkeleton = require('./RNSkeleton').default
 }
 
 interface CharacterCardProps {
@@ -38,9 +38,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
   if (!character.name) {
     // RN上的骨架屏
     if (process.env.TARO_ENV === 'rn') {
-      return (
-        <RNSkeleton character={character} showImage={showImage} />
-      )
+      return <RNSkeleton character={character} showImage={showImage} />
     }
     // 小程序上的骨架屏
     return (

@@ -17,7 +17,7 @@ const AllCharacterRN: React.FC<PlatformEnterProps> = (props) => {
 
   return (
     <View className='all-c-container'>
-      <Drawer show={drawerWE} onClose={() => setDrawerWE(false)} right width='325rpx'>
+      <Drawer show={drawerWE} onClose={() => setDrawerWE(false)} right width='375rpx'>
         <DrawerContent
           filter={filter}
           setFilter={setFilter}

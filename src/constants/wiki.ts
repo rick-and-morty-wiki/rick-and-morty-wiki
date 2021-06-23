@@ -60,7 +60,7 @@ export const defaultEpisode: EpisodeType = {
   id: 0,
   name: '',
   air_date: '',
-  episode: '',
+  episode: 'S00E00',
   characters: [],
   url: '',
 }
