@@ -8,10 +8,10 @@ React Native 端：
 
 <table>
   <tr>
-    <td><img src="./assets/image/rn/rn1.jpg"></td>
-    <td><img src="./assets/image/rn/rn2.jpg"></td>
-    <td><img src="./assets/image/rn/rn3.jpg"></td>
-    <td><img src="./assets/image/rn/rn4.jpg"></td>
+    <td><img src="https://rickandmortywiki.oss-cn-beijing.aliyuncs.com/rn/rn1.jpg"></td>
+    <td><img src="https://rickandmortywiki.oss-cn-beijing.aliyuncs.com/rn/rn2.jpg"></td>
+    <td><img src="https://rickandmortywiki.oss-cn-beijing.aliyuncs.com/rn/rn3.jpg"></td>
+    <td><img src="https://rickandmortywiki.oss-cn-beijing.aliyuncs.com/rn/rn4.jpg"></td>
   </tr>
  </table>
 
@@ -19,10 +19,10 @@ React Native 端：
 
 <table>
   <tr>
-    <td><img src="./assets/image/weapp/weapp1.jpg"></td>
-    <td><img src="./assets/image/weapp/weapp2.jpg"></td>
-    <td><img src="./assets/image/weapp/weapp3.jpg"></td>
-    <td><img src="./assets/image/weapp/weapp4.jpg"></td>
+    <td><img src="https://rickandmortywiki.oss-cn-beijing.aliyuncs.com/weapp/weapp1.jpg"></td>
+    <td><img src="https://rickandmortywiki.oss-cn-beijing.aliyuncs.com/weapp/weapp2.jpg"></td>
+    <td><img src="https://rickandmortywiki.oss-cn-beijing.aliyuncs.com/weapp/weapp3.jpg"></td>
+    <td><img src="https://rickandmortywiki.oss-cn-beijing.aliyuncs.com/weapp/weapp4.jpg"></td>
   </tr>
  </table>
 
