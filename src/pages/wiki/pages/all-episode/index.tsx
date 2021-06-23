@@ -5,6 +5,7 @@ import { View, Text } from '@tarojs/components'
 import { Pagination, Back, CustomScrollView, StatusBar, EpisodeCard } from "@components";
 import { getEpisode } from '@service'
 import { EpisodeType, PaginationType } from '@constants/types'
+import { defaultEpisodes } from '@constants/wiki'
 
 import './index.less'
 
@@ -16,7 +17,7 @@ const defaultPagination: PaginationType = {
 }
 
 const AllEpisode: React.FC<any> = () => {
-  const [episodes, setEpisodes] = useState<EpisodeType[]>([])
+  const [episodes, setEpisodes] = useState<EpisodeType[]>(defaultEpisodes)
   const [pagination, setPagination] = useState<PaginationType>(defaultPagination)
   const [reqTrigger, setReqTrigger] = useState<boolean>(true)
   const ScrollViewRef = useRef() as React.MutableRefObject<any>
@@ -78,7 +79,7 @@ const AllEpisode: React.FC<any> = () => {
         <View className='all-e-content'>
           {
             episodes.map(episode => (
-              <EpisodeCard key={episode.episode} episode={episode} />
+              <EpisodeCard key={episode.id} episode={episode} />
             ))
           }
         </View>

@@ -4,7 +4,6 @@
   background-color: @theme-grey;
   border-radius: 20px;
   margin-bottom: 56px;
-  // overflow: hidden;
   display: flex;
   flex-direction: row;
   padding: 24px;
@@ -53,13 +52,29 @@
   }
 
   &-loading {
-    // rn不支持animation，需要剔除
+    &-left {
+      height: 109px;
+      width: 96px;
+      border-radius: 20px;
+      background-color: @color-grey;
+    }
+
+    &-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
     &-name {
-      height: 50px;
-      width: 200px;
+      height: 46px;
+      width: 180px;
       background-color: @color-grey;
-      margin-top: 12px;
+    }
+
+    &-date {
+      height: 40px;
+      width: 300px;
+      background-color: @color-grey;
     }
   }
 }

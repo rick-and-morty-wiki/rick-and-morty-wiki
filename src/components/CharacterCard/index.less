@@ -1,25 +1,5 @@
 @import "./index.rn.less";
 
-// 加载状态组件的呼吸周期
-@wTiming: 1s;
-
-@keyframes waiting {
-  0% {
-    opacity: 0.4;
-    background-color: @color-grey;
-  }
-
-  50% {
-    opacity: 1;
-    background-color: @color-grey;
-  }
-
-  100% {
-    opacity: 0.4;
-    background-color: @color-grey;
-  }
-}
-
 .c-card {
   position: relative;
 
@@ -31,25 +11,15 @@
     top: 26px;
   }
 
+  // 小程序端的动画
   &-loading {
     &-img {
-      animation: waiting @wTiming linear infinite;
+      animation: skeleton @skeletonTime linear infinite;
     }
 
-    &-name {
-      animation: waiting @wTiming linear infinite;
-    }
-
-    &-status {
-      animation: waiting @wTiming linear infinite;
-    }
-
-    &-title {
-      animation: waiting @wTiming linear infinite;
-    }
-
-    &-text {
-      animation: waiting @wTiming linear infinite;
+    &-content {
+      // background-color: red;
+      animation: skeleton @skeletonTime linear infinite;
     }
   }
 }

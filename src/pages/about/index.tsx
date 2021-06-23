@@ -2,8 +2,6 @@ import React from 'react'
 import Taro from '@tarojs/taro'
 import { View, Image, Button, Text } from '@tarojs/components'
 
-import { myAvatar } from '@assets/image'
-
 import './index.less'
 
 const techs = [

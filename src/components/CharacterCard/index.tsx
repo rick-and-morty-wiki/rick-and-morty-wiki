@@ -9,6 +9,10 @@ import { defaultCharacterImage } from '@assets/image'
 
 import './index.less'
 
+let RNSkeleton: any
+if (process.env.TARO_ENV === 'rn') {
+  RNSkeleton = require('./RNZSkeleton').default
+}
 
 interface CharacterCardProps {
   character: CharacterType,
@@ -32,13 +36,20 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
 
   // 骨架屏
   if (!character.name) {
+    // RN上的骨架屏
+    if (process.env.TARO_ENV === 'rn') {
+      return (
+        <RNSkeleton character={character} showImage={showImage} />
+      )
+    }
+    // 小程序上的骨架屏
     return (
       <View key={character.id} className='c-card'>
         {
           showImage &&
           <Image className='c-card-img c-card-loading-img' src={defaultCharacterImage} mode='widthFix' />
         }
-        <View className='c-card-content'>
+        <View className='c-card-content c-card-loading-content'>
           <View className='c-card-loading-name'></View>
           <View className='c-card-loading-status'></View>
           <View className='c-card-loading-title'></View>

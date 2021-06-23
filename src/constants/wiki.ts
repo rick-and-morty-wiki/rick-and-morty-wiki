@@ -46,7 +46,7 @@ export const defaultCharacterFilter: CharacterFilterType = {
   gender: 'all',
 };
 
-// 获取首页数据时的渲染数据，用来绘制空白组件库
+// 获取首页数据时的渲染数据，渲染骨架屏
 export const defaultSixCharacters: CharacterType[] = '123456'
   .split('')
   .map(id => {
@@ -64,3 +64,12 @@ export const defaultEpisode: EpisodeType = {
   characters: [],
   url: '',
 }
+
+// 渲染骨架屏的数据
+export const defaultEpisodes: EpisodeType[] = '12345678'
+  .split('')
+  .map(id => {
+    const newEpisode: EpisodeType = _.cloneDeep(defaultEpisode);
+    newEpisode.id = parseInt(id) * 10000;
+    return newEpisode;
+  });

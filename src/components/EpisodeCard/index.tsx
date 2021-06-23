@@ -8,6 +8,10 @@ import { updateCharacterList_byEpisode } from '@actions'
 
 import './index.less'
 
+let RNSkeleton: any
+if (process.env.TARO_ENV === 'rn') {
+  RNSkeleton = require('./RNZSkeleton').default
+}
 
 interface EpisodeCardProps {
   episode: EpisodeType,
@@ -33,10 +37,17 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({
 
   // 骨架屏
   if (!episode.name) {
+    // RN上的骨架屏
+    if (process.env.TARO_ENV === 'rn') {
+      return (
+        <RNSkeleton episode={episode} />
+      )
+    }
+    // 小程序上的骨架屏
     return (
       <View key={episode.id} className='e-card'>
-        <View className='e-card-loading-left'></View>
-        <View className='e-card-loading-right'>
+        <View className='e-card-left e-card-loading-left'></View>
+        <View className='e-card-loading-right e-card-right'>
           <View className='e-card-loading-name'></View>
           <View className='e-card-loading-date'></View>
         </View>
