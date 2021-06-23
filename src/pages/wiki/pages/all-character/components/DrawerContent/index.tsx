@@ -8,7 +8,6 @@ import filterRange from './constant'
 import { DrawerContentProps } from '../../type'
 import './index.less'
 
-
 const DrawerContent: React.FC<DrawerContentProps> = (props) => {
   const { filter, setFilter, setReqTrigger } = props
 

@@ -38,12 +38,12 @@ const RNSkeleton: React.FC = () => {
   }, [])
 
   return (
-      <Animated.View
-        className='character-episodes-btn'
-        style={{ opacity: skeletonAnim }}
-      >
-        <Text className='character-episodes-btn-text'>S～E～</Text>
-      </Animated.View>
+    <Animated.View
+      className='character-episodes-btn'
+      style={{ opacity: skeletonAnim }}
+    >
+      <Text className='character-episodes-btn-text'>S～E～</Text>
+    </Animated.View>
   )
 }
 

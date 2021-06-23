@@ -6,7 +6,7 @@ import { EpisodeType } from '@constants/types'
 import './index.less'
 
 let RNSkeleton: any
-if (process.env.TARO_ENV === 'rn') {
+if (IS_RN) {
   RNSkeleton = require('../RNSkeleton').default
 }
 
@@ -37,7 +37,7 @@ const EpisodeBtn: React.FC<EpisodeBtnProps> = ({
   // 骨架按钮
   if (!episode.id) {
     // RN端
-    if (process.env.TARO_ENV === 'rn') {
+    if (IS_RN) {
       return <RNSkeleton />
     }
     // 小程序端

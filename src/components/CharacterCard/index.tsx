@@ -10,7 +10,7 @@ import { defaultCharacterImage } from '@assets/image'
 import './index.less'
 
 let RNSkeleton: any
-if (process.env.TARO_ENV === 'rn') {
+if (IS_RN) {
   RNSkeleton = require('./RNSkeleton').default
 }
 
@@ -37,7 +37,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
   // 骨架屏
   if (!character.name) {
     // RN上的骨架屏
-    if (process.env.TARO_ENV === 'rn') {
+    if (IS_RN) {
       return <RNSkeleton character={character} showImage={showImage} />
     }
     // 小程序上的骨架屏

@@ -7,13 +7,13 @@ import './index.less'
 
 // 在rn端，使用lottie实现动画
 // let LottieView: any;
-// if (process.env.TARO_ENV === "rn") {
+// if (IS_RN) {
 //   LottieView = require("lottie-react-native");
 // }
 
 const Loading = () => {
 
-  // if (process.env.TARO_ENV === "rn") {
+  // if (IS_RN) {
   //   return (
   //     <LottieView
   //       source={require('@assets/animation/loading.json')}

@@ -4,14 +4,14 @@ import "./index.less";
 import { TaroSafeAreaViewType } from "./type";
 
 let SafeAreaView: any;
-if (process.env.TARO_ENV === "rn") {
+if (IS_RN) {
   SafeAreaView = require("react-native-safe-area-context").SafeAreaView;
 }
 
 const TaroSafeAreaView: TaroSafeAreaViewType = props => {
   const { className = "", style = {}, edges = ["right", "bottom", "left"] } = props;
 
-  if (process.env.TARO_ENV === "rn") {
+  if (IS_RN) {
     return (
       <SafeAreaView
         edges={edges}

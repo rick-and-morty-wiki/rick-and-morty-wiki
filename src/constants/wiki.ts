@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { CharacterType, EpisodeType, CharacterFilterType } from './types';
+import { CharacterType, EpisodeType, CharacterFilterType, PaginationType } from './types';
 
 // 更新角色数据
 export const UPDATE_WIKI_CHARACTER = 'UPDATE_WIKI_CHARACTER';
@@ -45,6 +45,13 @@ export const defaultCharacterFilter: CharacterFilterType = {
   type: 'all',
   gender: 'all',
 };
+
+// 分页器的初始数据
+export const defaultPagination: PaginationType = {
+  count: -1,
+  pages: 1,
+  cur: 1,
+}
 
 // 获取首页数据时的渲染数据，渲染骨架屏
 export const defaultSixCharacters: CharacterType[] = '123456'

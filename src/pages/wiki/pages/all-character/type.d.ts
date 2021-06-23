@@ -12,7 +12,6 @@ export type SetFilterType = React.Dispatch<React.SetStateAction<CharacterFilterT
 
 export type SetDrawerWEType = React.Dispatch<React.SetStateAction<boolean>>
 
-
 // 文件夹rn、weapp内组件的props
 export interface PlatformEnterProps {
   filter: CharacterFilterType,

@@ -7,7 +7,7 @@ import { ReqTriggerType } from './type'
 import './index.less'
 
 let AllCharacterP: any
-if (process.env.TARO_ENV === 'rn') {
+if (IS_RN) {
   AllCharacterP = require('./rn').default
 } else {
   AllCharacterP = require('./weapp').default
@@ -20,7 +20,7 @@ const AllCharacter: React.FC<any> = () => {
     firstFilter: false,
   })
 
-  if (process.env.TARO_ENV === 'rn') {
+  if (IS_RN) {
     return (
       <AllCharacterP
         filter={filter}

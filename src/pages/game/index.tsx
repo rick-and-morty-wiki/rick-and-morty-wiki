@@ -10,7 +10,6 @@ import { SelectList } from './type'
 import { BlankPage, GamingPage, ResultPage } from './components'
 import './index.less'
 
-
 const Game: React.FC<any> = () => {
   const [gameStatus, setGameStatus] = useState<GameStatus>(GameStatus.Blank)
   const [characters, setCharacters] = useState<CharacterType[]>([])
@@ -28,7 +27,6 @@ const Game: React.FC<any> = () => {
         } while (rids.indexOf(rid) !== -1)
         rids.push(rid)
       }
-
       // 第二步，请求这30个id，找到10个status都不是unknown的角色
       const chasAll = await getCharacter.list(rids)
       const chas: CharacterType[] = []
@@ -47,7 +45,6 @@ const Game: React.FC<any> = () => {
     if (gameStatus === GameStatus.Loading) {
       getTenRandomCharacters()
     }
-
   }, [gameStatus])
 
   // 页面内容

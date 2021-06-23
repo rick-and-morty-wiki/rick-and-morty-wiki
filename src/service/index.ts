@@ -6,7 +6,6 @@ import {
   GetLocationType,
 } from './types'
 
-
 let baseUrl = "https://rickandmortyapi.com/api/";
 if (process.env.TARO_ENV === 'weapp') {
   baseUrl = 'https://rickandmortyapi.cavano.vip/'
@@ -70,7 +69,6 @@ const getEndpoint = async (endpoint: string, opt: void | number | number[] | obj
     }
   }
 }
-
 
 // 获取角色数据
 export const getCharacter: GetCharacterType = {

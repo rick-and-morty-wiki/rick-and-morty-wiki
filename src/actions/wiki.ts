@@ -5,7 +5,7 @@ import {
 import { getCharacter, getLocation } from '@service'
 import { CharacterType, CharacterListStateType } from '@constants/types'
 
-
+// 更新character页面数据
 export const updateWikiCharacter = (character: CharacterType) => async (dispatch) => {
   dispatch({
     type: UPDATE_WIKI_CHARACTER,

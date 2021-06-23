@@ -5,16 +5,9 @@ import { View, Text } from '@tarojs/components'
 import { Pagination, Back, CustomScrollView, StatusBar, EpisodeCard } from "@components";
 import { getEpisode } from '@service'
 import { EpisodeType, PaginationType } from '@constants/types'
-import { defaultEpisodes } from '@constants/wiki'
+import { defaultEpisodes, defaultPagination } from '@constants/wiki'
 
 import './index.less'
-
-
-const defaultPagination: PaginationType = {
-  count: -1,
-  pages: 1,
-  cur: 1,
-}
 
 const AllEpisode: React.FC<any> = () => {
   const [episodes, setEpisodes] = useState<EpisodeType[]>(defaultEpisodes)
@@ -24,7 +17,7 @@ const AllEpisode: React.FC<any> = () => {
 
   // 滚到顶部
   const scrollTop = useCallback(() => {
-    if (process.env.TARO_ENV === 'rn') {
+    if (IS_RN) {
       ScrollViewRef.current.scrollTo({ y: 0 })
     } else {
       // 直接操控TaroElement，实现滚动到顶部。ref.current返回的就是一个TaroElement
@@ -64,7 +57,6 @@ const AllEpisode: React.FC<any> = () => {
       setReqTrigger(false)
     }
   }, [reqTrigger, setReqTrigger, pagination, sendRequest])
-
 
   return (
     <View className='all-e' >

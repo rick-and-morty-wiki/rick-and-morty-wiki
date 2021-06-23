@@ -16,7 +16,6 @@ import {
 import EpisodeBtn from './components/EpisodeBtn'
 import './index.less'
 
-
 const Wiki: React.FC<any> = () => {
   const dispatch = useDispatch()
   const character = useSelector((state: RootState) => state.wikiCharacter.character)
@@ -66,8 +65,6 @@ const Wiki: React.FC<any> = () => {
       updateEpisodes()
     }
   }, [character])
-
-
 
   const handleClickLocation = (location: CharacterType['location']) => {
     if (!location.url) {

@@ -1,7 +1,6 @@
 import { CharacterType, CharacterFilterType } from '@constants/types'
 import { ServicePaginationType } from './servicePagination'
 
-
 export interface CharacterServiceResType {
   info: ServicePaginationType,
   results: Array<CharacterType>

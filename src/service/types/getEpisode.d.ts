@@ -1,7 +1,6 @@
 import { EpisodeType } from '@constants/types'
 import { ServicePaginationType } from './servicePagination'
 
-
 interface EpisodeFilterType {
   name: string,
   episode: number,

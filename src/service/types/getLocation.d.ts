@@ -1,7 +1,6 @@
 import { LocationType } from '@constants/types'
 import { ServicePaginationType } from './servicePagination'
 
-
 interface LocationFilterType {
   name: string,
   type: string,

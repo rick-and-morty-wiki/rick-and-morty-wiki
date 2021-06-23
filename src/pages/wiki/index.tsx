@@ -55,33 +55,33 @@ const Wiki: React.FC<any> = () => {
     })
   })
 
-  // 默认随机生成6个
+  // 随机获取6个角色
   useEffect(() => {
     generateRandomCharacters(6)
       .then((data) => setRandomCharacters(data))
   }, [])
 
+  // 刷新6个角色
   const onRefresh = useCallback(() => {
-    {
-      Taro.showLoading({
-        title: '加载中',
-        mask: true,
-      })
-      // 滚到顶部
-      if (process.env.TARO_ENV === 'rn') {
-        ScrollViewRef.current.scrollTo({ y: 0 })
-      } else {
-        // 直接操控TaroElement，实现滚动到顶部。ref.current返回的就是一个TaroElement
-        ScrollViewRef.current.setAttribute('scrollTop', 0)
-      }
-      return generateRandomCharacters(6)
-        .then((data) => {
-          Taro.hideLoading()
-          if (isArray(data)) {
-            setRandomCharacters(data)
-          }
-        })
+    Taro.showLoading({
+      title: '加载中',
+      mask: true,
+    })
+    // 滚到顶部
+    if (IS_RN) {
+      // RN端直接调用react-native ScrollView组件的api
+      ScrollViewRef.current.scrollTo({ y: 0 })
+    } else {
+      // 小程序端操控TaroElement实现滚动到顶部。ref.current返回的就是一个TaroElement
+      ScrollViewRef.current.setAttribute('scrollTop', 0)
     }
+    return generateRandomCharacters(6)
+      .then((data) => {
+        Taro.hideLoading()
+        if (isArray(data)) {
+          setRandomCharacters(data)
+        }
+      })
   }, [ScrollViewRef])
 
   return (

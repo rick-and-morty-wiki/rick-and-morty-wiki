@@ -4,10 +4,9 @@ import Taro from '@tarojs/taro'
 import { CustomScrollViewType } from './type'
 import './index.less'
 
-
 let ScrollView: any;
 let RefreshControl: any;
-if (process.env.TARO_ENV === "rn") {
+if (IS_RN) {
   // 这里为什么要用react native的ScrollView呢？
   // 1.便于写跨端的自定义下拉刷新
   // 2.rn的api可以计算到当前到页面底部的距离，taro的不行
@@ -16,7 +15,6 @@ if (process.env.TARO_ENV === "rn") {
 } else {
   ScrollView = require("@tarojs/components").ScrollView;
 }
-
 
 const CustomScrollView: CustomScrollViewType = forwardRef((props, ref) => {
   const {
