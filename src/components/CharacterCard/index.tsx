@@ -30,7 +30,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
   const handleClickCard = () => {
     dispatch(updateWikiCharacter(character))
     Taro.navigateTo({
-      url: '/pages/wiki/pages/character/index',
+      url: `/pages/wiki/pages/character/index?id=${character.id}`,
     })
   }
 

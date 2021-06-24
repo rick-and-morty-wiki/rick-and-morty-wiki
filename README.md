@@ -1,6 +1,6 @@
 # Rick and Morty Wiki
 
-基于 Taro 的跨端应用程序，在这里可以查看几乎所有在《瑞克和莫蒂》动画中出现的人物，外加专为铁粉准备的小游戏。
+基于 Taro 的跨端应用，在这里可以查看几乎所有在《瑞克和莫蒂》中出现的人物，外加专为铁粉准备的小游戏。
 
 灵感和基础数据来源于[afuh/rick-and-morty-api](https://github.com/afuh/rick-and-morty-api)。
 
