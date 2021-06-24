@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Taro, { useDidShow } from '@tarojs/taro'
 import { useSelector } from 'react-redux'
 import { View, Text } from '@tarojs/components'
 
@@ -11,19 +12,25 @@ import './index.less'
 
 
 const CharacterList: React.FC<any> = () => {
-  const { charactersUrl, header } = useSelector((state: RootState) => state.wikiCharacterList)
+  const dic = useSelector((state: RootState) => state.wikiCharacterList.dic)
+  const [id, setId] = useState<string>('0')
   const [characters, setCharacters] = useState<CharacterType[]>(defaultSixCharacters)
+
+  useDidShow(() => {
+    const { router } = Taro.getCurrentInstance()
+    const id_ = router?.params.id
+    if (id_) {
+      setId(id_)
+    }
+  })
+
+  const { charactersUrl, header } = dic[id]
 
   // 根据charactersUrl请求角色具体信息
   useEffect(() => {
     // 数据正在请求中，显示骨架屏
-    if (!charactersUrl || charactersUrl.length === 0 && !header.primary) {
+    if (!charactersUrl || charactersUrl.length === 0) {
       setCharacters(defaultSixCharacters)
-      return
-    }
-    // 该location内没有角色，跳过下方逻辑
-    if (!charactersUrl || charactersUrl.length === 0 && header.primary) {
-      setCharacters([])
       return
     }
     const ids: number[] = []

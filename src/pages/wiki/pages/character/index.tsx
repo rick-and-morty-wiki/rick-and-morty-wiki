@@ -18,20 +18,20 @@ import './index.less'
 
 const Wiki: React.FC<any> = () => {
   const dispatch = useDispatch()
-  const characterDic = useSelector((state: RootState) => state.wikiCharacter.characterDic)
-  const [id, setId] = useState<number>(0)
+  const dic = useSelector((state: RootState) => state.wikiCharacter.dic)
+  const [id, setId] = useState<string>('0')
   const [episodes, setEpisodes] = useState<EpisodeType[]>([defaultEpisode])
   const [statusBarHeight, setStatusBarHeight] = useState<number>(0)
 
-  const character = characterDic[id]
+  const character = dic[id]
 
-  // 给微信小程序导航栏那里垫一下
   useDidShow(() => {
     const { router } = Taro.getCurrentInstance()
     const id_ = router?.params.id
     if (id_) {
-      setId(parseInt(id_))
+      setId(id_)
     }
+    // 给微信小程序导航栏那里垫一下
     Taro.getSystemInfo({
       success: function (res) {
         setStatusBarHeight(res.statusBarHeight)
@@ -80,7 +80,7 @@ const Wiki: React.FC<any> = () => {
     }
     dispatch(updateCharacterList_byLocation(location.name, location.url))
     Taro.navigateTo({
-      url: '/pages/wiki/pages/character-list/index',
+      url: `/pages/wiki/pages/character-list/index?id=${location.name}`,
     })
   }
 

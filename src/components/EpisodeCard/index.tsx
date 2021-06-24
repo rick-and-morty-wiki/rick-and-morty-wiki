@@ -29,7 +29,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({
       secondary: episode.air_date,
     }))
     Taro.navigateTo({
-      url: '/pages/wiki/pages/character-list/index',
+      url: `/pages/wiki/pages/character-list/index?id=${episode.episode}`,
     })
   }
 

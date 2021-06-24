@@ -25,7 +25,7 @@ const EpisodeBtn: React.FC<EpisodeBtnProps> = ({
       return
     }
     Taro.navigateTo({
-      url: '/pages/wiki/pages/character-list/index',
+      url: `/pages/wiki/pages/character-list/index?id=${episode.episode}`,
     })
     updateCharacterList_byEpisode(episode.characters, {
       title: episode.episode,

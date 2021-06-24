@@ -5,7 +5,7 @@ import {
 import { CharacterType } from "@constants/types";
 
 interface StateType {
-  characterDic: {
+  dic: {
     [propName: string]: CharacterType,
   };
 };
@@ -16,7 +16,7 @@ interface ActionType {
 }
 
 const INITIAL_STATE: StateType = {
-  characterDic: {
+  dic: {
     '0': defaultCharacter,
   }
 };
@@ -27,8 +27,8 @@ export default (state = INITIAL_STATE, action: ActionType): StateType => {
   switch (action.type) {
     case UPDATE_WIKI_CHARACTER:
       return {
-        characterDic: {
-          ...state.characterDic,
+        dic: {
+          ...state.dic,
           [payload.id]: payload,
         }
       };
