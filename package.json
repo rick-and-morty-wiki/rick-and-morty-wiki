@@ -28,6 +28,7 @@
 		"build:h5": "taro build --type h5",
 		"build:qq": "taro build --type qq",
 		"build:jd": "taro build --type jd",
+		"build:rn": "taro build --type rn",
 		"build:quickapp": "taro build --type quickapp",
 		"dev:weapp": "npm run build:weapp -- --watch",
 		"dev:swan": "npm run build:swan -- --watch",

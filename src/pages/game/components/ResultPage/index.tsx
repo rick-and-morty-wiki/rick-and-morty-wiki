@@ -6,6 +6,7 @@ import { View, Button, Text, Image } from '@tarojs/components'
 import { CustomScrollView, Iconfont } from '@components'
 import { updateWikiCharacter } from '@actions'
 import { GameStatus } from '@constants/game'
+import { CharacterType } from '@constants/types'
 
 import { SelectList } from '../../type'
 import './index.less'
@@ -47,10 +48,10 @@ const GameResultPage: React.FC<GameResultPageProps> = (props) => {
     })
   }, [selectList])
 
-  const handleClickCharacter = (character) => {
+  const handleClickCharacter = (character: CharacterType) => {
     dispatch(updateWikiCharacter(character))
     Taro.navigateTo({
-      url: '/pages/wiki/pages/character/index',
+      url: `/pages/wiki/pages/character/index?id=${character.id}`,
     })
   }
 

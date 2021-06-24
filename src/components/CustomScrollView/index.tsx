@@ -27,8 +27,11 @@ const CustomScrollView: CustomScrollViewType = forwardRef((props, ref) => {
   const [refreshing, setRefreshing] = useState<boolean>(false);
 
   useEffect(() => {
-    // 只有RN端做tabbar自动隐藏
-    if (process.env.TARO_ENV !== 'rn' || !autoHideTab) { return }
+    // 只有RN端的主页做tabbar自动隐藏
+    if (process.env.TARO_ENV !== 'rn' ||
+      !autoHideTab ||
+      Taro.getCurrentInstance().router?.path.indexOf('wiki/index') === -1
+    ) { return }
 
     if (showTab) {
       Taro.showTabBar({ animation: true })
