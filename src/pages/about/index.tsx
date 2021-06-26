@@ -87,6 +87,16 @@ const Wiki: React.FC<any> = () => {
         <Text className='about-src-text about-src-text_a'>下载地址</Text>
       </View>
 
+      <View
+        className='about-p'
+        onClick={() => copy('https://rnwiki.cavano.vip/')}
+        hoverClass='about-p_active'
+        hoverStyle={{ opacity: 0.6 }}
+      >
+        <Text className='about-src-text'>H5静态页面：</Text>
+        <Text className='about-src-text about-src-text_a'>预览地址</Text>
+      </View>
+
       <View className='about-p'>
         <Text className='about-src-text'>当前版本：{version}</Text>
       </View>
