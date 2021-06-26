@@ -1,7 +1,15 @@
 @import "./index.rn.less";
 
+/*  #ifdef  h5  */
 .about {
-  padding-bottom: 36px;
+  &-title {
+    margin-top: 42px;
+  }
+}
+/*  #endif  */
+
+.about {
+  padding-bottom: 56px;
 
   &-p {
     &_active {

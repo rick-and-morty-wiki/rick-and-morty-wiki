@@ -5,12 +5,14 @@ import './index.less'
 
 type PopBtnProps = {
   name: string,
-  content: any,
+  content?: any,
+  last?: boolean,
 }
 
 const PopBtn: React.FC<PopBtnProps> = ({
   name,
   // content,
+  last = false
 }) => {
 
   const handleClick = () => {
@@ -19,7 +21,7 @@ const PopBtn: React.FC<PopBtnProps> = ({
 
   return (
     <View
-      className='pop-btn'
+      className={`pop-btn ${last && 'pop-btn_last'}`}
       hoverClass='pop-btn_active'
       hoverStyle={{ opacity: 0.6 }}
       onClick={handleClick}

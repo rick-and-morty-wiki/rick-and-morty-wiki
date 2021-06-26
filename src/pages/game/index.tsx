@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
 import { StatusBar, Loading } from "@components";
 import { getCharacter } from '@service'
 import { CharacterType } from '@constants/types'
 import { GameStatus } from '@constants/game'
+import { isArray } from '@utils'
 
 import { SelectList } from './type'
 import { BlankPage, GamingPage, ResultPage } from './components'
@@ -17,8 +19,9 @@ const Game: React.FC<any> = () => {
 
   // 游戏开始执行的初始化逻辑
   useEffect(() => {
-    // 第一步，获取30个随机的不重复的id列表
+    // 游戏开始，获取游戏数据的函数
     const getTenRandomCharacters = async () => {
+      // 第一步，获取30个随机的不重复的id列表
       const rids: number[] = []
       for (let i = 0; i < 30; i++) {
         let rid: number
@@ -29,6 +32,16 @@ const Game: React.FC<any> = () => {
       }
       // 第二步，请求这30个id，找到10个status都不是unknown的角色
       const chasAll = await getCharacter.list(rids)
+      // 请求有问题，提示错误
+      if (!isArray(chasAll)) {
+        Taro.showToast({
+          title: '加载失败',
+          icon: 'none',
+          duration: 1500
+        })
+        setGameStatus(GameStatus.Blank)
+        return
+      }
       const chas: CharacterType[] = []
       for (const cha of chasAll) {
         if (chas.length > 9) {
@@ -38,6 +51,7 @@ const Game: React.FC<any> = () => {
           chas.push(cha)
         }
       }
+      // 第三步，更新state
       setCharacters(chas)
       setGameStatus(GameStatus.Gaming)
     }

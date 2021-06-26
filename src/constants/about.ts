@@ -35,4 +35,8 @@ export const platPops = [
     name: '微信小程序',
     content: '',
   },
+  {
+    name: 'H5',
+    content: '',
+  },
 ]

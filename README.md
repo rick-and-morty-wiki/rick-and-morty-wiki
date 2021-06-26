@@ -16,7 +16,7 @@
  </table>
 
 Android APK：[下载地址](https://rickandmortywiki.oss-cn-beijing.aliyuncs.com/RN%20wiki.apk)
-IOS APP：[下载地址]()
+IOS APP：暂无
 
 **微信小程序端**：
 
@@ -29,7 +29,7 @@ IOS APP：[下载地址]()
   </tr>
  </table>
 
-**H5 端**：和RN、小程序几乎一摸一样，就不贴图了
+**H5 端**：和RN、小程序几乎一摸一样，就不贴图了～
 
 ## 技术
 

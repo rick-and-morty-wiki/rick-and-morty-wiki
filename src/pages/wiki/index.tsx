@@ -29,7 +29,7 @@ const headerBtns: headerBtnsType[] = [
 ]
 
 // 随机获取角色信息列表
-const generateRandomCharacters = (number: number) => {
+const generateRandomCharacters = async (number: number) => {
   const rids: number[] = []
   for (let i = 0; i < number; i++) {
     let rid: number
@@ -38,7 +38,11 @@ const generateRandomCharacters = (number: number) => {
     } while (rids.indexOf(rid) !== -1)
     rids.push(rid)
   }
-  return getCharacter.list(rids)
+  const res = await getCharacter.list(rids)
+  if (isArray(res)) {
+    return res
+  }
+  return defaultSixCharacters
 }
 
 const Wiki: React.FC<any> = () => {
@@ -99,7 +103,7 @@ const Wiki: React.FC<any> = () => {
               headerBtns.map((btn, index) => (
                 <Button
                   key={btn.value}
-                  className={`wiki-content-btn wiki-content-btn_${index === headerBtns.length - 1 && 'last'}`}
+                  className={`wiki-content-btn ${index === headerBtns.length - 1 && 'wiki-content-btn_last'}`}
                   hoverClass='btn_active'
                   hoverStyle={{ opacity: 0.6 }}
                   onClick={btn.onClick}
