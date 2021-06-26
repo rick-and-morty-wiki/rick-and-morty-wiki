@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Text } from '@tarojs/components'
 
 import { techPops, platPops } from '@constants/about'
+import { version } from '@constants/config'
 import { copy } from '@utils'
 import PopBtn from './components/PopBtn'
 import './index.less'
@@ -84,6 +85,10 @@ const Wiki: React.FC<any> = () => {
       >
         <Text className='about-src-text'>Android APK：</Text>
         <Text className='about-src-text about-src-text_a'>下载地址</Text>
+      </View>
+
+      <View className='about-p'>
+        <Text className='about-src-text'>当前版本：{version}</Text>
       </View>
 
     </View>

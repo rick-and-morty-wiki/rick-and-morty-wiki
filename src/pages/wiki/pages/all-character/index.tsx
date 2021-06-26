@@ -10,7 +10,7 @@ let AllCharacterP: any
 if (IS_RN) {
   AllCharacterP = require('./rn').default
 } else {
-  AllCharacterP = require('./weapp').default
+  AllCharacterP = require('./web').default
 }
 
 const AllCharacter: React.FC<any> = () => {
