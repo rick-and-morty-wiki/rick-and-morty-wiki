@@ -2,7 +2,7 @@
     "symbol_url": "//at.alicdn.com/t/font_2591163_1gm2fw9ma5v.js",
     "save_dir": "./src/components/Iconfont",
     "use_typescript": false,
-    "platforms": ["weapp", "rn"],
+    "platforms": ["weapp", "rn", "h5"],
     "use_rpx": true,
     "trim_icon_prefix": "icon",
     "default_icon_size": 18,

@@ -1,1 +1,27 @@
-@import "./style/weapp.less";
+/*  #ifdef  h5  */
+* {
+  box-sizing: border-box;
+}
+
+taro-button-core,
+taro-view-core,
+taro-input-core,
+taro-text-core {
+  position: relative;
+  display: flex!important;
+  flex-direction: column;
+  font-size: 32px;
+}
+/*  #endif  */
+
+/*  #ifdef  weapp  */
+input,
+button,
+view,
+text {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+/*  #endif  */

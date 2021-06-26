@@ -1,5 +1,13 @@
 @import "./index.rn.less";
 
+/*  #ifdef  h5  */
+.character {
+  &-header {
+    padding-top: 20px
+  }
+}
+/*  #endif  */
+
 .character {
   .scroll-page-container-weapp();
 
@@ -12,8 +20,6 @@
   }
 
   &-episodes {
-    box-sizing: border-box;
-
     &-btn {
       &-text {
         font-size: 32px;

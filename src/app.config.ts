@@ -20,16 +20,12 @@ export default {
   rn: {
     screenOptions: {
       // 设置页面的options，参考https://reactnavigation.org/docs/stack-navigator/#options
-      // 以下配置参考https://github.com/wuba/Taro-Mortgage-Calculator
       shadowOffset: { width: 0, height: 0 },
       borderWidth: 0,
-      elevation: 10000,
+      elevation: 0,
       shadowOpacity: 1,
-      borderBottomWidth: 0,
-      gestureEnabled: true,
-      cardStyle: { with: '100%' },
-      cardOverlayEnabled: true,
-    },
+      borderBottomWidth: 0
+    }
   },
   tabBar: {
     color: "#9c9d9e",

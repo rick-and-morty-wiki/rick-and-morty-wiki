@@ -1,11 +1,10 @@
 @import "@style/index";
 
 .pagination {
-  display: flex;
   flex-direction: row;
-  width: 100%;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   padding: 32px 64px;
   padding-top: 16px;
   padding-bottom: 64px;
@@ -15,13 +14,11 @@
     width: 100px;
     border-radius: 20px;
     background-color: @theme-grey;
-    display: flex;
     align-items: center;
     justify-content: center;
   }
 
   &-center {
-    display: flex;
     flex-direction: row;
     align-items: center;
 
@@ -33,6 +30,8 @@
       padding: 0 16px;
       width: 100px;
       border-radius: 20px;
+      justify-content: center;
+      align-items: center;
     }
 
     &-count {

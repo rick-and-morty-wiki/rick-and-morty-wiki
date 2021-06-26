@@ -25,7 +25,7 @@ const Loading = () => {
  
   return (
     <View className='loading'>
-      <Image src={loadingGif} mode='aspectFit' />
+      <Image className='loading-gif' src={loadingGif} mode='aspectFit' />
     </View>
   );
 };

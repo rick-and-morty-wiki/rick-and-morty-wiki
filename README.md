@@ -1,10 +1,10 @@
 # Rick and Morty Wiki
 
-基于 Taro 的跨端应用，在这里可以查看几乎所有在《瑞克和莫蒂》中出现的人物，外加专为铁粉准备的小游戏。
+基于 Taro 的跨端应用，支持微信小程序端、React Native 端和 H5 端。在这里可以查看几乎所有在《瑞克和莫蒂》中出现的人物，外加专为铁粉准备的小游戏。
 
 灵感和基础数据来源于[afuh/rick-and-morty-api](https://github.com/afuh/rick-and-morty-api)。
 
-React Native 端：
+**React Native 端**：
 
 <table>
   <tr>
@@ -15,7 +15,10 @@ React Native 端：
   </tr>
  </table>
 
-微信小程序端：
+Android APK：[下载地址](https://rickandmortywiki.oss-cn-beijing.aliyuncs.com/RN%20wiki.apk)
+IOS APP：[下载地址]()
+
+**微信小程序端**：
 
 <table>
   <tr>
@@ -25,6 +28,8 @@ React Native 端：
     <td><img src="https://rickandmortywiki.oss-cn-beijing.aliyuncs.com/weapp/weapp4.jpg"></td>
   </tr>
  </table>
+
+**H5 端**：和RN、小程序几乎一摸一样，就不贴图了
 
 ## 技术
 
@@ -117,6 +122,7 @@ $ npm run ios2
 $ npm run ios3
 ```
 
+</br>
 </br>
 
 **_以上是编译到指定平台的快捷方法，你也可以采用 taro 原始的方法进行编译，以下是编译步骤：_**

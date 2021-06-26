@@ -21,7 +21,7 @@ const Wiki: React.FC<any> = () => {
   const dic = useSelector((state: RootState) => state.wikiCharacter.dic)
   const [id, setId] = useState<string>('0')
   const [episodes, setEpisodes] = useState<EpisodeType[]>([defaultEpisode])
-  const [statusBarHeight, setStatusBarHeight] = useState<number>(0)
+  const [statusBarHeight, setStatusBarHeight] = useState<number>(20)
 
   const character = dic[id]
 
@@ -34,7 +34,7 @@ const Wiki: React.FC<any> = () => {
     // 给微信小程序导航栏那里垫一下
     Taro.getSystemInfo({
       success: function (res) {
-        setStatusBarHeight(res.statusBarHeight)
+        setStatusBarHeight(res.statusBarHeight ? res.statusBarHeight : 20)
       }
     })
   })
@@ -104,8 +104,7 @@ const Wiki: React.FC<any> = () => {
           <View className='character-background character-background-mask'></View>
         </View>
 
-        <View style={{ height: statusBarHeight + 4 }}></View>
-        <View className='character-header'>
+        <View className='character-header' style={{ paddingTop: statusBarHeight + 4 }}>
           <Image src={character.image} className='character-header-background' mode='widthFix' />
         </View>
 
@@ -162,7 +161,7 @@ const Wiki: React.FC<any> = () => {
           {
             episodes.map(episode => (
               <EpisodeBtn
-                key={episode.episode}
+                key={episode.episode + id}
                 episode={episode}
                 updateCharacterList_byEpisode={
                   (charactersUrl, header) => dispatch(updateCharacterList_byEpisode(charactersUrl, header))
