@@ -46,8 +46,9 @@ H5 静态页面：[预览地址](https://rnwiki.cavano.vip)
 
 ## 技术
 
-- 语言：TypeScript
-- 框架：[Taro](https://taro-docs.jd.com/taro/docs/README)、React(Hook)
+语言：TypeScript
+
+框架：[Taro](https://taro-docs.jd.com/taro/docs/README)、React(Hook)
 
 ## 规划
 

@@ -13,10 +13,7 @@ let countdownTimeout: any
 
 export const useCountDown = (
   startTime: number
-): {
-  countDown: CountDown,
-  refreshCountDown: () => void,
-} => {
+): [CountDown, () => void] => {
   const [countDown, setCountDown] = useState<CountDown>({
     time: startTime,
     decrease: () => setTimeout(() => setCountDown(preState => ({ ...preState, time: preState.time - 1 })), 1000),
@@ -34,8 +31,5 @@ export const useCountDown = (
     setCountDown(preState => ({ ...preState, time: startTime }))
   }, [startTime])
 
-  return {
-    countDown,
-    refreshCountDown,
-  }
+  return [countDown, refreshCountDown]
 }

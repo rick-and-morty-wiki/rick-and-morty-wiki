@@ -20,12 +20,12 @@ const AllEpisode: React.FC<any> = () => {
   const sendRequest = useCallback((
     pagination_: PaginationType,
   ) => {
-
     Taro.showLoading({
       title: '加载中',
       mask: true,
     })
-    scrollTop(ScrollViewRef)  // 触发滚到顶部
+    // 触发滚到顶部
+    scrollTop(ScrollViewRef)
     return getEpisode.all({ page: pagination_.cur })
       .then(data => {
         const { info: { count, pages }, results } = data

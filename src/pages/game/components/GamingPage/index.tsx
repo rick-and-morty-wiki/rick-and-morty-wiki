@@ -23,10 +23,14 @@ const defaultSelectResult = {
 const GamingPage: React.FC<GamingPageProps> = (props) => {
   const { characters, selectList, setSelectList, setGameStatus } = props
   const [selectResult, setSelectResult] = useState<SelectResult>(defaultSelectResult)
-  const { countDown, refreshCountDown } = useCountDown(8)
+  const [countDown, refreshCountDown] = useCountDown(8)
+
+  const character = characters[selectList.length]
 
   // 点击Dead或Alive按钮后的逻辑
-  const handleClick = useCallback((character: CharacterType, choice: string, selectList_: SelectList, characters_: CharacterType[]) => {
+  const handleClick = useCallback((
+    choice: string,
+  ) => {
     const correct = character.status === choice
     setSelectResult({
       selected: true,
@@ -37,11 +41,11 @@ const GamingPage: React.FC<GamingPageProps> = (props) => {
       // 重置倒计时
       refreshCountDown()
       // 更新state
-      const newSelectList = [...selectList_, {
+      const newSelectList = [...selectList, {
         character,
         correct,
       }]
-      if (selectList_.length !== characters_.length - 1) {
+      if (selectList.length !== characters.length - 1) {
         // 不是最后一个，更新本页面数据
         setTimeout(() => {
           setSelectResult(defaultSelectResult)
@@ -53,17 +57,14 @@ const GamingPage: React.FC<GamingPageProps> = (props) => {
         setSelectList(newSelectList)
       }
     }, 500);
-  }, [refreshCountDown, setSelectList, setGameStatus])
+  }, [character, selectList, characters, setSelectList, setGameStatus, refreshCountDown])
 
   // 倒计时结束，强制选错
   useEffect(() => {
     if (countDown.time === 0) {
-      const character = characters[selectList.length]
-      handleClick(character, '', selectList, characters)
+      handleClick('')
     }
-  }, [countDown, characters, selectList, handleClick, refreshCountDown])
-
-  const character = characters[selectList.length]
+  }, [character, countDown, handleClick])
 
   return (
     <View className='game'>
@@ -89,7 +90,7 @@ const GamingPage: React.FC<GamingPageProps> = (props) => {
         <Button
           className='game-btns-btn game-btns-btn_dead'
           disabled={selectResult.selected}
-          onClick={() => handleClick(character, 'Dead', selectList, characters)}
+          onClick={() => handleClick('Dead')}
           hoverClass='btn_active'
           hoverStyle={{ opacity: 0.6 }}
         >
@@ -98,7 +99,7 @@ const GamingPage: React.FC<GamingPageProps> = (props) => {
         <Button
           className='game-btns-btn game-btns-btn_alive'
           disabled={selectResult.selected}
-          onClick={() => handleClick(character, 'Alive', selectList, characters)}
+          onClick={() => handleClick('Alive')}
           hoverClass='btn_active'
           hoverStyle={{ opacity: 0.6 }}
         >
