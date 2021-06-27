@@ -16,7 +16,7 @@ const Wiki: React.FC<any> = () => {
       </Text>
 
       <View className='about-p'>
-        <Text className='about-com'>本项目借助Taro实现了一套代码编译到微信小程序端、React Native端和H5端。以学习为主要目的，完全开源，欢迎志同道合的同学来提出宝贵的意见或提交代码~</Text>
+        <Text className='about-com'>本项目借助Taro实现了一套代码编译到微信小程序、React Native和H5。以学习为主要目的，完全开源，欢迎志同道合的同学来提出宝贵的意见或一起开发~</Text>
       </View>
 
       <View className='about-subTitle'>
@@ -58,7 +58,7 @@ const Wiki: React.FC<any> = () => {
       </View>
 
       <View
-        className='about-p'
+        className='about-src about-src_first'
         onClick={() => copy('https://github.com/rick-and-morty-wiki')}
         hoverClass='about-p_active'
         hoverStyle={{ opacity: 0.6 }}
@@ -68,17 +68,7 @@ const Wiki: React.FC<any> = () => {
       </View>
 
       <View
-        className='about-p'
-        onClick={() => copy('https://github.com/afuh/rick-and-morty-api')}
-        hoverClass='about-p_active'
-        hoverStyle={{ opacity: 0.6 }}
-      >
-        <Text className='about-src-text'>灵感和数据来源于：</Text>
-        <Text className='about-src-text about-src-text_a'>rick-and-morty-api</Text>
-      </View>
-
-      <View
-        className='about-p'
+        className='about-src'
         onClick={() => copy('https://rickandmortywiki.oss-cn-beijing.aliyuncs.com/RN%20wiki.apk')}
         hoverClass='about-p_active'
         hoverStyle={{ opacity: 0.6 }}
@@ -88,8 +78,8 @@ const Wiki: React.FC<any> = () => {
       </View>
 
       <View
-        className='about-p'
-        onClick={() => copy('https://rnwiki.cavano.vip/')}
+        className='about-src'
+        onClick={() => copy('https://rnwiki.cavano.vip')}
         hoverClass='about-p_active'
         hoverStyle={{ opacity: 0.6 }}
       >
@@ -97,7 +87,17 @@ const Wiki: React.FC<any> = () => {
         <Text className='about-src-text about-src-text_a'>预览地址</Text>
       </View>
 
-      <View className='about-p'>
+      <View
+        className='about-src'
+        onClick={() => copy('https://github.com/afuh/rick-and-morty-api')}
+        hoverClass='about-p_active'
+        hoverStyle={{ opacity: 0.6 }}
+      >
+        <Text className='about-src-text'>灵感和数据来源于：</Text>
+        <Text className='about-src-text about-src-text_a'>rick-and-morty-api</Text>
+      </View>
+
+      <View className='about-src'>
         <Text className='about-src-text'>当前版本：{version}</Text>
       </View>
 

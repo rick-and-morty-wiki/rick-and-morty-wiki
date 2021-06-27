@@ -6,7 +6,7 @@ import { Iconfont, CharacterCard, Pagination, Back, CustomScrollView, StatusBar 
 import { getCharacter } from '@service'
 import { CharacterType, PaginationType, CharacterFilterType } from '@constants/types'
 import { defaultSixCharacters, defaultPagination } from '@constants/wiki'
-import { formatFilter } from '@utils'
+import { formatFilter, scrollTop } from '@utils'
 
 import { AllCharacterPageContentProps } from '../../type'
 import '../../index.less'
@@ -17,16 +17,6 @@ const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) 
   const [pagination, setPagination] = useState<PaginationType>(defaultPagination)
   const ScrollViewRef = useRef() as React.MutableRefObject<any>
 
-  // 滚到顶部
-  const scrollTop = useCallback(() => {
-    if (IS_RN) {
-      ScrollViewRef.current.scrollTo({ y: 0 })
-    } else {
-      // 直接操控TaroElement，实现滚动到顶部。ref.current返回的就是一个TaroElement
-      ScrollViewRef.current.setAttribute('scrollTop', 0)
-    }
-  }, [ScrollViewRef])
-
   // 触发请求
   const sendRequest = useCallback((
     pagination_: PaginationType,
@@ -36,7 +26,7 @@ const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) 
       title: '加载中',
       mask: true,
     })
-    scrollTop()  // 触发滚到顶部
+    scrollTop(ScrollViewRef)  // 触发滚到顶部
     closeDrawer()  // 触发关闭drawer
     return getCharacter.filt({
       ...formatFilter<CharacterFilterType>(filter_),
@@ -54,7 +44,7 @@ const AllCharacterPageContent: React.FC<AllCharacterPageContentProps> = (props) 
           })
         }
       })
-  }, [closeDrawer, scrollTop])
+  }, [ScrollViewRef, closeDrawer])
 
   // 控制什么时候发起请求
   // reqTrigger.trigger === true: 立即触发请求

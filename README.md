@@ -2,7 +2,13 @@
 
 基于 Taro 的跨端应用，支持微信小程序端、React Native 端和 H5 端。在这里可以查看几乎所有在《瑞克和莫蒂》中出现的人物，外加专为铁粉准备的小游戏。
 
-灵感和基础数据来源于[afuh/rick-and-morty-api](https://github.com/afuh/rick-and-morty-api)。
+灵感和基础数据来源于：[afuh/rick-and-morty-api](https://github.com/afuh/rick-and-morty-api)
+
+Android APK：[下载地址](https://rickandmortywiki.oss-cn-beijing.aliyuncs.com/RN%20wiki.apk)
+
+IOS APP：暂无
+
+H5静态页面：[预览地址](https://rnwiki.cavano.vip)
 
 **React Native 端**：
 
@@ -14,9 +20,6 @@
     <td><img src="https://rickandmortywiki.oss-cn-beijing.aliyuncs.com/rn/rn4.jpg"></td>
   </tr>
  </table>
-
-Android APK：[下载地址](https://rickandmortywiki.oss-cn-beijing.aliyuncs.com/RN%20wiki.apk)
-IOS APP：暂无
 
 **微信小程序端**：
 
@@ -42,7 +45,7 @@ IOS APP：暂无
 
 - [x] React Native
 - [x] 微信小程序
-- [ ] H5
+- [x] H5
 
 ## 规划
 
