@@ -13,9 +13,3 @@ export interface SelectResult {
   selected: boolean,
   correct: boolean,
 }
-
-// 倒计时
-export interface Countdown {
-  time: number,
-  counter: Function,
-}

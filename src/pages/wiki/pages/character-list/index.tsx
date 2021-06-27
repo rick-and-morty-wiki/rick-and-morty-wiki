@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Taro, { useDidShow } from '@tarojs/taro'
 import { useSelector } from 'react-redux'
 import { View, Text } from '@tarojs/components'
 
@@ -7,22 +6,14 @@ import { Back, CustomScrollView, StatusBar, CharacterCard } from "@components";
 import { getCharacter } from '@service'
 import { CharacterType, RootState } from '@constants/types'
 import { defaultSixCharacters } from '@constants/wiki'
+import { usePageId } from '@hooks'
 
 import './index.less'
 
-
 const CharacterList: React.FC<any> = () => {
   const dic = useSelector((state: RootState) => state.wikiCharacterList.dic)
-  const [id, setId] = useState<string>('0')
   const [characters, setCharacters] = useState<CharacterType[]>(defaultSixCharacters)
-
-  useDidShow(() => {
-    const { router } = Taro.getCurrentInstance()
-    const id_ = router?.params.id
-    if (id_) {
-      setId(id_)
-    }
-  })
+  const id = usePageId()
 
   const { charactersUrl, header } = dic[id]
 

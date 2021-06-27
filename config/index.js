@@ -29,6 +29,7 @@ const config = {
     "@style": path.resolve(__dirname, "..", "src/style"),
     "@utils": path.resolve(__dirname, "..", "src/utils"),
     "@service": path.resolve(__dirname, "..", "src/service"),
+    "@hooks": path.resolve(__dirname, "..", "src/hooks"),
   },
   copy: {
     patterns: [],

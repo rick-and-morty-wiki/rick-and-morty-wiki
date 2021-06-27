@@ -3,8 +3,9 @@ import { View, Button, Text, Image } from '@tarojs/components'
 
 import { CharacterType } from '@constants/types'
 import { GameStatus } from '@constants/game'
+import { useCountDown } from '@hooks'
 
-import { SelectList, SelectResult, Countdown } from '../../type'
+import { SelectList, SelectResult } from '../../type'
 import './index.less'
 
 interface GamingPageProps {
@@ -14,9 +15,6 @@ interface GamingPageProps {
   setGameStatus: Function
 }
 
-// 计时器本器
-let counterTimeout: any
-
 const defaultSelectResult = {
   selected: false,
   correct: false,
@@ -25,10 +23,7 @@ const defaultSelectResult = {
 const GamingPage: React.FC<GamingPageProps> = (props) => {
   const { characters, selectList, setSelectList, setGameStatus } = props
   const [selectResult, setSelectResult] = useState<SelectResult>(defaultSelectResult)
-  const [countdown, setCountdown] = useState<Countdown>({
-    time: 8,
-    counter: () => setTimeout(() => setCountdown(preState => ({ ...preState, time: preState.time - 1 })), 1000),
-  })
+  const { countDown, refreshCountDown } = useCountDown(8)
 
   // 点击Dead或Alive按钮后的逻辑
   const handleClick = useCallback((character: CharacterType, choice: string, selectList_: SelectList, characters_: CharacterType[]) => {
@@ -37,10 +32,11 @@ const GamingPage: React.FC<GamingPageProps> = (props) => {
       selected: true,
       correct,
     })
+    // 这个timeout让页面停顿0.5秒
     setTimeout(() => {
-      // 重载计时器
-      clearTimeout(counterTimeout)
-      setCountdown(preState => ({ ...preState, time: 8 }))
+      // 重置倒计时
+      refreshCountDown()
+      // 更新state
       const newSelectList = [...selectList_, {
         character,
         correct,
@@ -55,33 +51,24 @@ const GamingPage: React.FC<GamingPageProps> = (props) => {
         // 是最后一个，跳转到结果页
         setGameStatus(GameStatus.Result)
         setSelectList(newSelectList)
-        setSelectResult(defaultSelectResult)
       }
     }, 500);
-  }, [setSelectList, setGameStatus])
+  }, [refreshCountDown, setSelectList, setGameStatus])
 
-
-  // 倒计时实现
+  // 倒计时结束，强制选错
   useEffect(() => {
-    if (countdown.time > 0) {
-      counterTimeout = countdown.counter()
-    }
-    else {
+    if (countDown.time === 0) {
       const character = characters[selectList.length]
       handleClick(character, '', selectList, characters)
     }
-    // 清除
-    return () => {
-      clearTimeout(counterTimeout)
-    }
-  }, [countdown, characters, selectList, handleClick])
+  }, [countDown, characters, selectList, handleClick, refreshCountDown])
 
   const character = characters[selectList.length]
 
   return (
     <View className='game'>
       <View className='game-countdown'>
-        <Text className='game-countdown-text'>{countdown.time}</Text>
+        <Text className='game-countdown-text'>{countDown.time}</Text>
       </View>
       <View className='game-img'>
         {selectResult.selected &&

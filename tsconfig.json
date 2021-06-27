@@ -64,6 +64,9 @@
       "@service": [
         "src/service/"
       ],
+      "@hooks": [
+        "src/hooks/"
+      ],
     },
   },
   "exclude": [

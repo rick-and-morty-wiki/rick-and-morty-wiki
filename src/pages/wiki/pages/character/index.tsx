@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Taro, { useDidShow } from '@tarojs/taro'
+import Taro from '@tarojs/taro'
 import { useSelector, useDispatch } from 'react-redux'
 import { View, Text, Image } from '@tarojs/components'
 
@@ -12,6 +12,7 @@ import {
   updateCharacterList_byEpisode,
   updateCharacterList_byLocation,
 } from '@actions'
+import { useStatusBarHeight, usePageId } from '@hooks'
 
 import EpisodeBtn from './components/EpisodeBtn'
 import './index.less'
@@ -19,25 +20,11 @@ import './index.less'
 const Wiki: React.FC<any> = () => {
   const dispatch = useDispatch()
   const dic = useSelector((state: RootState) => state.wikiCharacter.dic)
-  const [id, setId] = useState<string>('0')
   const [episodes, setEpisodes] = useState<EpisodeType[]>([defaultEpisode])
-  const [statusBarHeight, setStatusBarHeight] = useState<number>(20)
+  const statusBarHeight = useStatusBarHeight()
+  const id = usePageId()
 
   const character = dic[id]
-
-  useDidShow(() => {
-    const { router } = Taro.getCurrentInstance()
-    const id_ = router?.params.id
-    if (id_) {
-      setId(id_)
-    }
-    // 给微信小程序导航栏那里垫一下
-    Taro.getSystemInfo({
-      success: function (res) {
-        setStatusBarHeight(res.statusBarHeight ? res.statusBarHeight : 20)
-      }
-    })
-  })
 
   // 如果character.name为空，则请求角色数据
   useEffect(() => {
@@ -60,7 +47,7 @@ const Wiki: React.FC<any> = () => {
             const mod = data.length % 4
             if (mod !== 0 && mod !== 1) {
               for (let m = 0; m < 4 - mod; m++) {
-                defaultEpisode.id = m + 999
+                defaultEpisode.id = Math.random()
                 data.push(defaultEpisode)
               }
             }

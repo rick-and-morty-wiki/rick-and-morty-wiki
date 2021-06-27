@@ -1,13 +1,11 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react'
-import Taro, { useDidShow } from '@tarojs/taro'
+import React, { useRef, useCallback } from 'react'
+import Taro from '@tarojs/taro'
 import { View, Image, Button, Text } from '@tarojs/components'
 
 import { StatusBar, CustomScrollView, CharacterCard, Iconfont } from "@components";
-import { getCharacter } from '@service'
-import { CharacterType } from '@constants/types'
 import { wikiBackground } from '@assets/image'
-import { defaultSixCharacters } from '@constants/wiki'
-import { isArray, scrollTop } from '@utils'
+import { scrollTop } from '@utils'
+import { useStatusBarHeight, useRandomCharacters } from '@hooks'
 
 import { headerBtnsType } from './type'
 import './index.less'
@@ -28,42 +26,10 @@ const headerBtns: headerBtnsType[] = [
   },
 ]
 
-// 随机获取角色信息列表
-const generateRandomCharacters = async (number: number) => {
-  const rids: number[] = []
-  for (let i = 0; i < number; i++) {
-    let rid: number
-    do {
-      rid = Math.floor(Math.random() * 671) + 1
-    } while (rids.indexOf(rid) !== -1)
-    rids.push(rid)
-  }
-  const res = await getCharacter.list(rids)
-  if (isArray(res)) {
-    return res
-  }
-  return defaultSixCharacters
-}
-
 const Wiki: React.FC<any> = () => {
-  const [randomCharacters, setRandomCharacters] = useState<CharacterType[]>(defaultSixCharacters)
-  const [statusBarHeight, setStatusBarHeight] = useState<number>(0)
+  const [characters, refreshCharacters] = useRandomCharacters(6)
   const ScrollViewRef = useRef() as React.MutableRefObject<any>
-
-  // 给微信小程序导航栏那里垫一下
-  useDidShow(() => {
-    Taro.getSystemInfo({
-      success: function (res) {
-        setStatusBarHeight(res.statusBarHeight)
-      }
-    })
-  })
-
-  // 随机获取6个角色
-  useEffect(() => {
-    generateRandomCharacters(6)
-      .then((data) => setRandomCharacters(data))
-  }, [])
+  const statusBarHeight = useStatusBarHeight()
 
   // 刷新6个角色
   const onRefresh = useCallback(() => {
@@ -73,14 +39,8 @@ const Wiki: React.FC<any> = () => {
     })
     // 滚到顶部
     scrollTop(ScrollViewRef)
-    return generateRandomCharacters(6)
-      .then((data) => {
-        Taro.hideLoading()
-        if (isArray(data)) {
-          setRandomCharacters(data)
-        }
-      })
-  }, [ScrollViewRef])
+    refreshCharacters()
+  }, [ScrollViewRef, refreshCharacters])
 
   return (
     <View className='wiki'>
@@ -108,7 +68,7 @@ const Wiki: React.FC<any> = () => {
             }
           </View>
           {
-            randomCharacters.map(character => (
+            characters.map(character => (
               <CharacterCard key={character.id} character={character} />
             ))
           }

@@ -10,7 +10,7 @@ IOS APP：暂无
 
 H5静态页面：[预览地址](https://rnwiki.cavano.vip)
 
-**React Native 端**：
+**React Native 端截图**：
 
 <table>
   <tr>
@@ -21,7 +21,7 @@ H5静态页面：[预览地址](https://rnwiki.cavano.vip)
   </tr>
  </table>
 
-**微信小程序端**：
+**微信小程序端截图**：
 
 <table>
   <tr>
@@ -36,10 +36,8 @@ H5静态页面：[预览地址](https://rnwiki.cavano.vip)
 
 ## 技术
 
-基于 Taro3.2+，实现小程序端、IOS 和 Android 端（React Native）同步支持。
-
 - 语言：TypeScript
-- 框架：React(Hook)
+- 框架：[Taro](https://taro-docs.jd.com/taro/docs/README)、React(Hook)
 
 支持状态：
 
