@@ -25,7 +25,7 @@ Android APK：[下载地址](https://rickandmortywiki.oss-cn-beijing.aliyuncs.co
 
 小程序码：
 
-<img src="./assets/2d_code.jpg" width='200px'>
+<img src="https://rickandmortywiki.oss-cn-beijing.aliyuncs.com/weapp/2d_code.jpg" width='200px'>
 
 部分截图：
 
