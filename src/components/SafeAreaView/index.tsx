@@ -9,7 +9,7 @@ if (IS_RN) {
 }
 
 const TaroSafeAreaView: TaroSafeAreaViewType = props => {
-  const { className = "", style = {}, edges = ["right", "bottom", "left"] } = props;
+  const { className = "", style = {}, edges = ["right", "left"] } = props;
 
   if (IS_RN) {
     return (
