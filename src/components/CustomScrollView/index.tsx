@@ -47,10 +47,12 @@ const CustomScrollView: CustomScrollViewType = forwardRef((props, ref) => {
     }
     const {
       contentOffset: { y: toTop },  // 距离顶部距离
-      velocity: { y: yVelo },  // y方向速度。+为向下滑
+      velocity,  // y方向速度。+为向下滑
       contentSize: { height: contentHeight },
       layoutMeasurement: { height: screenHeight },
     } = e.nativeEvent
+
+    const yVelo = velocity?.y || 0
     // 到底部的距离
     const toBottom = contentHeight - screenHeight - toTop
 
